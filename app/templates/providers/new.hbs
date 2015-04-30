@@ -1,12 +1,6 @@
-<h3>New Provider</h3>
-
-{{input
-      type="text"
-      placeholder="First Name"
-      value=firstName}}
-{{input
-      type="text"
-      placeholder="Last Name"
-      value=lastName}}
-
-<button type="submit" {{action 'addProvider'}}>Add provider</button>
+<div class="row">
+  <div class="col s12"><h3>New Provider</h3></div>
+  <div class="col m3">{{md-input value=firstName label="Provider First Name"}}</div>
+  <div class="col m3">{{md-input value=lastName label="Provider Last Name"}}</div>
+  <div class="col m3">{{md-btn-submit icon='mdi-content-send' iconPosition='right' text='Add Provider' action='addProvider' class='waves-effect waves-light'}}</div>
+</div>

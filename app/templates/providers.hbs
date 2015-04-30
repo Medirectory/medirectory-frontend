@@ -1,8 +1,12 @@
-<h2>These are all providers.</h2>
+<h2>Providers</h2>
 {{#link-to "providers.new"}}Add new{{/link-to}}
 
 {{outlet}}
 
-{{#each provider in model}}
-  <p>{{provider.fullName}}</p>
-{{/each}}
+{{#md-card-collapsible}}
+  {{#each provider in model}}
+    {{#md-collapsible icon="mdi-image-filter-drama" title=provider.fullName}}
+      Lorem ipsum dolor sit amet.
+    {{/md-collapsible}}
+  {{/each}}
+{{/md-card-collapsible}}
