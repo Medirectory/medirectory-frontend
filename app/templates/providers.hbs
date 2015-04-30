@@ -1,0 +1,8 @@
+<h2>These are all providers.</h2>
+{{#link-to "providers.new"}}Add new{{/link-to}}
+
+{{outlet}}
+
+{{#each provider in model}}
+  <p>{{provider.fullName}}</p>
+{{/each}}
