@@ -8,7 +8,7 @@ ProvidersIndexRoute = Ember.Route.extend
     fuzzy_q: {
       refreshModel: true
     },
-    offest: {
+    offset: {
       refreshModel: true
     }
   },
@@ -16,6 +16,10 @@ ProvidersIndexRoute = Ember.Route.extend
     for key, value of params
       if not value
         delete params[key]
-    @store.find('provider', params);
+
+    if params
+      @store.find('provider', params)
+    else
+      @store.find('provider')
 
 `export default ProvidersIndexRoute`

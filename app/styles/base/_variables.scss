@@ -1,0 +1,41 @@
+// Typography
+$base-font-family: $gothic;
+$heading-font-family: $encode;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$dark-gray: #333;
+$medium-gray: #666;
+$white: #fff;
+
+$brown: #AA6B29;
+$purple: #5E03A6;
+$green: #30B973;
+
+// Font Colors
+$base-background-color: lighten($purple, 65%);
+$table-stripe-background-color: lighten($brown, 55%);
+$base-font-color: $dark-gray;
+$base-header-color: $medium-gray;
+$action-color: $purple;
+$link-color: $green;
+
+// Border
+$base-border-color: lighten($purple, 60%);
+$base-border: 1px solid $base-border-color;
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);

@@ -1,1 +1,13 @@
+
 {{outlet}}
+<div class="context">
+  <p>Link back to results page somehow</p>
+  <button>Export to CSV</button>
+  <button>Export to ...</button>
+  <button>Report bad information</button>
+</div>
+<div class="main">
+  <h1>{{model.namePrefix}} {{model.firstName}} {{model.middleName}} {{model.lastNameLegalName}} {{model.nameSuffix}}</h1>
+  <h2>{{model.otherNamePrefix}} {{model.otherFirstName}} {{model.otherMiddleName}} {{model.otherLastNameLegalName}} {{model.otherNameSuffix}}</h2>
+  <h3>{{model.genderCode}}</h3>
+</div>

@@ -1,0 +1,18 @@
+.factoids {
+  @include column-count(3);
+  @include column-gap(1em);
+  margin: 0 auto;
+
+  aside {
+    background-color: lighten($purple, 60%);
+    display: inline-block;
+    width: 100%;
+    margin: .5em 0;
+    border-radius: $base-border-radius;
+    padding: 10px 14px;
+    p {
+      color: darken($purple, 30%);
+      font-size: 0.8em;
+    }
+  }
+}
