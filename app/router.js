@@ -6,4 +6,6 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
+  this.route('provider', { path: '/providers/:provider_id' });
+  this.route('organization', { path: '/organizations/:organization_id' });
 });

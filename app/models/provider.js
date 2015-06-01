@@ -1,28 +1,20 @@
 import DS from 'ember-data';
-import NpiType from './npi-type.js';
+import NpiType from './npi-type';
 
 export default NpiType.extend({
-  npi: DS.attr('number'),
-  entity_type_code: DS.attr('number'),
-  replacement_npi: DS.attr('number'),
-  last_name_legal_name: DS.attr('string'),
-  first_name: DS.attr('string'),
-  middle_name: DS.attr('string'),
-  name_prefix: DS.attr('string'),
-  name_suffix: DS.attr('string'),
+  lastNameLegalName: DS.attr('string'),
+  firstName: DS.attr('string'),
+  middleName: DS.attr('string'),
+  namePrefix: DS.attr('string'),
+  nameSuffix: DS.attr('string'),
   credential: DS.attr('string'),
-  other_last_name: DS.attr('string'),
-  other_first_name: DS.attr('string'),
-  other_middle_name: DS.attr('string'),
-  other_name_prefix: DS.attr('string'),
-  other_name_suffix: DS.attr('string'),
-  other_credential: DS.attr('string'),
-  other_last_name_type_code: DS.attr('number'),
-  enumeration_date: DS.attr('date'),
-  last_update_date: DS.attr('date'),
-  npi_deactivation_reason_code: DS.attr('string'),
-  npi_deactivation_date: DS.attr('date'),
-  npi_reactivation_date: DS.attr('date'),
-  gender_code: DS.attr('string'),
-  is_sole_proprietor: DS.attr('string')
+  otherLastName: DS.attr('string'),
+  otherFirstName: DS.attr('string'),
+  otherMiddleName: DS.attr('string'),
+  otherNamePrefix: DS.attr('string'),
+  otherNameSuffix: DS.attr('string'),
+  otherCredential: DS.attr('string'),
+  otherLastNameTypeCode: DS.attr('number'),
+  genderCode: DS.attr('string'),
+  isSoleProprietor: DS.attr('string')
 });

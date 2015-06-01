@@ -1,9 +1,16 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  mailing_address: DS.belongsTo('mailing-address', {async: true}),
-  practice_location_address: DS.belongsTo('practice-location-address', {async: true}),
-  other_provider_identifier: DS.hasMany('other-provider-identifier', {async: true}),
-  taxonomy_licenses: DS.hasMany('taxonomy-license', {async: true}),
-  taxonomy_groups: DS.hasMany('taxonomy-group', {async: true})
+  entityTypeCode: DS.attr('number'),
+  replacementNpi: DS.attr('number'),
+  enumerationDate: DS.attr('date'),
+  lastUpdateDate: DS.attr('date'),
+  npiDeactivationReasonCode: DS.attr('string'),
+  npiDeactivationDate: DS.attr('date'),
+  npiReactivationDate: DS.attr('date'),
+  mailingAddress: DS.belongsTo('mailing-address', {async: true}),
+  practiceLocationAddress: DS.belongsTo('practice-location-address', {async: true}),
+  otherProviderIdentifier: DS.hasMany('other-provider-identifier', {async: true}),
+  taxonomyLicenses: DS.hasMany('taxonomy-license', {async: true}),
+  taxonomyGroups: DS.hasMany('taxonomy-group', {async: true})
 });
