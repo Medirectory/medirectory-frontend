@@ -8,10 +8,10 @@ NpiType = DS.Model.extend
   npiDeactivationReasonCode: DS.attr('string'),
   npiDeactivationDate: DS.attr('date'),
   npiReactivationDate: DS.attr('date'),
-  mailingAddress: DS.belongsTo('mailing-address', {async: true}),
-  practiceLocationAddress: DS.belongsTo('practice-location-address', {async: true}),
-  otherProviderIdentifier: DS.hasMany('other-provider-identifier', {async: true}),
-  taxonomyLicenses: DS.hasMany('taxonomy-license', {async: true}),
-  taxonomyGroups: DS.hasMany('taxonomy-group', {async: true})
+  mailingAddress: DS.belongsTo('mailing-address'),
+  practiceLocationAddress: DS.belongsTo('practice-location-address'),
+  otherProviderIdentifiers: DS.hasMany('other-provider-identifier'),
+  taxonomyLicenses: DS.hasMany('taxonomy-license'),
+  taxonomyGroups: DS.hasMany('taxonomy-group')
 
 `export default NpiType`

@@ -2,6 +2,6 @@
 
 TaxonomyGroup = DS.Model.extend 
   taxonomyGroup: DS.attr('string'),
-  entity: DS.belongsTo('npi-type', {polymorphic: true, async: true})
+  entity: DS.belongsTo('npi-type', {polymorphic: true})
 
 `export default TaxonomyGroup`

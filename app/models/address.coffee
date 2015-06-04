@@ -9,6 +9,6 @@ Address = DS.Model.extend
   countryCode: DS.attr('string'),
   telephoneNumber: DS.attr('string'),
   faxNumber: DS.attr('string'),
-  entity: DS.belongsTo('npi-type', {polymorphic: true, async: true})
+  entity: DS.belongsTo('npi-type', {polymorphic: true})
 
 `export default Address`
