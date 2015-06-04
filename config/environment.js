@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'medirectory',
     environment: environment,
+    podModulePrefix: 'medirectory/pods',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -12,7 +13,8 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
+    coffeeOptions: {
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
