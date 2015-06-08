@@ -7,5 +7,7 @@ Router = Ember.Router.extend
 Router.map ->
   @route 'organization', path: '/organizations/:organization_id'
   @route 'provider', path: '/providers/:provider_id'
+  @route 'provider/search', path: 'providers/:query/:fuzzy/:offset'
+  @route 'organization/search', path: 'organizations/:query/:fuzzy/:offset'
 
 `export default Router`
