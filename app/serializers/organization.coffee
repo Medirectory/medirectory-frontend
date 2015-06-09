@@ -1,4 +1,4 @@
-`import NpiTypeSerializer from 'medirectory/serializers/npi-type'`
+`import NpiTypeSerializer from './npi-type'`
 
 OrganizationSerializer = NpiTypeSerializer.extend {
   
