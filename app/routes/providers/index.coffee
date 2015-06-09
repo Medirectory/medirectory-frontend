@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-ProvidersRoute = Ember.Route.extend
+ProvidersIndexRoute = Ember.Route.extend
   queryParams: {
     q: {
       refreshModel: true
@@ -18,4 +18,4 @@ ProvidersRoute = Ember.Route.extend
         delete params[key]
     @store.find('provider', params);
 
-`export default ProvidersRoute`
+`export default ProvidersIndexRoute`

@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-OrganizationsRoute = Ember.Route.extend
+OrganizationsIndexRoute = Ember.Route.extend
   queryParams: {
     q: {
       refreshModel: true
@@ -18,4 +18,4 @@ OrganizationsRoute = Ember.Route.extend
         delete params[key]
     @store.findQuery('organization', params);
 
-`export default OrganizationsRoute`
+`export default OrganizationsIndexRoute`

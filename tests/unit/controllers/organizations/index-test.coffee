@@ -1,6 +1,6 @@
 `import { test, moduleFor } from 'ember-qunit'`
 
-moduleFor 'controller:providers', {
+moduleFor 'controller:organizations/index', {
   # Specify the other units that are required for this test.
   # needs: ['controller:foo']
 }

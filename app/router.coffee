@@ -5,9 +5,10 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
-  @route 'providers'
-  @route 'providers/provider', path: '/providers/:provider_id'
-  @route 'organizations'
-  @route 'organizations/organization', path: '/organizations/:organization_id'
+  @route 'providers/index', path: '/providers'
+  @route 'providers/show', path: '/providers/:provider_id'
+
+  @route 'organizations/index', path: '/organizations'
+  @route 'organizations/show', path: '/organizations/:organization_id'
 
 `export default Router`

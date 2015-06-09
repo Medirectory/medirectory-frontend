@@ -1,18 +1,7 @@
-`import DS from 'ember-data'`
+`import NpiTypeSerializer from './npi-type'`
 
-OrganizationSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
-  primaryKey: 'npi',
-  attrs: 
-    mailingAddress:
-      embedded : 'always'
-    practiceLocationAddress:
-      embedded : 'always'
-    otherProviderIdentifiers:
-      embedded : 'always'
-    taxonomyLicenses:
-      embedded : 'always'
-    taxonomyGroups:
-      embedded : 'always'
-)
+OrganizationSerializer = NpiTypeSerializer.extend {
+  
+}
 
 `export default OrganizationSerializer`
