@@ -10,4 +10,7 @@
   <h1>{{model.namePrefix}} {{model.firstName}} {{model.middleName}} {{model.lastNameLegalName}} {{model.nameSuffix}}</h1>
   <h2>{{model.otherNamePrefix}} {{model.otherFirstName}} {{model.otherMiddleName}} {{model.otherLastNameLegalName}} {{model.otherNameSuffix}}</h2>
   <h3>{{model.genderCode}}</h3>
+  {{#each license in model.taxonomyLicenses}}
+    {{license.taxonomyCode.classification}}
+  {{/each}}
 </div>

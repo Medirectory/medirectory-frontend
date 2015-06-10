@@ -6,6 +6,7 @@ TaxonomyCode = DS.Model.extend
   classification: DS.attr('string'),
   specialization: DS.attr('string'),
   definition: DS.attr('string'),
-  notes: DS.attr('string')
+  notes: DS.attr('string'),
+  taxonomyCodes: DS.hasMany('taxonomy-license')
 
 `export default TaxonomyCode`
