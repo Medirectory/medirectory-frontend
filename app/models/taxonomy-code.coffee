@@ -1,11 +1,11 @@
 `import DS from 'ember-data'`
 
 TaxonomyCode = DS.Model.extend 
-  code DS.attr('string'),
-  taxonomy_type DS.attr('string'),
-  classification DS.attr('string'),
-  specialization DS.attr('string'),
-  definition DS.attr('string'),
-  notes DS.attr('string')
+  code: DS.attr('string'),
+  taxonomy_type: DS.attr('string'),
+  classification: DS.attr('string'),
+  specialization: DS.attr('string'),
+  definition: DS.attr('string'),
+  notes: DS.attr('string')
 
 `export default TaxonomyCode`
