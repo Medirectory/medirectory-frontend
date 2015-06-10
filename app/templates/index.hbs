@@ -1,0 +1,25 @@
+<div class="landing">
+  <h1>Medirectory</h1>
+  <h2>Find a healthcare provider</h2>
+  <p>Find (NPI or name or anyone) near (location) doing (taxonomy)</p>
+  <div class="search-bar">
+    {{input value=name placeholder='name or NPI' class='search-bar'}}
+    {{input value=location placeholder='location' class='search-bar'}}
+    {{input value=taxonomy placeholder='specialty' class='search-bar'}}
+
+    {{#link-to 'providers/index' (query-params q=name) tagName='button'}}Search it{{/link-to}}
+  </div>
+
+  <div class="about">
+    <h1>What is Medirectory?</h1>
+    <p>Medirectory is a pilot project by The MITRE Corporation. The project is open source and its code can be accessed at <a href="https://github.com/Medirectory" alt="Source code for Medirectory">https://github.com/Medirectory</a>.</p>
+  </div>
+
+  {{outlet}}
+
+  <div class="factoids">
+    {{#each fact in model}}
+    <aside><h1>{{fact.header}}</h1><p>{{fact.text}}</p></aside>
+    {{/each}}
+  </div>
+</div>

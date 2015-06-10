@@ -1,0 +1,83 @@
+body {
+  @include font-feature-settings("kern", "liga", "pnum");
+  -webkit-font-smoothing: antialiased;
+  color: $base-font-color;
+  background: $base-background-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  color: $base-header-color;
+  font-weight: 700;
+}
+
+$step-size-heading: 0.25;
+/* Amplifier value */
+$amplifier-heading: 1.5;
+/* The mixin */
+@mixin heading-size($size) {
+  font-size: $size * $step-size-heading * $amplifier-heading + em;
+  line-height: ($size * $step-size-heading) + em;
+  margin: 1em/($size * $step-size-heading) 0 1em/$size 0;
+}
+
+$context-font: (
+  landing: 1,
+  main: 0.75,
+  factoids: 0.5,
+  context: 0.5
+);
+
+@each $element, $value in $context-font {
+  .#{$element} {
+    h1 { @include heading-size(6 * $value); }
+    h2 { @include heading-size(5 * $value); }
+    h3 { @include heading-size(4 * $value); }
+    h4 { @include heading-size(3 * $value); }
+    h5 { @include heading-size(2 * $value); }
+    h6 { @include heading-size(1 * $value); }
+  }
+}
+
+p {
+  margin: 0 0 $small-spacing;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color 0.1s linear;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: darken($action-color, 15%);
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: $base-spacing 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
