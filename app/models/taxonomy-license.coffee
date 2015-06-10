@@ -5,6 +5,7 @@ TaxonomyLicense = DS.Model.extend
   licenseNumber: DS.attr('string'),
   licenseNumberStateCode: DS.attr('string'),
   primaryTaxonomySwitch: DS.attr('string'),
-  entity: DS.belongsTo('npi-type', {polymorphic: true})
+  entity: DS.belongsTo('npi-type', {polymorphic: true}),
+  taxonomyCode: DS.belongsTo('taxonomy-code')
 
 `export default TaxonomyLicense`

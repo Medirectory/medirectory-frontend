@@ -18,7 +18,7 @@
       <tr>
         <th>NPI</th>
         <th>Name {{fa-icon 'sort-alpha-asc'}}</th>
-        <th>Something {{fa-icon 'sort-alpha-desc'}}</th>
+        <th>Specialty {{fa-icon 'sort-alpha-desc'}}</th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +26,11 @@
         <tr>
           <td>{{#link-to 'providers/show' provider.id }}{{provider.id}}{{/link-to}}</td>
           <td>{{provider.namePrefix}} {{provider.firstName}} {{provider.middleName}} {{provider.lastNameLegalName}} {{provider.nameSuffix}}</td>
-          <td>Taxonomy</td>
+          <td>
+            {{#each license in provider.taxonomyLicenses}}
+              {{license.taxonomyCode.classification}}
+            {{/each}}
+          </td>
         </tr>
       {{/each}}
     </tbody>
