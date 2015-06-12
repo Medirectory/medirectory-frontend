@@ -35,8 +35,7 @@ Provider = NpiType.extend
   ).property('otherNamePrefix', 'otherFirstName', 'otherMiddleName', 'otherLastName', 'otherNameSuffix')
 
   classifcationSpecialties: ( ->
-    taxonomies = @get('taxonomyLicenses')
-    taxonomies.map((license)->
+    @get('taxonomyLicenses').map((license)->
       license.get('taxonomyCode').get('classificationSpecialty')
     ).uniq()
   ).property('taxonomyLicenses.@each.taxonomyCode.classificationSpecialty')
