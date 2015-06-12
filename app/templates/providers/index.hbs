@@ -4,7 +4,7 @@
 <div class="context">
 
     <h1>Edit Search</h1>
-    <span>{{model.length}} results</span>
+    <span>{{model.meta.totalResults}} results</span>
 
     <h2>Names</h2>
     <div class="searched-terms">
@@ -52,6 +52,19 @@
       {{/each}}
     </tbody>
   </table>
+
+  {{#if hasPrevious}}
+    {{#link-to 'providers/index' (query-params offset=previousOffset)}}Previous{{/link-to}}
+  {{else}}
+    Previous
+  {{/if}}
+
+  {{#if hasNext}}
+    {{#link-to 'providers/index' (query-params offset=nextOffset)}}Next{{/link-to}}
+  {{else}}
+    Next
+  {{/if}}
+
 
 </div>
 </section
