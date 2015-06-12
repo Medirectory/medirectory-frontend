@@ -1,11 +1,13 @@
+<div class="banner"></div>
 
 {{outlet}}
+<section>
 <div class="context">
-  {{#link-to '' class='correct' onclick="history.back(-1)"}}{{fa-icon 'arrow-left'}} return to results{{/link-to}}
+  <h1>{{#link-to '' class='correct' onclick="history.back(-1)"}}{{fa-icon 'arrow-left'}} return to results{{/link-to}}</h1>
 
-  <div class="actions">
+  {{!-- <div class="actions">
     {{#link-to '' class='correct' tagName='button'}}Correct this information{{/link-to}}
-  </div>
+  </div> --}}
 
 </div>
 <div class="main">
@@ -41,3 +43,4 @@
   </div>
 
 </div>
+</section>

@@ -1,25 +1,57 @@
+.banner {
+  @include background-image(linear-gradient(-17deg, #23508D 0%, #5EB0CD 47%, #66EF51 100%));
+  height: 1em;
+}
+
 section {
   @include outer-container;
-  .context {
-    @include span-columns(3);
-  }
-  .main {
-    @include span-columns(9);
-    background-color: lighten($brown, 60%);
-    padding: 0 2em;
+}
 
-    .profile, .professional {
-      @include span-columns(4 of 9);
+.context {
+  @include span-columns(3);
+}
+.main {
+  @include span-columns(9);
+  background-color: lighten($brown, 60%);
+  padding: 0 2em;
 
-      p {
-        color: darken($brown, 30%);
-        line-height: 1;
-      }
+  .profile, .professional {
+    @include span-columns(4 of 9);
+
+    p {
+      color: darken($brown, 30%);
+      line-height: 1;
     }
   }
-  .landing {
+}
+
+header {
+  @include fill-parent();
+  @include row(table);
+  @include reset-display;
+  @include pad();
+  @include background-image(linear-gradient(-17deg, #23508D 0%, #5EB0CD 47%, #66EF51 100%));
+  text-align: center;
+  font-size: 1.5em;
+  padding: 2em 0;
+  margin-bottom: 1em;
+
+  .search-bar {
+    @include span-columns(6);
     @include shift(3);
-    @include span-columns(5);
-    text-align: center;
   }
+
+  h1 {
+    color: rgb(174, 245, 208);
+    text-shadow: 0px 2px 3px rgb(74, 116, 95);
+  }
+}
+
+.about {
+  // @include fill-parent();
+  // @include row(table);
+  @include span-columns(8);
+  @include shift(2);
+  // @include pad();
+  // font-size: 0.8em;
 }

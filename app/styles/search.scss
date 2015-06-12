@@ -1,24 +1,17 @@
 .search-bar {
-  position: relative;
-
   input {
     @include appearance(none);
     @include box-sizing(border-box);
     @include transition(border-color);
     border-radius: $base-border-radius;
-    display: block;
+    // display: block;
     color: $black;
     margin: 0;
     padding: ($base-spacing / 3) ($base-spacing / 3);
-    position: relative;
     width: 100%;
     &:focus {
       border: 1px solid $action-color;
     }
-  }
-
-  button {
-    font-size: 1.3em;
   }
 }
 
