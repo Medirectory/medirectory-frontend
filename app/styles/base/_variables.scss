@@ -24,7 +24,7 @@ $black: #000;
 $brown: #AA6B29;
 $purple: #5E03A6;
 $green: #30B973;
-$blue: #240080;
+$blue: #064B99;
 $red: #800029;
 $yellow: #807800;
 // $green: #008012;
@@ -33,7 +33,7 @@ $yellow: #807800;
 $base-background-color: lighten($brown, 56%);
 $base-font-color: $dark-gray;
 $base-header-color: $black;
-$action-color: lighten($blue,20%);
+$action-color: $blue;
 $link-color: $green;
 
 // Border
