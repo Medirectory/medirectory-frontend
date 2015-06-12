@@ -1,16 +1,40 @@
 
 {{outlet}}
 <div class="context">
-  <p>Link back to results page somehow</p>
-  <button>Export to CSV</button>
-  <button>Export to ...</button>
-  <button>Report bad information</button>
+  {{#link-to '' class='correct' onclick="history.back(-1)"}}{{fa-icon 'arrow-left'}} return to results{{/link-to}}
+
+  <div class="actions">
+    {{#link-to '' class='correct' tagName='button'}}Correct this information{{/link-to}}
+  </div>
+
 </div>
 <div class="main">
-  <h1>{{model.namePrefix}} {{model.firstName}} {{model.middleName}} {{model.lastNameLegalName}} {{model.nameSuffix}}</h1>
-  <h2>{{model.otherNamePrefix}} {{model.otherFirstName}} {{model.otherMiddleName}} {{model.otherLastNameLegalName}} {{model.otherNameSuffix}}</h2>
-  <h3>{{model.genderCode}}</h3>
-  {{#each license in model.taxonomyLicenses}}
-    {{license.taxonomyCode.classification}}
-  {{/each}}
+  <h1>
+    {{#if model.female}}{{fa-icon 'venus'}}{{/if}}{{#if model.male}}{{fa-icon 'mars'}}{{/if}}
+    {{model.fullName}}</h1>
+  <h2>{{model.otherFullName}}</h2>
+
+  <div class="profile">
+    <h3></h3>
+    <p>Mailing Address:
+      {{model.mailingAddress.firstLine}}<br>
+      {{model.mailingAddress.secondLine}}<br>
+      {{model.mailingAddress.city}}, {{model.mailingAddress.state}}, {{model.mailingAddress.postalCode}}, {{model.mailingAddress.countryCode}}
+    </p>
+    <p>
+      Phone: {{model.mailingAddress.formattedPhone}}<br>
+      Fax: {{model.mailingAddress.faxNumber}}
+    </p>
+  </div>
+
+  <div class="professional">
+    <strong>{{model.id}}</strong>
+    <ul>{{#each license in model.taxonomyLicenses}}
+      <li>{{license.taxonomyCode}} - {{license.licenseNumber}} - {{license.licenseNumberStateCode}}</li>
+    {{/each}}</ul>
+    <ul>{{#each identifier in model.otherProviderIdentifiers}}
+      <li>{{identifier.identifier}} - {{identifier.identifierTypeCode}} - {{identifier.identifierState}} - {{identifier.identifierIssuer}} </li>
+    {{/each}}</ul>
+  </div>
+
 </div>

@@ -1,13 +1,11 @@
 <div class="landing">
   <h1>Medirectory</h1>
-  <h2>Find a healthcare provider</h2>
-  <p>Find (NPI or name or anyone) near (location) doing (taxonomy)</p>
-  <div class="search-bar">
-    {{input value=name placeholder='name or NPI' class='search-bar'}}
-    {{input value=location placeholder='location' class='search-bar'}}
-    {{input value=taxonomy placeholder='specialty' class='search-bar'}}
+  <p>Find a healthcare provider.</p>
 
-    {{#link-to 'providers/index' (query-params q=name) tagName='button'}}Search it{{/link-to}}
+  <div class="search-bar">
+    {{input value=query placeholder='Try "camille houston" or "williams portland"' class='search-bar'}}
+
+    {{#link-to 'providers/index' (query-params q=query) tagName='button' class='search'}}Search it{{/link-to}}
   </div>
 
   <div class="about">
@@ -17,9 +15,9 @@
 
   {{outlet}}
 
-  <div class="factoids">
+  {{!-- <div class="factoids">
     {{#each fact in model}}
     <aside><h1>{{fact.header}}</h1><p>{{fact.text}}</p></aside>
     {{/each}}
-  </div>
+  </div> --}}
 </div>

@@ -16,6 +16,22 @@ Provider = NpiType.extend
   otherCredential: DS.attr('string'),
   otherLastNameTypeCode: DS.attr('number'),
   genderCode: DS.attr('string'),
-  isSoleProprietor: DS.attr('string')
+  isSoleProprietor: DS.attr('string'),
+
+  male: (->
+    return @get('genderCode') == 'M'
+  ).property('genderCode'),
+
+  female: (->
+    return @get('genderCode') == 'F'
+  ).property('genderCode')
+
+  fullName: (->
+    return (@get('namePrefix') || '') + ' ' + (@get('firstName') || '') + ' ' + (@get('middleName') || '') + ' ' + (@get('lastNameLegalName') || '') + ' ' + (@get('nameSuffix') || '')
+  ).property('namePrefix', 'firstName', 'middleName', 'lastNameLegalName', 'nameSuffix')
+
+  otherFullName: (->
+    return (@get('otherNamePrefix') || '') + ' ' + (@get('otherFirstName') || '') + ' ' + (@get('otherMiddleName') || '') + ' ' + (@get('otherLastName') || '') + ' ' + (@get('otherNameSuffix') || '')
+  ).property('otherNamePrefix', 'otherFirstName', 'otherMiddleName', 'otherLastName', 'otherNameSuffix')
 
 `export default Provider`
