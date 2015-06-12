@@ -15,13 +15,32 @@ section {
   background-color: lighten($brown, 60%);
   padding: 0 2em;
 
-  .profile, .professional {
-    @include span-columns(4 of 9);
+  .npi {
+    float: right;
+    font-weight: normal;
+    color: $action-color;
+  }
 
-    p {
-      color: darken($brown, 30%);
-      line-height: 1;
-    }
+  .label {
+    font-weight: bold;
+    background-color: $base-border-color;
+    padding: $small-spacing/2 $small-spacing;
+    margin-top: $small-spacing*4;
+  }
+
+  .practice {
+    @include span-columns(4.5 of 9);
+    // @include omega;
+  }
+
+  .mailing {
+    @include span-columns(4.5 of 9);
+    @include omega;
+  }
+
+  .otherinformation {
+    @include span-columns(9 of 9);
+    @include clearfix;
   }
 }
 
