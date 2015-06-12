@@ -30,10 +30,13 @@
   <div class="professional">
     <strong>{{model.id}}</strong>
     <ul>{{#each license in model.taxonomyLicenses}}
-      <li>{{license.taxonomyCode.classification}} - {{license.licenseNumber}} - {{license.licenseNumberStateCode}}</li>
+      <li>{{license.taxonomyCode.classificationSpecialty}} - {{license.licenseNumber}} - {{license.licenseNumberStateCode}}</li>
     {{/each}}</ul>
     <ul>{{#each identifier in model.otherProviderIdentifiers}}
-      <li>{{identifier.identifier}} - {{identifier.identifierTypeCode}} - {{identifier.identifierState}} - {{identifier.identifierIssuer}} </li>
+      <li>{{identifier.identifier}} - 
+      {{identifier.identifierTypeCode}} - 
+      {{identifier.identifierState}} 
+      {{#if identifier.identifierIssuer}} - {{identifier.identifierIssuer}} {{/if}}</li>
     {{/each}}</ul>
   </div>
 

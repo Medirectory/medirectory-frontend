@@ -34,4 +34,14 @@ Provider = NpiType.extend
     return (@get('otherNamePrefix') || '') + ' ' + (@get('otherFirstName') || '') + ' ' + (@get('otherMiddleName') || '') + ' ' + (@get('otherLastName') || '') + ' ' + (@get('otherNameSuffix') || '')
   ).property('otherNamePrefix', 'otherFirstName', 'otherMiddleName', 'otherLastName', 'otherNameSuffix')
 
+  classifcationSpecialties: ( ->
+    holder = []
+    taxonomies = @get('taxonomyLicenses')
+    taxonomies.forEach((license)->
+      classSpecialty = license.get('taxonomyCode').get('classificationSpecialty')
+      holder.push(classSpecialty) if classSpecialty not in holder
+    )
+    holder
+  ).property('taxonomyLicenses.@each.taxonomyCode.classificationSpecialty')
+
 `export default Provider`
