@@ -17,9 +17,9 @@ Address = DS.Model.extend
 
   formattedPhone: (->
     phoneNumber = @get('telephoneNumber')
-    if phoneNumber.length = 10 # probably an american phone number
-      areaCode = number.substring(0,3)
-      exchange = number.substring(3,6)
+    if phoneNumber.length == 10 # probably an american phone number
+      areaCode = phoneNumber.substring(0,3)
+      exchange = phoneNumber.substring(3,6)
       number = phoneNumber.substring(6,10)
       return '(' + areaCode + ') ' + exchange + '-' + number
     else

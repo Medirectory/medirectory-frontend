@@ -43,7 +43,7 @@
           <td>{{provider.practiceLocationAddress.city}}, {{provider.practiceLocationAddress.state}}</td>
           <td>
             {{#each license in provider.taxonomyLicenses}}
-              <span class="taxonomy">{{license.taxonomyCode}}</span>
+              <span class="taxonomy">{{license.taxonomyCode.classification}}-{{license.taxonomyCode.specialization}}</span>
             {{/each}}
           </td>
         </tr>
