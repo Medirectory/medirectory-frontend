@@ -42,8 +42,8 @@
           <td>{{provider.namePrefix}} {{provider.firstName}} {{provider.middleName}} {{provider.lastNameLegalName}} {{provider.nameSuffix}}</td>
           <td>{{provider.practiceLocationAddress.city}}, {{provider.practiceLocationAddress.state}}</td>
           <td>
-            {{#each license in provider.taxonomyLicenses}}
-              <span class="taxonomy">{{license.taxonomyCode.classification}}-{{license.taxonomyCode.specialization}}</span>
+            {{#each classSpecialty in provider.classifcationSpecialties}}
+              <span class="taxonomy">{{classSpecialty}}</span>
             {{/each}}
           </td>
         </tr>

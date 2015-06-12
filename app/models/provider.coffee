@@ -34,4 +34,10 @@ Provider = NpiType.extend
     return (@get('otherNamePrefix') || '') + ' ' + (@get('otherFirstName') || '') + ' ' + (@get('otherMiddleName') || '') + ' ' + (@get('otherLastName') || '') + ' ' + (@get('otherNameSuffix') || '')
   ).property('otherNamePrefix', 'otherFirstName', 'otherMiddleName', 'otherLastName', 'otherNameSuffix')
 
+  classifcationSpecialties: ( ->
+    @get('taxonomyLicenses').map((license)->
+      license.get('taxonomyCode').get('classificationSpecialty')
+    ).uniq()
+  ).property('taxonomyLicenses.@each.taxonomyCode.classificationSpecialty')
+
 `export default Provider`

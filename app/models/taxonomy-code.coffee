@@ -7,6 +7,13 @@ TaxonomyCode = DS.Model.extend
   specialization: DS.attr('string'),
   definition: DS.attr('string'),
   notes: DS.attr('string'),
-  taxonomyCodes: DS.hasMany('taxonomy-license')
+  taxonomyLicenses: DS.hasMany('taxonomy-license')
+
+  classificationSpecialty: (->
+    classification = @get('classification');
+    specialty = @get('specialization');
+    if specialty then classification + '-' + specialty else classification 
+  ).property('classification', 'specialization')
+
 
 `export default TaxonomyCode`
