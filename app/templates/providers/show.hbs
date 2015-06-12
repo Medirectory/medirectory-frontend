@@ -3,7 +3,7 @@
 {{outlet}}
 <section>
 <div class="context">
-  <h1>{{#link-to '' class='correct' onclick="history.back(-1)"}}{{fa-icon 'arrow-left'}} return to results{{/link-to}}</h1>
+  <h1>{{#link-to '' class='correct' onclick="history.back(-1)"}}{{fa-icon 'arrow-left' fixedWidth=true}} return to results{{/link-to}}</h1>
 
   {{!-- <div class="actions">
     {{#link-to '' class='correct' tagName='button'}}Correct this information{{/link-to}}
@@ -11,36 +11,79 @@
 
 </div>
 <div class="main">
-  <h1>
-    {{#if model.female}}{{fa-icon 'venus'}}{{/if}}{{#if model.male}}{{fa-icon 'mars'}}{{/if}}
-    {{model.fullName}}</h1>
-  <h2>{{model.otherFullName}}</h2>
+  <h1>{{#if model.female}}{{fa-icon 'venus' fixedWidth=true}}{{/if}}{{#if model.male}}{{fa-icon 'mars' fixedWidth=true}}{{/if}}
+    {{model.fullName}}<span class='npi'>{{model.id}}</span></h1>
 
-  <div class="profile">
-    <h3></h3>
-    <p>Mailing Address:
-      {{model.mailingAddress.firstLine}}<br>
-      {{model.mailingAddress.secondLine}}<br>
-      {{model.mailingAddress.city}}, {{model.mailingAddress.state}}, {{model.mailingAddress.postalCode}}, {{model.mailingAddress.countryCode}}
-    </p>
-    <p>
-      Phone: {{model.mailingAddress.formattedPhone}}<br>
-      Fax: {{model.mailingAddress.faxNumber}}
-    </p>
+  {{#if model.otherFullName}}<h2>({{model.otherFullName}})</h2>{{/if}}
+
+
+
+  <div class="practice">
+    <p class="label">Practice Location Information</p>
+    <ul>
+      <li>{{model.practiceLocationAddress.fullAddress}}</li>
+      <li><iframe width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.practiceLocationAddress.mapLink}}"></iframe></li>
+      <li><a href='{{unbound model.practiceLocationAddress.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
+      <li>{{#if model.practiceLocationAddress.formattedPhone}} {{fa-icon 'phone' fixedWidth=true}} {{model.practiceLocationAddress.formattedPhone}} {{/if}}</li>
+      <li>{{#if model.practiceLocationAddress.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{model.practiceLocationAddress.formattedFax}} {{/if}}</li>
+    </ul>
   </div>
 
-  <div class="professional">
-    <strong>{{model.id}}</strong>
-    <ul>{{#each license in model.taxonomyLicenses}}
-      <li>{{license.taxonomyCode.classificationSpecialty}} - {{license.licenseNumber}} - {{license.licenseNumberStateCode}}</li>
-    {{/each}}</ul>
-    <ul>{{#each identifier in model.otherProviderIdentifiers}}
-      <li>{{identifier.identifier}} - 
-      {{identifier.identifierTypeCode}} - 
-      {{identifier.identifierState}} 
-      {{#if identifier.identifierIssuer}} - {{identifier.identifierIssuer}} {{/if}}</li>
-    {{/each}}</ul>
+  <div class="mailing">
+    <p class="label">Mailing Information</p>
+    <ul>
+      <li>{{model.mailingAddress.fullAddress}}</li>
+      <li><iframe width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.mailingAddress.mapLink}}"></iframe></li>
+      <li><a href='{{unbound model.mailingAddress.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
+      <li>{{#if model.mailingAddress.formattedPhone}} {{fa-icon 'phone' fixedWidth=true}} {{model.mailingAddress.formattedPhone}} {{/if}}</li>
+      <li>{{#if model.mailingAddress.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{model.mailingAddress.formattedFax}} {{/if}}</li>
+    </ul>
   </div>
+
+  <div class="otherinformation">
+    <p class="label">Licenses</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Specialty</th>
+          <th>License Number</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each license in model.taxonomyLicenses}}
+          <tr>
+            <td>{{license.taxonomyCode.classificationSpecialty}}</td>
+            <td>{{license.licenseNumber}}</td>
+            <td>{{license.licenseNumberStateCode}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    <p class="label">Other Identfiers</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Identifier</th>
+          <th>Type</th>
+          <th>State</th>
+          <th>Issuer</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each identifier in model.otherProviderIdentifiers}}
+          <tr>
+            <td>{{identifier.identifier}}</td>
+            <td>{{identifier.identifierTypeCode}}</td>
+            <td>{{identifier.identifierState}}</td>
+            <td>{{identifier.identifierIssuer}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
 
 </div>
 </section>

@@ -27,11 +27,13 @@ Provider = NpiType.extend
   ).property('genderCode')
 
   fullName: (->
-    return (@get('namePrefix') || '') + ' ' + (@get('firstName') || '') + ' ' + (@get('middleName') || '') + ' ' + (@get('lastNameLegalName') || '') + ' ' + (@get('nameSuffix') || '')
+    name = (@get('namePrefix') || '') + ' ' + (@get('firstName') || '') + ' ' + (@get('middleName') || '') + ' ' + (@get('lastNameLegalName') || '') + ' ' + (@get('nameSuffix') || '')
+    return name.trim()
   ).property('namePrefix', 'firstName', 'middleName', 'lastNameLegalName', 'nameSuffix')
 
   otherFullName: (->
-    return (@get('otherNamePrefix') || '') + ' ' + (@get('otherFirstName') || '') + ' ' + (@get('otherMiddleName') || '') + ' ' + (@get('otherLastName') || '') + ' ' + (@get('otherNameSuffix') || '')
+    name = (@get('otherNamePrefix') || '') + ' ' + (@get('otherFirstName') || '') + ' ' + (@get('otherMiddleName') || '') + ' ' + (@get('otherLastName') || '') + ' ' + (@get('otherNameSuffix') || '')
+    return name.trim()
   ).property('otherNamePrefix', 'otherFirstName', 'otherMiddleName', 'otherLastName', 'otherNameSuffix')
 
   classifcationSpecialties: ( ->
