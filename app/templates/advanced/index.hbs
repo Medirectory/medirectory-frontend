@@ -1,0 +1,15 @@
+<div class="banner"></div>
+<h1>Advanced Search</h1>
+
+<form {{action 'search' this on="submit"}}>
+  {{input value=name placeholder='name'}}
+
+  {{input value=location placeholder='location'}}
+
+  {{input value=taxonomy placeholder='taxonomy'}}
+
+  {{input value=npi placeholder='npi'}}
+
+  {{#link-to 'providers/index' (query-params name=name location=location taxonomy=taxonomy npi=npi) tagName='button' class='search'}}Search it{{/link-to}}
+</form>
+{{outlet}}

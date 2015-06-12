@@ -1,10 +1,14 @@
 `import Ember from 'ember'`
 
 ProvidersIndexController = Ember.Controller.extend
-  queryParams: ['q', 'fuzzy_q', 'offset'],
+  queryParams: ['q', 'fuzzy_q', 'offset', 'name', 'location', 'taxonomy', 'npi'],
   q: null,
   fuzzy_q: null,
   offset: 0,
+  name: null,
+  location: null,
+  taxonomy: null,
+  npi: null,
   hasPrevious: ( ->
     parseInt(@get('offset')) > 0
     ).property('offset'),

@@ -11,4 +11,6 @@ Router.map ->
   @route 'organizations/index', path: '/organizations'
   @route 'organizations/show', path: '/organizations/:organization_id'
 
+  @route 'advanced/index', path: '/advanced'
+
 `export default Router`

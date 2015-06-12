@@ -5,6 +5,18 @@ ProvidersIndexRoute = Ember.Route.extend
     q: {
       refreshModel: true
     },
+    name: {
+      refreshModel: true
+    },
+    location: {
+      refreshModel: true
+    },
+    taxonomy: {
+      refreshModel: true
+    },
+    npi: {
+      refreshModel: true
+    }
     fuzzy_q: {
       refreshModel: true
     },
@@ -14,7 +26,7 @@ ProvidersIndexRoute = Ember.Route.extend
   },
   model: (params) ->
     for key, value of params
-      if not value
+      if not value || value == "undefined"
         delete params[key]
 
     if params
