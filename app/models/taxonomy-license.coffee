@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
 
 TaxonomyLicense = DS.Model.extend 
-  taxonomyCode: DS.attr('string'),
+  code: DS.attr('string'),
   licenseNumber: DS.attr('string'),
   licenseNumberStateCode: DS.attr('string'),
   primaryTaxonomySwitch: DS.attr('string'),
