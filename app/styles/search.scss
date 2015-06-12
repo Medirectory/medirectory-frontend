@@ -1,0 +1,40 @@
+.search-bar {
+  position: relative;
+
+  input {
+    @include appearance(none);
+    @include box-sizing(border-box);
+    @include transition(border-color);
+    border-radius: $base-border-radius;
+    display: block;
+    color: $black;
+    margin: 0;
+    padding: ($base-spacing / 3) ($base-spacing / 3);
+    position: relative;
+    width: 100%;
+    &:focus {
+      border: 1px solid $action-color;
+    }
+  }
+
+  button {
+    font-size: 1.3em;
+  }
+}
+
+.search {
+  margin: $small-spacing;
+}
+.searched-terms {
+  padding: $small-spacing 0;
+
+  .searched {
+    padding: $small-spacing/2 $small-spacing;
+    background-color: $brown;
+    color: $white;
+    font-weight: bold;
+    font-size: 0.8em;
+    border-radius: 3px;
+    margin: $small-spacing 0;
+  }
+}

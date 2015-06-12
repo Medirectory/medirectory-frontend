@@ -1,24 +1,38 @@
 
 <div class="context">
-  <h1>Edit Search</h1>
-  <h2>Who?</h2>
-  <p>Names</p>
 
-  <h2>What</h2>
-  <p>Taxonomies</p>
+    <h1>Edit Search</h1>
+    <span>{{model.length}} results</span>
+
+    <h2>Names</h2>
+    <div class="searched-terms">
+      <span class="searched">John Jacob {{fa-icon 'close'}}</span>
+    </div>
+    <div class="search-bar">
+      {{input value=name placeholder='Type a name or NPI' class='search-bar'}}
+    </div>
+
+    <h2>Specialties</h2>
+    <div class="searched-terms">
+      <span class="searched">Dentist {{fa-icon 'close'}}</span>
+    </div>
+    <div class="search-bar">
+      {{input value=taxonomy placeholder='Find by specialty' class='search-bar'}}
+    </div>
 
 </div>
 
 <div class="main">
 
   {{outlet}}
-  <h1>{{model.length}} Results</h1>
+
   <table>
     <thead>
       <tr>
         <th>NPI</th>
-        <th>Name {{fa-icon 'sort-alpha-asc'}}</th>
-        <th>Specialty {{fa-icon 'sort-alpha-desc'}}</th>
+        <th>Name</th>
+        <th>Practice Location</th>
+        <th>Specialties</th>
       </tr>
     </thead>
     <tbody>
@@ -26,9 +40,10 @@
         <tr>
           <td>{{#link-to 'providers/show' provider.id }}{{provider.id}}{{/link-to}}</td>
           <td>{{provider.namePrefix}} {{provider.firstName}} {{provider.middleName}} {{provider.lastNameLegalName}} {{provider.nameSuffix}}</td>
+          <td>{{provider.practiceLocationAddress.city}}, {{provider.practiceLocationAddress.state}}</td>
           <td>
             {{#each license in provider.taxonomyLicenses}}
-              {{license.taxonomyCode.classification}}
+              <span class="taxonomy">{{license.taxonomyCode.classification}}-{{license.taxonomyCode.specialization}}</span>
             {{/each}}
           </td>
         </tr>

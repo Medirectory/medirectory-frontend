@@ -16,7 +16,7 @@ th {
 }
 
 td {
-  // border-bottom: $base-border;
+  border-bottom: $base-border;
   font-size: 0.85em;
   line-height: 1.2;
 }
@@ -28,10 +28,14 @@ th {
   vertical-align: middle;
 }
 
-tr:nth-child(even) {
-  background-color: $table-stripe-background-color;
+tr:hover {
+  background-color: lighten($base-border-color, 6%);
 }
 
-tr:nth-child(odd) {
-  background-color: $white;
+.taxonomy {
+  display: inline-block;
+  background-color: $base-border-color;
+  padding: $small-spacing/2;
+  margin: $small-spacing/4 auto;
+  border-radius: 6px;
 }

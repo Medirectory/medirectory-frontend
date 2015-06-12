@@ -1,6 +1,6 @@
 // Typography
-$base-font-family: $gothic;
-$heading-font-family: $encode;
+$base-font-family: "News Gothic MT", "Helvetica", "Roboto", "Arial", sans-serif;
+$heading-font-family: $lucida-grande;
 
 // Font Sizes
 $base-font-size: 1em;
@@ -19,21 +19,25 @@ $base-z-index: 0;
 $dark-gray: #333;
 $medium-gray: #666;
 $white: #fff;
+$black: #000;
 
 $brown: #AA6B29;
 $purple: #5E03A6;
 $green: #30B973;
+$blue: #240080;
+$red: #800029;
+$yellow: #807800;
+// $green: #008012;
 
 // Font Colors
-$base-background-color: lighten($purple, 65%);
-$table-stripe-background-color: lighten($brown, 55%);
+$base-background-color: lighten($brown, 56%);
 $base-font-color: $dark-gray;
-$base-header-color: $medium-gray;
-$action-color: $purple;
+$base-header-color: $black;
+$action-color: lighten($blue,20%);
 $link-color: $green;
 
 // Border
-$base-border-color: lighten($purple, 60%);
+$base-border-color: lighten($brown, 50%);
 $base-border: 1px solid $base-border-color;
 
 // Forms

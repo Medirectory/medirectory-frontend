@@ -23,8 +23,8 @@ button {
 
   &:hover,
   &:focus {
-    background-color: darken($action-color, 10%);
-    box-shadow: 0 ($base-font-size/4)+em(2) darken($action-color, 20%);
+    background-color: lighten($action-color, 10%);
+    box-shadow: 0 ($base-font-size/4)+em(2) darken($action-color, 15%);
     top: -2px;
   }
 
