@@ -4,6 +4,18 @@ table {
   margin: $small-spacing 0;
   table-layout: fixed;
   width: 100%;
+  .npi-col {
+    width: 15%;
+  }
+  .name-col {
+    width: 25%;
+  }
+  .location-col {
+    width: 25%;
+  }
+  .specialties-col {
+    width: 35%;
+  }
 }
 
 th {
@@ -24,8 +36,12 @@ td {
 tr,
 td,
 th {
-  padding: $small-spacing;
+  padding: $small-spacing/2;
   vertical-align: middle;
+}
+
+th:first {
+  min-width: 15%;
 }
 
 tr:hover {

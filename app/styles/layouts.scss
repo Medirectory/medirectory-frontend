@@ -15,6 +15,19 @@ section {
   background-color: lighten($brown, 60%);
   padding: 0 2em;
 
+  .name {
+    background-color: lighten($blue, 60%);
+    color: $blue;
+    padding: $small-spacing/2 1em;
+    border-bottom: 1px solid lighten($blue, 50%);
+    line-height: 1;
+    h2 {
+      margin-top: 0;
+      font-weight: normal;
+      margin-bottom: 1em;
+    }
+  }
+
   .npi {
     float: right;
     font-weight: normal;
@@ -23,14 +36,18 @@ section {
 
   .label {
     font-weight: bold;
-    background-color: $base-border-color;
-    padding: $small-spacing/2 $small-spacing;
+    background-color: lighten($blue, 60%);
+    color: $blue;
+    padding: $small-spacing/2;
     margin-top: $small-spacing*4;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    border-bottom: 1px solid lighten($blue, 50%);
+    line-height: 1;
   }
 
   .practice {
     @include span-columns(4.5 of 9);
-    // @include omega;
   }
 
   .mailing {
@@ -73,4 +90,13 @@ header {
   @include shift(2);
   // @include pad();
   // font-size: 0.8em;
+}
+
+.home-link {
+  border-bottom: 3px solid rgb(48, 101, 155);
+  /* padding: 1em 0; */
+  color: rgb(48, 101, 155);
+  h1 {
+    color: rgb(48, 101, 155);
+  }
 }
