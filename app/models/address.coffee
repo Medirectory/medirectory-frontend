@@ -15,19 +15,28 @@ Address = DS.Model.extend
     return (@get('firstLine') || '') + ' ' + (@get('secondLine') || '')
   ).property('firstLine', 'secondLine')
 
-  fullAddress: (->
-    address = (@get('firstLine') || '') + ' ' +  (@get('city') || '') + ' ' +  (@get('state') || '') + ' ' +  (@get('postalCode').substring(0,5) || '')
+  shortLocation: (->
+    return (@get('city') || '') + ', ' + (@get('state') || '') + ', ' + (@get('countryCode') || '')
+  ).property('city', 'state', 'countryCode')
+
+  shortLocation2: (->
+    address = (@get('city') || '') + ', ' +  (@get('state') || '') + ', ' +  (@get('formattedPostal') || '') + ', ' + (@get('countryCode') || '')
     return address.trim()
-  ).property('firstLine', 'city', 'state', 'postalCode')
+  ).property('city', 'state', 'formattedPostal', 'countryCode')
+
+  fullAddress: (->
+    address = (@get('streetAddress') || '') + ' ' +  (@get('shortLocation2') || '')
+    return address.trim()
+  ).property('streetAddress', 'shortLocation2')
 
   mapLink: (->
     address = (@get('firstLine') || '') + ' ' + (@get('city') || '') + ' ' +  (@get('state') || '') + ' ' +  (@get('postalCode').substring(0,5) || '')
-    return 'http://maps.google.com/?q=' + address.trim()
+    return 'http://maps.google.com/?q=' + address.trim() + '&output=embed'
   ).property('firstLine', 'city', 'state', 'postalCode')
 
   formattedPostal: (->
     postal = @get('postalCode')
-    if postal.length == 9 # probably an american ZIP
+    if postal && postal.length == 9 # probably an american ZIP
       return postal.substring(0,5) + '-' + postal.substring(5,9)
     else
       return postal
@@ -39,7 +48,7 @@ Address = DS.Model.extend
       areaCode = phoneNumber.substring(0,3)
       exchange = phoneNumber.substring(3,6)
       number = phoneNumber.substring(6,10)
-      return '(' + areaCode + ') ' + exchange + '-' + number
+      return '(%@) %@-%@'.fmt(areaCode, exchange, number)
     else
       return phoneNumber
   ).property('telephoneNumber')
@@ -50,7 +59,7 @@ Address = DS.Model.extend
       areaCode = faxNumber.substring(0,3)
       exchange = faxNumber.substring(3,6)
       number = faxNumber.substring(6,10)
-      return '(' + areaCode + ') ' + exchange + '-' + number
+      return '(%@) %@-%@'.fmt(areaCode, exchange, number)
     else
       return faxNumber
   ).property('faxNumber')

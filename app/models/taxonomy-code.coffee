@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
 
-TaxonomyCode = DS.Model.extend 
+TaxonomyCode = DS.Model.extend
   code: DS.attr('string'),
   taxonomy_type: DS.attr('string'),
   classification: DS.attr('string'),
@@ -10,9 +10,12 @@ TaxonomyCode = DS.Model.extend
   taxonomyLicenses: DS.hasMany('taxonomy-license')
 
   classificationSpecialty: (->
-    classification = @get('classification');
-    specialty = @get('specialization');
-    if specialty then classification + '-' + specialty else classification 
+    classification = @get('classification')
+    specialty = @get('specialization')
+    if specialty
+      '%@ (%@)'.fmt(classification, specialty)
+    else
+      classification
   ).property('classification', 'specialization')
 
 

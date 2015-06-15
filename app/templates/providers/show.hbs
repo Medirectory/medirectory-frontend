@@ -11,20 +11,22 @@
 
 </div>
 <div class="main">
-  <h1>{{#if model.female}}{{fa-icon 'venus' fixedWidth=true}}{{/if}}{{#if model.male}}{{fa-icon 'mars' fixedWidth=true}}{{/if}}
-    {{model.fullName}}<span class='npi'>{{model.id}}</span></h1>
+  <div class="name">
+    <h1>{{#if model.female}}{{fa-icon 'venus' fixedWidth=true}}{{/if}}{{#if model.male}}{{fa-icon 'mars' fixedWidth=true}}{{/if}}
+      {{#if model.otherFullName}}{{model.otherFullName}}{{else}}{{model.fullName}}{{/if}}
+      <span class='npi'>{{model.id}}</span></h1>
 
-  {{#if model.otherFullName}}<h2>({{model.otherFullName}})</h2>{{/if}}
-
-
+    {{#if model.otherFullName}}<h2>Full name: {{model.fullName}}</h2>{{/if}}
+  </div>
 
   <div class="practice">
     <p class="label">Practice Location Information</p>
     <ul>
-      <li>{{model.practiceLocationAddress.fullAddress}}</li>
+      <li>{{model.practiceLocationAddress.streetAddress}}</li>
+      <li>{{model.practiceLocationAddress.shortLocation2}}</li>
       <li><iframe width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.practiceLocationAddress.mapLink}}"></iframe></li>
       <li><a href='{{unbound model.practiceLocationAddress.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
-      <li>{{#if model.practiceLocationAddress.formattedPhone}} {{fa-icon 'phone' fixedWidth=true}} {{model.practiceLocationAddress.formattedPhone}} {{/if}}</li>
+      <li>{{#if model.practiceLocationAddress.formattedPhone}} <a href="tel:{{model.practiceLocationAddress.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{model.practiceLocationAddress.formattedPhone}}</a> {{/if}}</li>
       <li>{{#if model.practiceLocationAddress.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{model.practiceLocationAddress.formattedFax}} {{/if}}</li>
     </ul>
   </div>
@@ -32,10 +34,11 @@
   <div class="mailing">
     <p class="label">Mailing Information</p>
     <ul>
-      <li>{{model.mailingAddress.fullAddress}}</li>
-      <li><iframe width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.mailingAddress.mapLink}}"></iframe></li>
+      <li>{{model.mailingAddress.streetAddress}}</li>
+      <li>{{model.mailingAddress.shortLocation2}}</li>
+      <li><iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.mailingAddress.mapLink}}"></iframe></li>
       <li><a href='{{unbound model.mailingAddress.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
-      <li>{{#if model.mailingAddress.formattedPhone}} {{fa-icon 'phone' fixedWidth=true}} {{model.mailingAddress.formattedPhone}} {{/if}}</li>
+      <li>{{#if model.mailingAddress.formattedPhone}} <a href="tel:{{model.mailingAddress.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{model.mailingAddress.formattedPhone}} </a> {{/if}}</li>
       <li>{{#if model.mailingAddress.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{model.mailingAddress.formattedFax}} {{/if}}</li>
     </ul>
   </div>
@@ -75,7 +78,7 @@
         {{#each identifier in model.otherProviderIdentifiers}}
           <tr>
             <td>{{identifier.identifier}}</td>
-            <td>{{identifier.identifierTypeCode}}</td>
+            <td>{{identifier.identifierType}}</td>
             <td>{{identifier.identifierState}}</td>
             <td>{{identifier.identifierIssuer}}</td>
           </tr>
