@@ -1,17 +1,13 @@
 `import Ember from 'ember'`
 
 OrganizationsIndexRoute = Ember.Route.extend
-  queryParams: {
-    q: {
+  queryParams:
+    q:
       refreshModel: true
-    },
-    fuzzy_q: {
+    fuzzy_q:
       refreshModel: true
-    },
-    offest: {
+    offest:
       refreshModel: true
-    }
-  },
   model: (params) ->
     for key, value of params
       if not value

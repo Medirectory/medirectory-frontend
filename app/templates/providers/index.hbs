@@ -6,20 +6,9 @@
     <h1>Edit Search</h1>
     <span>{{model.meta.totalResults}} results</span>
 
-    <h2>Names</h2>
-    <div class="searched-terms">
-      <span class="searched">John Jacob {{fa-icon 'close'}}</span>
-    </div>
+    <h2>Query</h2>
     <div class="search-bar">
-      {{input value=name placeholder='Type a name or NPI' class='search-bar'}}
-    </div>
-
-    <h2>Specialties</h2>
-    <div class="searched-terms">
-      <span class="searched">Dentist {{fa-icon 'close'}}</span>
-    </div>
-    <div class="search-bar">
-      {{input value=taxonomy placeholder='Find by specialty' class='search-bar'}}
+      {{input placeholder="Find by name" value=query action="updateQuery" on="insert-newline"}}
     </div>
 
 </div>

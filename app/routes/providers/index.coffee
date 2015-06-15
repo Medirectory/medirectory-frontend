@@ -1,17 +1,13 @@
 `import Ember from 'ember'`
 
 ProvidersIndexRoute = Ember.Route.extend
-  queryParams: {
-    q: {
+  queryParams:
+    q:
       refreshModel: true
-    },
-    fuzzy_q: {
+    fuzzy_q: 
       refreshModel: true
-    },
-    offset: {
+    offset:
       refreshModel: true
-    }
-  },
   model: (params) ->
     for key, value of params
       if not value

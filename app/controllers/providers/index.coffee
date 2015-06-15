@@ -1,10 +1,10 @@
 `import Ember from 'ember'`
 
 ProvidersIndexController = Ember.Controller.extend
-  queryParams: ['q', 'fuzzy_q', 'offset'],
-  q: null,
-  fuzzy_q: null,
-  offset: 0,
+  queryParams: ['q', 'fuzzy_q', 'offset']
+  q: null
+  fuzzy_q: null
+  offset: 0
   hasPrevious: ( ->
     parseInt(@get('offset')) > 0
     ).property('offset'),
@@ -18,5 +18,11 @@ ProvidersIndexController = Ember.Controller.extend
   nextOffset: ( ->
     parseInt(@get('offset')) + @get('content.meta').resultsPerPage
     ).property('offset', 'content.meta')
+  actions:
+    updateQuery: ((value)->
+      @set('q', value)
+      return false;
+    )
+
 
 `export default ProvidersIndexController`
