@@ -3,7 +3,8 @@
 {{outlet}}
 <section>
 <div class="context">
-  <h1>{{#link-to 'providers/show' class='correct' onclick="history.back()"}}{{fa-icon 'arrow-left' fixedWidth=true}} return to results{{/link-to}}</h1>
+  {{home-link}}
+  <h1>{{#link-to '' class='correct' onclick="history.back(-1)"}}{{fa-icon 'arrow-left' fixedWidth=true}} return to results{{/link-to}}</h1>
 
   {{!-- <div class="actions">
     {{#link-to '' class='correct' tagName='button'}}Correct this information{{/link-to}}

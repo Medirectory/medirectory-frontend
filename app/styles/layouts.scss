@@ -91,3 +91,12 @@ header {
   // @include pad();
   // font-size: 0.8em;
 }
+
+.home-link {
+  border-bottom: 3px solid rgb(48, 101, 155);
+  /* padding: 1em 0; */
+  color: rgb(48, 101, 155);
+  h1 {
+    color: rgb(48, 101, 155);
+  }
+}
