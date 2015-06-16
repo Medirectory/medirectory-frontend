@@ -4,7 +4,7 @@
 <section>
 <div class="context">
   {{home-link}}
-  <h1>{{#link-to '' class='correct' onclick="history.back(-1)"}}{{fa-icon 'arrow-left' fixedWidth=true}} return to results{{/link-to}}</h1>
+  {{!-- <h1>{{#link-to '' class='correct' onclick="history.back(-1)"}}{{fa-icon 'arrow-left' fixedWidth=true}} return to results{{/link-to}}</h1> --}}
 
   {{!-- <div class="actions">
     {{#link-to '' class='correct' tagName='button'}}Correct this information{{/link-to}}
@@ -55,7 +55,7 @@
         </tr>
       </thead>
       <tbody>
-        {{#each license in model.taxonomyLicenses}}
+        {{#each model.taxonomyLicenses key="@index" as |license|}}
           <tr>
             <td>{{license.taxonomyCode.classificationSpecialty}}</td>
             <td>{{license.licenseNumber}}</td>
@@ -76,7 +76,7 @@
         </tr>
       </thead>
       <tbody>
-        {{#each identifier in model.otherProviderIdentifiers}}
+        {{#each model.otherProviderIdentifiers key="@index" as |identifier|}}
           <tr>
             <td>{{identifier.identifier}}</td>
             <td>{{identifier.identifierType}}</td>
