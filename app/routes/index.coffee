@@ -1,8 +1,9 @@
 `import Ember from 'ember'`
 
 IndexRoute = Ember.Route.extend
-  search: (router) ->
-    router.transitionTo('providers/index', {q: query})
+  resetController: (controller, isExiting, transition) ->
+    if isExiting
+      controller.set('query', '')
   model: ->
     return [
       {
