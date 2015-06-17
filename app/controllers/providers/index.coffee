@@ -18,12 +18,11 @@ ProvidersIndexController = Ember.Controller.extend
   nextOffset: ( ->
     parseInt(@get('offset')) + @get('content.meta').resultsPerPage
     ).property('offset', 'content.meta')
-  query: ( (key, newVal, oldVal)->
-    if arguments.length > 1 #setter
-      newVal
-    else #getter
+  query: Ember.computed 'q', 
+    get: ->
       @get('q')
-    ).property('q')
+    set: (key, newVal, oldVal)->
+      newVal
   actions:
     updateQuery: (value)->
       @set('q', value)
