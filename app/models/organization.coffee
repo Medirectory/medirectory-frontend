@@ -16,6 +16,7 @@ Organization = NpiType.extend
   authorizedOfficialTelephoneNumber: DS.attr('string'),
   isOrganizationSubpart: DS.attr('string'),
   parentOrganizationLbn: DS.attr('string'),
-  parentOrganizationTin: DS.attr('string')  
+  parentOrganizationTin: DS.attr('string'),
+  providers: DS.hasMany('provider')
 
 `export default Organization`
