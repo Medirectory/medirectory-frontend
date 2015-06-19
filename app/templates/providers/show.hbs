@@ -20,6 +20,18 @@
     {{#if model.otherFullName}}<h2>Full name: {{model.fullName}}</h2>{{/if}}
   </div>
 
+  <div class="affiliations">
+    <p class="label">Group Affiliations</p>
+    {{#each model.organizations key="@index" as |organization|}}
+      {{#link-to 'organizations/show' organization.id}}
+        {{organization.organizationNameLegalBusinessName}}
+        {{#if organization.otherOrganizationName}}
+          ({{organization.otherOrganizationName}})
+        {{/if}}
+      {{/link-to}}
+    {{/each}}
+  </div>
+
   <div class="practice">
     <p class="label">Practice Location Information</p>
     <ul>

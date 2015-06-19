@@ -33,7 +33,7 @@
           <td>{{provider.namePrefix}} {{provider.firstName}} {{provider.middleName}} {{provider.lastNameLegalName}} {{provider.nameSuffix}}</td>
           <td>{{provider.practiceLocationAddress.shortLocation}}</td>
           <td>
-            {{#each provider.classifcationSpecialties key="@index" as |classSpecialty|}}
+            {{#each provider.classificationSpecialties key="@index" as |classSpecialty|}}
               <span class="taxonomy">{{classSpecialty}} <span class="tooltip">{{provider.taxonomyCode.definition}}</span></span>
             {{/each}}
           </td>
