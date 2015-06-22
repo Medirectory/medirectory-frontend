@@ -24,8 +24,8 @@ ProvidersIndexController = Ember.Controller.extend
     set: (key, newVal, oldVal)->
       newVal
   actions:
-    updateQuery: (value)->
-      @set('q', value)
+    submitBasic: (params)->
+      @set('q', params.q)
       @set('offset', 0)
       false
 
