@@ -1,0 +1,52 @@
+<div class="banner"></div>
+
+<section>
+<div class="context">
+    {{home-link}}
+    <h1>Edit Search</h1>
+    <span>{{model.meta.totalResults}} results</span>
+    {{advanced-search submit="updateQuery" name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true}}
+
+</div>
+
+<div class="main">
+
+  {{outlet}}
+
+  <table>
+    <thead>
+      <tr>
+        <th class="npi-col">NPI</th>
+        <th class="name-col">Name</th>
+        <th class="location-col">Practice Location</th>
+        <th class="specialties-col">Specialties</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model key="@index" as |provider|}}
+        <tr>
+          <td>{{#link-to 'providers/show' provider.id }}{{provider.id}}{{/link-to}}</td>
+          <td>{{provider.namePrefix}} {{provider.firstName}} {{provider.middleName}} {{provider.lastNameLegalName}} {{provider.nameSuffix}}</td>
+          <td>{{provider.practiceLocationAddress.shortLocation}}</td>
+          <td>
+            {{#each provider.classificationSpecialties key="@index" as |classSpecialty|}}
+              <span class="taxonomy">{{classSpecialty}} <span class="tooltip">{{provider.taxonomyCode.definition}}</span></span>
+            {{/each}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    {{#if hasPrevious}}
+      {{#link-to 'providers/index' (query-params offset=previousOffset)}} {{fa-icon 'angle-left' fixedWidth=True}} Previous{{/link-to}}
+    {{/if}}
+
+    {{#if hasNext}}
+      {{#link-to 'providers/index' (query-params offset=nextOffset)}} Next {{fa-icon 'angle-right' fixedWidth=True}} {{/link-to}}
+    {{/if}}
+  </div>
+
+</div>
+</section
