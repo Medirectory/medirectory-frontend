@@ -1,11 +1,9 @@
-<form {{action "submit" on="submit"}}>
-  {{input value=name placeholder='name'}}
-
-  {{input value=location placeholder='location'}}
-
-  {{input value=taxonomy placeholder='taxonomy'}}
-
-  {{input value=npi placeholder='npi'}}
-
-  {{yield}}
-</form>
+{{#if sideNav}}<h2>Name</h2>{{/if}}
+{{input value=name placeholder='Name' insert-newline="querySubmitted"}}
+{{#if sideNav}}<h2>Location</h2>{{/if}}
+{{input value=location placeholder='Location' insert-newline="querySubmitted"}}
+{{#if sideNav}}<h2>Taxonomy</h2>{{/if}}
+{{input value=taxonomy placeholder='Taxonomy' insert-newline="querySubmitted"}}
+{{#if sideNav}}<h2>NPI</h2>{{/if}}
+{{input value=npi placeholder='NPI' insert-newline="querySubmitted"}}
+{{yield}}

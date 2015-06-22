@@ -2,7 +2,12 @@
 
 AdvancedSearchComponent = Ember.Component.extend
   actions:
-    submit: (params) ->
-      @sendAction('submit', params)
+    querySubmitted: () ->
+      toSend = 
+        name: if @get('name') isnt '' then @get('name') else null
+        location: if @get('location') isnt '' then @get('location') else null
+        taxonomy: if @get('taxonomy') isnt '' then @get('taxonomy') else null
+        npi: if @get('npi') isnt '' then @get('npi') else null
+      @sendAction('submit', toSend)
 
 `export default AdvancedSearchComponent`

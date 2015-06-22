@@ -2,8 +2,8 @@
   <h1>Medirectory</h1>
   <p>Find a healthcare provider.</p>
   <div class="search-bar">
-    {{#advanced-search submit="submit" name=name location=location taxonomy=taxonomy npi=npi}}
-      {{#link-to 'advanced-search/index' (query-params name=name location=location taxonomy=taxonomy npi=npi) tagName='button' class='search'}}Search it{{/link-to}}
+    {{#advanced-search submit="submit" name=model.name location=model.location taxonomy=model.taxonomy npi=model.npi}}
+      {{#link-to 'advanced-search/index' (query-params name=model.name location=model.location taxonomy=model.taxonomy npi=model.npi) tagName='button' class='search'}}Search it{{/link-to}}
       <br/>
       {{#link-to 'index' tagName='button' }}Basic Search{{/link-to}}
     {{/advanced-search}}

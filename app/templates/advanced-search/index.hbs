@@ -5,11 +5,7 @@
     {{home-link}}
     <h1>Edit Search</h1>
     <span>{{model.meta.totalResults}} results</span>
-
-    <h2>Query</h2>
-    <div class="search-bar">
-      {{input placeholder="Find by name" value=query insert-newline="updateQuery"}}
-    </div>
+    {{advanced-search submit="updateQuery" name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp sideNav=true}}
 
 </div>
 
