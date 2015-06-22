@@ -1,9 +1,21 @@
 `import Ember from 'ember'`
 
-IndexController = Ember.Controller.extend
+IndexController = Ember.Controller.extend  
+  name: null
+  location: null
+  taxonomy: null
+  npi: null
+  basicSearch: true
   actions:
-    updateQuery: (value)->
-      @transitionToRoute('providers/index', {queryParams: {q: @get('query')}})
+    submitBasic: (value)->
+      @transitionToRoute('providers/index', queryParams: q: value)
       false
+    submitAdvanced: (params)->
+      @transitionToRoute('advanced-search/index', queryParams: params)
+      false
+    basic: ->
+      @set('basicSearch', true)
+    advanced: ->
+      @set('basicSearch', false)
 
 `export default IndexController`
