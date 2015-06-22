@@ -8,8 +8,8 @@ IndexController = Ember.Controller.extend
   organization: null
   basicSearch: true
   actions:
-    submitBasic: (value)->
-      @transitionToRoute('providers/index', queryParams: q: value)
+    submitBasic: (params)->
+      @transitionToRoute('providers/index', queryParams: params)
       false
     submitAdvanced: (params)->
       @transitionToRoute('advanced-search/index', queryParams: params)
