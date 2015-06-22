@@ -6,5 +6,7 @@
 {{input value=taxonomy placeholder='Taxonomy' insert-newline="querySubmitted"}}
 {{#if sideNav}}<h2>NPI</h2>{{/if}}
 {{input value=npi placeholder='NPI' insert-newline="querySubmitted"}}
+{{#if sideNav}}<h2>Organization</h2>{{/if}}
+{{input value=organization placeholder='Organization' insert-newline="querySubmitted"}}
 {{#unless sideNav}}<button {{action 'querySubmitted'}} class='search'>Search it</button>{{/unless}}
 {{yield}}

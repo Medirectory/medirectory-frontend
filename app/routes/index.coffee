@@ -3,11 +3,12 @@
 IndexRoute = Ember.Route.extend
   resetController: (controller, isExiting, transition) ->
     if isExiting
-      controller.set('query', '')
-      controller.set('name', '')
-      controller.set('location', '')
-      controller.set('taxonomy', '')
-      controller.set('npi', '')
+      controller.set('query', null)
+      controller.set('name', null)
+      controller.set('location', null)
+      controller.set('taxonomy', null)
+      controller.set('npi', null)
+      controller.set('organization', null)
   model: ->
     return [
       {

@@ -8,7 +8,7 @@
       {{#link-to 'providers/index' (query-params q=query) tagName='button' class='search'}}Search it{{/link-to}}
       <button {{action 'advanced'}}> Advanced Search </button>
     {{else}}
-      {{#advanced-search submit='submitAdvanced' name=name location=location taxonomy=taxonomy npi=npi}}
+      {{#advanced-search submit='submitAdvanced' name=name location=location taxonomy=taxonomy npi=npi organization=organization}}
         <button {{action 'basic'}}> Basic Search </button>
       {{/advanced-search}}
     {{/if}}

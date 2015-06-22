@@ -5,6 +5,7 @@ IndexController = Ember.Controller.extend
   location: null
   taxonomy: null
   npi: null
+  organization: null
   basicSearch: true
   actions:
     submitBasic: (value)->

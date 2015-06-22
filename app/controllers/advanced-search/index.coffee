@@ -1,11 +1,12 @@
 `import Ember from 'ember'`
 
 AdvancedSearchIndexController = Ember.Controller.extend
-  queryParams: ['name', 'location', 'taxonomy', 'npi']
+  queryParams: ['name', 'location', 'taxonomy', 'npi', 'organization']
   name: null
   location: null
   taxonomy: null
   npi: null
+  organization: null
   offset: 0
   hasPrevious: ( ->
     parseInt(@get('offset')) > 0
@@ -41,12 +42,18 @@ AdvancedSearchIndexController = Ember.Controller.extend
       @get('npi')
     set: (key, newVal, oldVal)->
       newVal
+  orgTemp: Ember.computed 'organization', 
+    get: ->
+      @get('organization')
+    set: (key, newVal, oldVal)->
+      newVal
   actions:
     updateQuery: (params)->
       @set('name', params.name)
       @set('location', params.location)
       @set('taxonomy', params.taxonomy)
       @set('npi', params.npi)
+      @set('organization', params.organization)
       @set('offset', 0)
       false
 

@@ -10,6 +10,8 @@ AdvancedSearchIndexRoute = Ember.Route.extend
       refreshModel: true
     npi:
       refreshModel: true
+    organization:
+      refreshModel: true
   model: (params) ->
     for key, value of params
       if not value || value == 'undefined'
