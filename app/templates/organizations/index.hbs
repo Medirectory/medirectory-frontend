@@ -28,7 +28,12 @@
       {{#each model key="@index" as |organization|}}
         <tr>
           <td>{{#link-to 'organizations/show' organization.id }}{{organization.id}}{{/link-to}}</td>
-          <td>{{organization.namePrefix}} {{organization.firstName}} {{organization.middleName}} {{organization.lastNameLegalName}} {{organization.nameSuffix}}</td>
+          <td>
+            {{organization.organizationNameLegalBusinessName}}
+            {{#if organization.fullAuthorizedName}}
+              <br/>{{organization.fullAuthorizedName}}
+            {{/if}}
+          </td>
           <td>{{organization.practiceLocationAddress.shortLocation}}</td>
           <td>
             {{#each organization.classificationSpecialties key="@index" as |classSpecialty|}}

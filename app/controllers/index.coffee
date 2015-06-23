@@ -10,7 +10,10 @@ IndexController = Ember.Controller.extend
   providerSearch: true
   actions:
     submit: (params)->
-      @transitionToRoute('providers/index', queryParams: params)
+      if @get('providerSearch')
+        @transitionToRoute('providers/index', queryParams: params)
+      else
+        @transitionToRoute('organizations/index', queryParams: params)
       false
     basic: ->
       @set('basicSearch', true)

@@ -25,4 +25,5 @@ Organization = NpiType.extend
     name unless /\S/.test(name)
     ).property('authorizedOfficialNamePrefix', 'authorizedOfficialFirstName', 'authorizedOfficialMiddleName', 'authorizedOfficialLastName', 'authorizedOfficialNameSuffix')
 
+
 `export default Organization`
