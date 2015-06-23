@@ -1,1 +1,55 @@
-{{outlet}}
+<div class="banner"></div>
+
+<section>
+<div class="context">
+    {{home-link}}
+    <h1>Edit Search</h1>
+    <span>{{model.meta.totalResults}} results</span>
+    {{#if controllers.index.basicSearch}}
+      {{basic-search submit='submitBasic' placeholder='Enter search here' query=query sideNav=true}}
+    {{else}}
+      {{advanced-search submit="updateQuery" name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true}}
+    {{/if}}
+</div>
+
+<div class="main">
+
+  {{outlet}}
+  <table>
+    <thead>
+      <tr>
+        <th class="npi-col">NPI</th>
+        <th class="name-col">Name</th>
+        <th class="location-col">Practice Location</th>
+        <th class="specialties-col">Specialties</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model key="@index" as |organization|}}
+        <tr>
+          <td>{{#link-to 'organizations/show' organization.id }}{{organization.id}}{{/link-to}}</td>
+          <td>{{organization.namePrefix}} {{organization.firstName}} {{organization.middleName}} {{organization.lastNameLegalName}} {{organization.nameSuffix}}</td>
+          <td>{{organization.practiceLocationAddress.shortLocation}}</td>
+          <td>
+            {{#each organization.classificationSpecialties key="@index" as |classSpecialty|}}
+              {{!-- Should figure out someway to assign the proper taxonomy definition (it is a good addition!) --}}
+              <span class="taxonomy">{{classSpecialty}} <span class="tooltip">{{classSpecialty.definition}}</span></span>
+            {{/each}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    {{#if hasPrevious}}
+      {{#link-to 'organizations/index' (query-params offset=previousOffset)}} {{fa-icon 'angle-left' fixedWidth=True}} Previous{{/link-to}}
+    {{/if}}
+
+    {{#if hasNext}}
+      {{#link-to 'organizations/index' (query-params offset=nextOffset)}} Next {{fa-icon 'angle-right' fixedWidth=True}} {{/link-to}}
+    {{/if}}
+  </div>
+
+</div>
+</section
