@@ -19,4 +19,10 @@ Organization = NpiType.extend
   parentOrganizationTin: DS.attr('string'),
   providers: DS.hasMany('provider')
 
+  fullAuthorizedName: (->
+    name = (@get('authorizedOfficialNamePrefix') || '') + ' ' + (@get('authorizedOfficialFirstName') || '') + ' ' + (@get('authorizedOfficialMiddleName') || '') + ' ' + (@get('authorizedOfficialLastName') || '') + ' ' + (@get('authorizedOfficialNameSuffix') || '')
+    #return the name unless the name is null only whitespace, otherwise null.
+    name unless /\S/.test(name)
+    ).property('authorizedOfficialNamePrefix', 'authorizedOfficialFirstName', 'authorizedOfficialMiddleName', 'authorizedOfficialLastName', 'authorizedOfficialNameSuffix')
+
 `export default Organization`

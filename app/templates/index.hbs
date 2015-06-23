@@ -3,11 +3,11 @@
   <p>Find a healthcare provider.</p>
   <div class="search-bar">
     {{#if basicSearch}}
-      {{#basic-search submit='submitBasic' placeholder='Try "camille houston" or "williams portland"'}}
+      {{#basic-search submit='submit' placeholder='Try "camille houston" or "williams portland"'}}
       <button {{action 'advanced'}}> Advanced Search </button>
       {{/basic-search}}
     {{else}}
-      {{#advanced-search submit='submitAdvanced' name=name location=location taxonomy=taxonomy npi=npi organization=organization}}
+      {{#advanced-search submit='submit' name=name location=location taxonomy=taxonomy npi=npi organization=organization}}
         <button {{action 'basic'}}> Basic Search </button>
       {{/advanced-search}}
     {{/if}}
