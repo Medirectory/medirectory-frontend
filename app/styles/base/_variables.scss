@@ -1,5 +1,6 @@
 // Typography
 $base-font-family: "News Gothic MT", "Helvetica", "Roboto", "Arial", sans-serif;
+// $heading-font-family: "News Gothic MT", "Helvetica", "Roboto", "Arial", sans-serif;
 $heading-font-family: $helvetica;
 
 // Font Sizes
@@ -29,11 +30,14 @@ $red: #800029;
 $yellow: #807800;
 $bluegreen: #52C08E;
 
+$gradient: linear-gradient(17deg, #5A81B5 0%, #8DC8DD 47%, #94F586 100%);
+$transparent-gradient: linear-gradient(17deg, transparentize(#5A81B5, 0.25) 0%, transparentize(#8DC8DD, 0.25) 47%, transparentize(#94F586, 0.25) 100%);
+
 // Font Colors
 $base-background-color: lighten($bluegreen, 42%);
 $base-font-color: $dark-gray;
 $base-header-color: $black;
-$action-color: $blue;
+$action-color: $purple;
 $link-color: $green;
 
 // Border
@@ -41,5 +45,5 @@ $base-border-color: lighten($bluegreen, 40%);
 $base-border: 1px solid $base-border-color;
 
 // Forms
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow: inset 0 3px 6px rgba($bluegreen, 0.2);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);

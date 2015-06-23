@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
   @include font-feature-settings("kern", "liga", "pnum");
   -webkit-font-smoothing: antialiased;
@@ -8,6 +12,7 @@ body {
   line-height: $base-line-height;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 h1,
@@ -19,22 +24,21 @@ h6 {
   font-family: $heading-font-family;
   color: $base-header-color;
   font-weight: 700;
+  line-height: 1;
 }
 
-$step-size-heading: 0.25;
-/* Amplifier value */
-$amplifier-heading: 1.5;
-/* The mixin */
+// Scale the heading sizes
+$step-size: 0.25;
+$amplifier: 1.25;
 @mixin heading-size($size) {
-  font-size: $size * $step-size-heading * $amplifier-heading + em;
-  line-height: ($size * $step-size-heading) + em;
-  margin: 1em/($size * $step-size-heading) 0 1em/$size 0;
+  font-size: $size * $step-size * $amplifier + em;
+  line-height: ($size * $step-size) + em;
+  margin: 1em/($size * $step-size) 0 1em/$size 0;
 }
 
 $context-font: (
   landing: 1,
   main: 0.75,
-  factoids: 0.5,
   context: 0.5
 );
 
@@ -55,6 +59,7 @@ p {
 
 a {
   color: $link-color;
+  font-weight: bold;
   text-decoration: none;
   transition: color 0.1s linear;
 

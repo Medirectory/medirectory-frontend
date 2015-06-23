@@ -1,12 +1,27 @@
-{{#if sideNav}}<h2>Name</h2>{{/if}}
-{{input value=name placeholder='Name' insert-newline="querySubmitted"}}
+{{#if providerSearch}}
+  {{#if sideNav}}<h2>Name</h2>{{/if}}
+  <label>Name {{input value=name placeholder='Name' insert-newline="querySubmitted"}}</label>
+{{else}}
+  {{#if sideNav}}<h2>Organization Name</h2>{{/if}}
+  <label>Organization Name {{input value=name placeholder='Organization Name' insert-newline="querySubmitted"}}</label>
+{{/if}}
+
 {{#if sideNav}}<h2>Location</h2>{{/if}}
-{{input value=location placeholder='Location' insert-newline="querySubmitted"}}
+<label>Location {{input value=location placeholder='Location' insert-newline="querySubmitted"}}</label>
 {{#if sideNav}}<h2>Specialties</h2>{{/if}}
-{{input value=taxonomy placeholder='Specialties' insert-newline="querySubmitted"}}
+<label>Specialties {{input value=taxonomy placeholder='Specialty' insert-newline="querySubmitted"}}</label>
 {{#if sideNav}}<h2>NPI</h2>{{/if}}
-{{input value=npi placeholder='NPI' insert-newline="querySubmitted"}}
-{{#if sideNav}}<h2>Organization</h2>{{/if}}
-{{input value=organization placeholder='Organization' insert-newline="querySubmitted"}}
-{{#unless sideNav}}<button {{action 'querySubmitted'}} class='search'>Search it</button>{{/unless}}
+<label>NPI {{input value=npi placeholder='NPI' insert-newline="querySubmitted"}}</label>
+
+{{#if providerSearch}}
+  {{#if sideNav}}<h2>Organization</h2>{{/if}}
+  <label>Affiliated Organization {{input value=organization placeholder='Affiliated Organization' insert-newline="querySubmitted"}}</label>
+{{else}}
+  {{#if sideNav}}<h2>People</h2>{{/if}}
+  <label>Affiliated Person {{input value=affiliated_provider placeholder='Affiliated Provider' insert-newline="querySubmitted"}}</label>
+  {{#if sideNav}}<h2>Authorized Official</h2>{{/if}}
+  <label>Authorized Official {{input value=authorized_official placeholder='Authorized Official' insert-newline="querySubmitted"}}</label>
+{{/if}}
+
 {{yield}}
+{{#unless sideNav}}<button {{action 'querySubmitted'}} class='search'>Search {{#if providerSearch}}People{{else}}Organizations{{/if}}</button>{{/unless}}

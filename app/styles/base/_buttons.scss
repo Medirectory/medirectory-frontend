@@ -1,34 +1,51 @@
 #{$all-button-inputs},
 button {
   @include appearance(none);
+  @include transition(all 0.5s ease-in-out);
   -webkit-font-smoothing: antialiased;
-  background-color: rgba(255,255,255,0.3);
   border-radius: $base-border-radius;
   border: none;
-  color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: $base-font-family;
+  font-family: $heading-font-family;
   font-size: $base-font-size*0.75;
   font-weight: 600;
   line-height: 1;
-  padding: 0.5em 0.75em;
+  padding: 0.75em 1em;
   position: relative;
   text-decoration: none;
-  color: rgb(174, 245, 208);
-  text-shadow: 0px 2px 3px rgba(74, 116, 95, 0.5);
   box-shadow: 0px 2px 10px rgb(74, 100, 116);
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  color: lighten($action-color, 60%);
+  background-color: darken($action-color, 10%);
 
   &:hover,
   &:focus {
-    background-color: lighten($action-color, 10%);
+    color: $action-color;
+    background-color: rgba(255,255,255,0.3);
+    box-shadow: 0px 2px 10px rgb(74, 100, 116);
+  }
+
+  &:active {
+    border: none;
+    box-shadow: 0px 2px 10px white;
   }
 
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+
+  &.secondary {
+    color: lighten($blue, 50%);
+    background-color: $blue;
+    &:hover,
+    &:focus {
+      color: $blue;
+      background-color: rgba(255,255,255,0.3);
+      box-shadow: 0px 2px 10px rgb(74, 100, 116);
+    }
   }
 }

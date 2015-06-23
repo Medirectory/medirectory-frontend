@@ -1,28 +1,34 @@
-<header>
-  <h1>Medirectory</h1>
-  <p>Find a healthcare provider.</p>
-  <div class="search-bar">
-    {{#if basicSearch}}
-      {{#basic-search submit='submit' placeholder='Try "camille houston" or "williams portland"'}}
-      <button {{action 'advanced'}}> Advanced Search </button>
-      {{/basic-search}}
-    {{else}}
-      {{#advanced-search submit='submit' name=name location=location taxonomy=taxonomy npi=npi organization=organization}}
-        <button {{action 'basic'}}> Basic Search </button>
-      {{/advanced-search}}
-    {{/if}}
-  </div>
-</header>
+<div class="landing">
+  <header>
+    <h1>Medirectory</h1>
+    <h2>Find a healthcare provider.</h2>
+    {{#if basicSearch}}<p>Search by name, location, and/or type of medical practice.</p>
+    {{else}}<p>All fields are optional.</p>{{/if}}
+    <button {{action 'setProviderSearch'}} {{bindAttr class="providerSearch:active :search-type :provider"}}><span>People</span></button>
+    <button {{action 'setOrganizationSearch'}} {{bindAttr class="providerSearch::active :search-type :organization"}}><span>Organizations</span></button>
+    <div class="search-bar">
+      {{#if basicSearch}}
+        {{#basic-search submit='submit' placeholder='Try "camille houston" or "williams portland"' providerSearch=providerSearch}}
+        <button {{action 'advanced'}} class="secondary">Switch to Advanced Search </button>
+        {{/basic-search}}
+      {{else}}
+        {{#advanced-search submit='submit' name=name location=location taxonomy=taxonomy npi=npi organization=organization providerSearch=providerSearch}}
+          <button {{action 'basic'}} class="secondary">Switch to Basic Search </button>
+        {{/advanced-search}}
+      {{/if}}
+    </div>
+  </header>
 
-<div class="about">
-  <h2>What is Medirectory?</h2>
-  <p>Medirectory is a pilot project by The MITRE Corporation. The project is open source and its code can be accessed at <a href="https://github.com/Medirectory" alt="Source code for Medirectory">https://github.com/Medirectory</a>.</p>
+  {{!-- <div class="factoids">
+    {{#each fact in model}}
+    <aside><h1>{{fact.header}}</h1><p>{{fact.text}}</p></aside>
+    {{/each}}
+  </div> --}}
+
+  <footer>
+    <div>
+      <h3>What is Medirectory?</h3>
+      <p>Medirectory is a pilot project by The MITRE Corporation. The project is open source and its code can be accessed at <a href="https://github.com/Medirectory" alt="Source code for Medirectory">https://github.com/Medirectory</a>.</p>
+    </div>
+  </footer>
 </div>
-
-{{outlet}}
-
-{{!-- <div class="factoids">
-  {{#each fact in model}}
-  <aside><h1>{{fact.header}}</h1><p>{{fact.text}}</p></aside>
-  {{/each}}
-</div> --}}

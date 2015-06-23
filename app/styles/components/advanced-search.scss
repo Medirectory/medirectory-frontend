@@ -1,0 +1,34 @@
+.search-type {
+  @include margin(1em);
+  @include size(200px 100px);
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &.provider {
+    @include background-image($transparent-gradient, url("/assets/images/doctor.jpg"));
+    &:hover, &.active {
+      @include background-image(url("/assets/images/doctor.jpg"));
+    }
+  }
+  &.organization {
+    @include background-image($transparent-gradient, url("/assets/images/hospital.jpg"));
+    &:hover, &.active {
+      @include background-image(url("/assets/images/hospital.jpg"));
+    }
+  }
+
+  &.active {
+    border: 3px solid $action-color;
+  }
+
+  span {
+    @include pad($small-spacing/2);
+    @include position(absolute, 10px null null 10px);
+    display: inline-block;
+    vertical-align: bottom;
+    background: lighten($bluegreen, 30%);
+    color: $black;
+  }
+}

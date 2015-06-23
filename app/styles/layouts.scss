@@ -1,6 +1,75 @@
 .banner {
-  @include background-image(linear-gradient(-17deg, #23508D 0%, #5EB0CD 47%, #66EF51 100%));
+  @include background-image($gradient);
   height: 1em;
+}
+
+.ember-view {
+  height: 100%;
+}
+
+.landing {
+  min-height: 100%;
+
+  header {
+    @include background-image($gradient);
+    @include row(table);
+    @include reset-display;
+    @include pad(1em 0 2em 0);
+    text-align: center;
+    font-size: 1.5em;
+
+    h1 {
+      margin-bottom: 0;
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: $small-spacing;
+      font-weight: normal;
+    }
+    p {
+      padding-top: $small-spacing;
+      line-height: 1;
+    }
+  }
+
+  footer {
+    height: 16em;
+    width: 100%;
+    padding: 3em;
+    text-align: center;
+    background: $base-background-color;
+    div {
+      @include span-columns(8);
+      @include shift(2);
+    }
+  }
+
+}
+
+.search-bar {
+  @include outer-container;
+  @include span-columns(8);
+  @include shift(2);
+
+  .search-bar {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    &:focus {
+      border: 1px solid $action-color;
+    }
+  }
+
+  label {
+    width: 100%;
+    input {
+      float: right;
+    }
+  }
+
+  .search {
+    margin: $small-spacing auto;
+  }
 }
 
 section {
@@ -10,6 +79,7 @@ section {
 .context {
   @include span-columns(3);
 }
+
 .main {
   @include span-columns(9);
   background-color: lighten($brown, 60%);
@@ -58,45 +128,5 @@ section {
   .otherinformation {
     @include span-columns(9 of 9);
     @include clearfix;
-  }
-}
-
-header {
-  @include fill-parent();
-  @include row(table);
-  @include reset-display;
-  @include pad();
-  @include background-image(linear-gradient(-17deg, #23508D 0%, #5EB0CD 47%, #66EF51 100%));
-  text-align: center;
-  font-size: 1.5em;
-  padding: 2em 0;
-  margin-bottom: 1em;
-
-  .search-bar {
-    @include span-columns(6);
-    @include shift(3);
-  }
-
-  h1 {
-    color: rgb(174, 245, 208);
-    text-shadow: 0px 2px 3px rgb(74, 116, 95);
-  }
-}
-
-.about {
-  // @include fill-parent();
-  // @include row(table);
-  @include span-columns(8);
-  @include shift(2);
-  // @include pad();
-  // font-size: 0.8em;
-}
-
-.home-link {
-  border-bottom: 3px solid rgb(48, 101, 155);
-  /* padding: 1em 0; */
-  color: rgb(48, 101, 155);
-  h1 {
-    color: rgb(48, 101, 155);
   }
 }
