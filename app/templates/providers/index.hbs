@@ -5,15 +5,16 @@
     {{home-link}}
     <h1>Edit Search</h1>
     <span>{{model.meta.totalResults}} results</span>
-
-    {{basic-search submit='submitBasic' placeholder='Enter search here' query=query sideNav=true}}
-
+    {{#if controllers.index.basicSearch}}
+      {{basic-search submit='submitBasic' placeholder='Enter search here' query=query sideNav=true}}
+    {{else}}
+      {{advanced-search submit="updateQuery" name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true}}
+    {{/if}}
 </div>
 
 <div class="main">
 
   {{outlet}}
-
   <table>
     <thead>
       <tr>
@@ -31,7 +32,8 @@
           <td>{{provider.practiceLocationAddress.shortLocation}}</td>
           <td>
             {{#each provider.classificationSpecialties key="@index" as |classSpecialty|}}
-              <span class="taxonomy">{{classSpecialty}} <span class="tooltip">{{provider.taxonomyCode.definition}}</span></span>
+              {{!-- Should figure out someway to assign the proper taxonomy definition (it is a good addition!) --}}
+              <span class="taxonomy">{{classSpecialty}} <span class="tooltip">{{classSpecialty.definition}}</span></span>
             {{/each}}
           </td>
         </tr>
