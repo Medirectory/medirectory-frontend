@@ -1,4 +1,4 @@
-{{#if sideNav}}<h2>Query</h2>{{/if}}
+{{#if sideNav}}<label>Query</label>{{/if}}
 {{input value=query placeholder=placeholder insert-newline="querySubmitted"}}
 {{yield}}
 {{#unless sideNav}}<button {{action 'querySubmitted'}} class='search'>Search {{#if providerSearch}}People{{else}}Organizations{{/if}}</button>{{/unless}}

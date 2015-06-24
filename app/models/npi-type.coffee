@@ -14,4 +14,15 @@ NpiType = DS.Model.extend
   taxonomyLicenses: DS.hasMany('taxonomy-license'),
   taxonomyGroups: DS.hasMany('taxonomy-group')
 
+  classificationSpecialties: ( ->
+    @get('taxonomyLicenses').map((license)->
+      license.get('taxonomyCode').get('classificationSpecialty')
+    ).uniq()
+  ).property('taxonomyLicenses.@each.taxonomyCode.classificationSpecialty')
+
+  classificationSummary: (->
+    @get('taxonomyLicenses').map((license)->
+      license.get('taxonomyCode').get('classification')
+    ).uniq().join(', ')
+  ).property('taxonomyLicenses.@each.taxonomyCode.classificationSpecialty')
 `export default NpiType`
