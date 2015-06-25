@@ -56,7 +56,7 @@ ProvidersIndexController = Ember.Controller.extend
     set: (key, newVal, oldVal)->
       newVal
   actions:
-    submitBasic: (params)->
+    submitUpdate: (params)->
       @set('q', params.q) if params.q
       @set('name', params.name) if params.name
       @set('location', params.location) if params.location
