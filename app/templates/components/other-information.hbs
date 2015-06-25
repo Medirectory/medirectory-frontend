@@ -1,0 +1,42 @@
+<p class="label">Licenses</p>
+<table>
+  <thead>
+    <tr>
+      <th>Specialty</th>
+      <th>License Number</th>
+      <th>State</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each taxonomyLicenses key="@index" as |license|}}
+      <tr>
+        <td>{{license.taxonomyCode.classificationSpecialty}}</td>
+        <td>{{license.licenseNumber}}</td>
+        <td>{{license.licenseNumberStateCode}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<p class="label">Other Identfiers</p>
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Type</th>
+      <th>State</th>
+      <th>Issuer</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each otherProviderIdentifiers key="@index" as |identifier|}}
+      <tr>
+        <td>{{identifier.identifier}}</td>
+        <td>{{identifier.identifierType}}</td>
+        <td>{{identifier.identifierState}}</td>
+        <td>{{identifier.identifierIssuer}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{yield}}

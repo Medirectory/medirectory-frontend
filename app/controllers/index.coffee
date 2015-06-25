@@ -6,6 +6,8 @@ IndexController = Ember.Controller.extend
   taxonomy: null
   npi: null
   organization: null
+  provider: null
+  authorized_official: null
   basicSearch: true
   providerSearch: true
   actions:

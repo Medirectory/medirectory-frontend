@@ -9,6 +9,8 @@ IndexRoute = Ember.Route.extend
       controller.set('taxonomy', null)
       controller.set('npi', null)
       controller.set('organization', null)
+      controller.set('provider', null)
+      controller.set('authorized_official', null)
   model: ->
     return [
       {
