@@ -78,6 +78,29 @@ section {
 
 .context {
   @include span-columns(3);
+  span {
+    display: block;
+    background-color: $bluegreen;
+    color: $white;
+    padding: $small-spacing;
+    font-weight: bold;
+  }
+  .tools {
+    box-shadow: inset 0px 0px 10px lighten($bluegreen, 30%);
+    @include padding($small-spacing $small-spacing*2 $small-spacing*2 $small-spacing*2);
+    font-size: 0.9em;
+    label {
+      @include margin($small-spacing 0);
+    }
+    input {
+      box-shadow: none;
+    }
+    button {
+      width: 100%;
+      font-size: 1em;
+      margin-top: 1em;
+    }
+  }
 }
 
 .main {
