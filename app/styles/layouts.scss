@@ -3,7 +3,7 @@
   height: 1em;
 }
 
-.ember-view:first {
+body > .ember-view {
   height: 100%;
 }
 
