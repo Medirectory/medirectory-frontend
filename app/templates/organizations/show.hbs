@@ -12,29 +12,33 @@
   <div class="main">
 
     <div class="name">
-      <h1>{{model.organizationNameLegalBusinessName}} <span class='npi'>{{model.id}}</span></h1>
       {{#if model.otherOrganizationName}}
-        <h2>({{model.otherOrganizationName}})</h2>
+        <h1>{{model.otherOrganizationName}} <span class='npi'>{{model.id}}</span></h1>
+        <h2>{{model.organizationNameLegalBusinessName}}</h2>
+      {{else}}
+        <h1>{{model.organizationNameLegalBusinessName}} <span class='npi'>{{model.id}}</span></h1>
       {{/if}}
     </div>
 
     {{address-map class='practice' label='Practice Location Information' location=model.practiceLocationAddress}}
-  
+
     {{address-map class='mailing' label='Mailing Information' location=model.mailingAddress}}
 
     {{other-information class='otherinformation' taxonomyLicenses=model.taxonomyLicenses otherProviderIdentifiers=model.otherProviderIdentifiers }}
 
-    <div class="affiliations">
+    {{#if model.providers}}
+    <div class="affiliated">
       <p class="label">Affiliated Providers</p>
       <table>
         {{#each model.providers key="@index" as |provider|}}
           <tr>
             <td>{{#link-to 'providers/show' provider.id}}{{provider.fullName}}{{/link-to}}</td>
-            <td>{{provider.classificationSummary}}</td>
+            <td><span class="taxonomy">{{provider.classificationSummary}}</span></td>
           </tr>
         {{/each}}
       </table>
     </div>
+    {{/if}}
 
   </div>
 

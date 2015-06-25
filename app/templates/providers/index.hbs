@@ -28,7 +28,7 @@
       {{#each model key="@index" as |provider|}}
         <tr>
           <td>{{#link-to 'providers/show' provider.id }}{{provider.id}}{{/link-to}}</td>
-          <td>{{provider.namePrefix}} {{provider.firstName}} {{provider.middleName}} {{provider.lastNameLegalName}} {{provider.nameSuffix}}</td>
+          <td><strong>{{#if provider.otherFullName}}{{provider.otherFullName}}{{else}}{{provider.fullName}}{{/if}}</strong></td>
           <td>{{provider.practiceLocationAddress.shortLocation}}</td>
           <td>
             {{#each provider.classificationSpecialties key="@index" as |classSpecialty|}}
