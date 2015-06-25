@@ -16,7 +16,7 @@
     @include reset-display;
     @include pad(1em 0 2em 0);
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
 
     h1 {
       margin-bottom: 0;
@@ -48,27 +48,18 @@
 
 .search-bar {
   @include outer-container;
-  @include span-columns(8);
-  @include shift(2);
-
-  .search-bar {
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    &:focus {
-      border: 1px solid $action-color;
-    }
-  }
+  @include span-columns(6);
+  @include shift(3);
+  padding: $small-spacing;
 
   label {
-    width: 100%;
+    @include clearfix;
+    line-height: 2.25em;
+    text-align: left;
     input {
+      width: 400px;
       float: right;
     }
-  }
-
-  .search {
-    margin: $small-spacing auto;
   }
 }
 
