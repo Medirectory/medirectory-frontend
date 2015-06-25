@@ -2,104 +2,41 @@
 
 {{outlet}}
 <section>
-<div class="context">
-  {{home-link}}
-  {{back-link tagName="h1"}}
+  <div class="context">
+    {{home-link}}
+    {{back-link tagName="h1"}}
 
-  {{!-- <div class="actions">
-    {{#link-to '' class='correct' tagName='button'}}Correct this information{{/link-to}}
-  </div> --}}
+    {{!-- <div class="actions">
+      {{#link-to '' class='correct' tagName='button'}}Correct this information{{/link-to}}
+    </div> --}}
 
-</div>
-<div class="main">
-  <div class="name">
-    <h1>{{#if model.female}}{{fa-icon 'venus' fixedWidth=true}}{{/if}}{{#if model.male}}{{fa-icon 'mars' fixedWidth=true}}{{/if}}
-      {{#if model.otherFullName}}{{model.otherFullName}}{{else}}{{model.fullName}}{{/if}}
-      <span class='npi'>{{model.id}}</span></h1>
-
-    {{#if model.otherFullName}}<h2>Full name: {{model.fullName}}</h2>{{/if}}
   </div>
+  <div class="main">
+    <div class="name">
+      <h1>{{#if model.female}}{{fa-icon 'venus' fixedWidth=true}}{{/if}}{{#if model.male}}{{fa-icon 'mars' fixedWidth=true}}{{/if}}
+        {{#if model.otherFullName}}{{model.otherFullName}}{{else}}{{model.fullName}}{{/if}}
+        <span class='npi'>{{model.id}}</span></h1>
 
-  <div class="affiliations">
-    <p class="label">Group Affiliations</p>
-    {{#each model.organizations key="@index" as |organization|}}
-      {{#link-to 'organizations/show' organization.id}}
-        {{organization.organizationNameLegalBusinessName}}
-        {{#if organization.otherOrganizationName}}
-          ({{organization.otherOrganizationName}})
-        {{/if}}
-      {{/link-to}}
-    {{/each}}
+      {{#if model.otherFullName}}<h2>Full name: {{model.fullName}}</h2>{{/if}}
+    </div>
+
+    <div class="affiliations">
+      <p class="label">Group Affiliations</p>
+      {{#each model.organizations key="@index" as |organization|}}
+        {{#link-to 'organizations/show' organization.id}}
+          {{organization.organizationNameLegalBusinessName}}
+          {{#if organization.otherOrganizationName}}
+            ({{organization.otherOrganizationName}})
+          {{/if}}
+        {{/link-to}}
+      {{/each}}
+    </div>
+    
+    {{address-map class='practice' label='Practice Location Information' location=model.practiceLocationAddress}}
+    
+    {{address-map class='mailing' label='Mailing Information' location=model.mailingAddress}}
+
+    {{other-information class='otherinformation' taxonomyLicenses=model.taxonomyLicenses otherProviderIdentifiers=model.otherProviderIdentifiers }}
+
   </div>
-
-  <div class="practice">
-    <p class="label">Practice Location Information</p>
-    <ul>
-      <li>{{model.practiceLocationAddress.streetAddress}}</li>
-      <li>{{model.practiceLocationAddress.shortLocation2}}</li>
-      <li><iframe width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.practiceLocationAddress.mapLink}}"></iframe></li>
-      <li><a href='{{unbound model.practiceLocationAddress.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
-      <li>{{#if model.practiceLocationAddress.formattedPhone}} <a href="tel:{{model.practiceLocationAddress.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{model.practiceLocationAddress.formattedPhone}}</a> {{/if}}</li>
-      <li>{{#if model.practiceLocationAddress.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{model.practiceLocationAddress.formattedFax}} {{/if}}</li>
-    </ul>
-  </div>
-
-  <div class="mailing">
-    <p class="label">Mailing Information</p>
-    <ul>
-      <li>{{model.mailingAddress.streetAddress}}</li>
-      <li>{{model.mailingAddress.shortLocation2}}</li>
-      <li><iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.mailingAddress.mapLink}}"></iframe></li>
-      <li><a href='{{unbound model.mailingAddress.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
-      <li>{{#if model.mailingAddress.formattedPhone}} <a href="tel:{{model.mailingAddress.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{model.mailingAddress.formattedPhone}} </a> {{/if}}</li>
-      <li>{{#if model.mailingAddress.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{model.mailingAddress.formattedFax}} {{/if}}</li>
-    </ul>
-  </div>
-
-  <div class="otherinformation">
-    <p class="label">Licenses</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Specialty</th>
-          <th>License Number</th>
-          <th>State</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each model.taxonomyLicenses key="@index" as |license|}}
-          <tr>
-            <td>{{license.taxonomyCode.classificationSpecialty}}</td>
-            <td>{{license.licenseNumber}}</td>
-            <td>{{license.licenseNumberStateCode}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-
-    <p class="label">Other Identfiers</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Identifier</th>
-          <th>Type</th>
-          <th>State</th>
-          <th>Issuer</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each model.otherProviderIdentifiers key="@index" as |identifier|}}
-          <tr>
-            <td>{{identifier.identifier}}</td>
-            <td>{{identifier.identifierType}}</td>
-            <td>{{identifier.identifierState}}</td>
-            <td>{{identifier.identifierIssuer}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-
-
-</div>
 </section>

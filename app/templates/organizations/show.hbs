@@ -30,29 +30,11 @@
       </table>
     </div>
 
-    <div class="practice">
-      <p class="label">Practice Location Information</p>
-      <ul>
-        <li>{{model.practiceLocationAddress.streetAddress}}</li>
-        <li>{{model.practiceLocationAddress.shortLocation2}}</li>
-        <li><iframe width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.practiceLocationAddress.mapLink}}"></iframe></li>
-        <li><a href='{{unbound model.practiceLocationAddress.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
-        <li>{{#if model.practiceLocationAddress.formattedPhone}} <a href="tel:{{model.practiceLocationAddress.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{model.practiceLocationAddress.formattedPhone}}</a> {{/if}}</li>
-        <li>{{#if model.practiceLocationAddress.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{model.practiceLocationAddress.formattedFax}} {{/if}}</li>
-      </ul>
-    </div>
+    {{address-map class='practice' label='Practice Location Information' location=model.practiceLocationAddress}}
+  
+    {{address-map class='mailing' label='Mailing Information' location=model.mailingAddress}}
 
-    <div class="mailing">
-      <p class="label">Mailing Information</p>
-      <ul>
-        <li>{{model.mailingAddress.streetAddress}}</li>
-        <li>{{model.mailingAddress.shortLocation2}}</li>
-        <li><iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" width="100%" height="250" frameborder="0" style="border:0" src="{{unbound model.mailingAddress.mapLink}}"></iframe></li>
-        <li><a href='{{unbound model.mailingAddress.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
-        <li>{{#if model.mailingAddress.formattedPhone}} <a href="tel:{{model.mailingAddress.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{model.mailingAddress.formattedPhone}} </a> {{/if}}</li>
-        <li>{{#if model.mailingAddress.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{model.mailingAddress.formattedFax}} {{/if}}</li>
-      </ul>
-    </div>
+    {{other-information class='otherinformation' taxonomyLicenses=model.taxonomyLicenses otherProviderIdentifiers=model.otherProviderIdentifiers }}
 
   </div>
 
