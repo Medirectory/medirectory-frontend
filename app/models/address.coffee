@@ -31,7 +31,7 @@ Address = DS.Model.extend
 
   mapLink: (->
     address = (@get('firstLine') || '') + ' ' + (@get('city') || '') + ' ' +  (@get('state') || '') + ' ' +  (@get('postalCode').substring(0,5) || '')
-    return 'http://maps.google.com/?q=' + address.trim() + '&output=embed'
+    return 'http://maps.google.com/?q=' + address.trim()
   ).property('firstLine', 'city', 'state', 'postalCode')
 
   formattedPostal: (->
