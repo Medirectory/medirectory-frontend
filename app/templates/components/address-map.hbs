@@ -4,7 +4,7 @@
   <li>{{location.shortLocation2}}</li>
   <li><iframe width="100%" height="250" frameborder="0" style="border:0" src="{{unbound location.mapLink}}&output=embed"></iframe></li>
   <li><a href='{{unbound location.mapLink}}'>{{fa-icon 'map-marker' fixedWidth=true}} Find on Google </a></li>
-  <li>{{#if location.formattedPhone}} <a href="tel:{{location.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{location.formattedPhone}}</a> {{/if}}</li>
-  <li>{{#if location.formattedFax}} {{fa-icon 'fax' fixedWidth=true}} {{location.formattedFax}} {{/if}}</li>
+  {{#if location.formattedPhone}}<li> <a href="tel:{{location.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{location.formattedPhone}}</a> </li>{{/if}}
+  {{#if location.formattedFax}}<li> {{fa-icon 'fax' fixedWidth=true}} {{location.formattedFax}} </li>{{/if}}
 </ul>
 {{yield}}
