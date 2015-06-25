@@ -16,6 +16,8 @@
 <div class="main">
 
   {{outlet}}
+
+  {{#if model.meta.totalResults}}
   <table>
     <thead>
       <tr>
@@ -64,6 +66,14 @@
       {{#unless hasPrevious}}All results shown.{{/unless}}
     {{/unless}}
   </div>
+
+  {{else}}
+    <div class="no-results">
+      <h1>Medirectory did not find any results {{fa-icon 'frown-o' fixedWidth=True}}</h1>
+      <h2>Try adjusting your search at left.</h2>
+    </div>
+
+  {{/if}}
 
 </div>
 </section
