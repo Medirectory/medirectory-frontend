@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
 `import NpiType from './npi-type'`
 
-Organization = NpiType.extend 
+Organization = NpiType.extend
   ein: DS.attr('string'),
   organizationNameLegalBusinessName: DS.attr('string'),
   otherOrganizationName: DS.attr('string'),
@@ -22,7 +22,7 @@ Organization = NpiType.extend
   fullAuthorizedName: (->
     name = (@get('authorizedOfficialNamePrefix') || '') + ' ' + (@get('authorizedOfficialFirstName') || '') + ' ' + (@get('authorizedOfficialMiddleName') || '') + ' ' + (@get('authorizedOfficialLastName') || '') + ' ' + (@get('authorizedOfficialNameSuffix') || '')
     #return the name unless the name is null only whitespace, otherwise null.
-    name unless /\S/.test(name)
+    name if /\S/.test(name)
     ).property('authorizedOfficialNamePrefix', 'authorizedOfficialFirstName', 'authorizedOfficialMiddleName', 'authorizedOfficialLastName', 'authorizedOfficialNameSuffix')
 
 
