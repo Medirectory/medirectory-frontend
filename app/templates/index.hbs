@@ -4,8 +4,8 @@
     <h2>Find a healthcare provider.</h2>
     {{#if basicSearch}}<p>Search by name, location, and/or type of medical practice.</p>
     {{else}}<p>All fields are optional.</p>{{/if}}
-    <button {{action 'setProviderSearch'}} {{bindAttr class="providerSearch:active :search-type :provider"}}><span>People</span></button>
-    <button {{action 'setOrganizationSearch'}} {{bindAttr class="providerSearch::active :search-type :organization"}}><span>Organizations</span></button>
+    <button {{action 'setProviderSearch'}} class="search-type provider {{if providerSearch 'active' ''}}"><span>People</span></button>
+    <button {{action 'setOrganizationSearch'}} class="search-type organization {{if providerSearch '' 'active'}}"><span>Organizations</span></button>
     <div class="search-bar">
       {{#if basicSearch}}
         {{#basic-search submit='submit' placeholder='Try "camille houston" or "williams portland"' providerSearch=providerSearch}}
