@@ -6,9 +6,9 @@
     <span>{{model.meta.totalResults}} results</span>
     <div class="tools">
       {{#if controllers.index.basicSearch}}
-        {{basic-search submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
+        {{basic-search class='update-search' submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
       {{else}}
-        {{advanced-search submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true providerSearch=true}}
+        {{advanced-search class='update-search' submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true providerSearch=true}}
       {{/if}}
     </div>
 </div>
