@@ -57,12 +57,14 @@ ProvidersIndexController = Ember.Controller.extend
       newVal
   actions:
     submitUpdate: (params)->
-      @set('q', params.q) if params.q
-      @set('name', params.name) if params.name
-      @set('location', params.location) if params.location
-      @set('taxonomy', params.taxonomy) if params.taxonomy
-      @set('npi', params.npi) if params.npi
-      @set('organization', params.organization) if params.organization
+      if @get('controllers.index.basicSearch')
+        @set('q', params.q) 
+      else
+        @set('name', params.name)
+        @set('location', params.location)
+        @set('taxonomy', params.taxonomy)
+        @set('npi', params.npi)
+        @set('organization', params.organization)
       @set('offset', 0)
       false
 
