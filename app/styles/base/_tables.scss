@@ -1,6 +1,7 @@
 table {
   @include font-feature-settings("kern", "liga", "tnum");
   border-collapse: collapse;
+  font-size: 0.85em;
   margin: $small-spacing 0;
   table-layout: fixed;
   width: 100%;
@@ -8,36 +9,37 @@ table {
     width: 15%;
   }
   .name-col {
-    width: 25%;
+    width: 35%;
   }
   .location-col {
     width: 25%;
   }
   .specialties-col {
-    width: 35%;
+    width: 25%;
   }
-}
-
-th {
-  border-bottom: 1px solid darken($base-border-color, 15%);
-  font-weight: 600;
-  padding: $small-spacing 0;
-  text-align: left;
-  text-transform: uppercase;
-  font-size: 0.8em;
-}
-
-td {
-  border-bottom: $base-border;
-  font-size: 0.85em;
-  line-height: 1.2;
 }
 
 tr,
 td,
 th {
-  padding: $small-spacing/2;
+  padding: $small-spacing;
   vertical-align: middle;
+}
+
+th {
+  border-bottom: 1px solid darken($base-border-color, 15%);
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+td {
+  border-bottom: $base-border;
+  line-height: 1.2;
+  em {
+    display: block;
+    font-size: 0.85em;
+  }
 }
 
 th:first {
@@ -51,7 +53,10 @@ tr:hover {
 .taxonomy {
   display: inline-block;
   background-color: $base-border-color;
-  padding: $small-spacing/2;
+  border-bottom: 1px solid darken($base-border-color, 15%);
+  font-size: 0.85em;
+  font-weight: bold;
+  padding: $small-spacing/2 $small-spacing;
   margin: $small-spacing/4 auto;
-  border-radius: 6px;
+  border-radius: $base-border-radius;
 }

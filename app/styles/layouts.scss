@@ -3,7 +3,7 @@
   height: 1em;
 }
 
-.ember-view {
+body > .ember-view {
   height: 100%;
 }
 
@@ -16,7 +16,7 @@
     @include reset-display;
     @include pad(1em 0 2em 0);
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
 
     h1 {
       margin-bottom: 0;
@@ -48,52 +48,78 @@
 
 .search-bar {
   @include outer-container;
-  @include span-columns(8);
-  @include shift(2);
-
-  .search-bar {
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    &:focus {
-      border: 1px solid $action-color;
-    }
-  }
+  @include span-columns(6);
+  @include shift(3);
+  padding: $small-spacing;
 
   label {
-    width: 100%;
+    @include clearfix;
+    line-height: 2.25em;
+    text-align: left;
     input {
+      width: 400px;
       float: right;
     }
-  }
-
-  .search {
-    margin: $small-spacing auto;
   }
 }
 
 section {
   @include outer-container;
+  height: 100%;
 }
 
 .context {
   @include span-columns(3);
+  span {
+    display: block;
+    background-color: $bluegreen;
+    color: $white;
+    padding: $small-spacing;
+    font-weight: bold;
+  }
+  .tools {
+    box-shadow: inset 0px 0px 10px lighten($bluegreen, 30%);
+    @include padding($small-spacing $small-spacing*2 $small-spacing*2 $small-spacing*2);
+    font-size: 0.9em;
+    label {
+      @include margin($small-spacing 0);
+    }
+    input {
+      box-shadow: none;
+    }
+    button {
+      width: 100%;
+      font-size: 1em;
+      margin-top: 1em;
+    }
+  }
 }
 
 .main {
   @include span-columns(9);
-  background-color: lighten($brown, 60%);
-  padding: 0 2em;
-
+  height: 100%;
+  overflow-y: scroll;
+  padding: 1em 2em;
+  background-color: $white;
+  box-shadow: 0px 0px 26px -6px rgb(74, 100, 116);
+  .no-results {
+    margin: -1em -2em;
+    padding: 3em;
+    background-color: lighten($bluegreen,45%);
+    color: $black;
+    h1, h2 {
+      font-family: $base-font-family;
+      color: darken($bluegreen,10%);
+    }
+  }
   .name {
-    background-color: lighten($blue, 60%);
-    color: $blue;
-    padding: $small-spacing/2 1em;
-    border-bottom: 1px solid lighten($blue, 50%);
-    line-height: 1;
+    h1, h2 {
+      font-family: $base-font-family;
+    }
     h2 {
       margin-top: 0;
       font-weight: normal;
+      font-style: italic;
       margin-bottom: 1em;
     }
   }
@@ -105,15 +131,13 @@ section {
   }
 
   .label {
+    @include padding(0.5em 1em);
     font-weight: bold;
-    background-color: lighten($blue, 60%);
+    background-color: lighten($blue, 65%);
     color: $blue;
-    padding: $small-spacing/2;
     margin-top: $small-spacing*4;
     font-size: 0.8em;
     text-transform: uppercase;
-    border-bottom: 1px solid lighten($blue, 50%);
-    line-height: 1;
   }
 
   .practice {
@@ -125,7 +149,18 @@ section {
     @include omega;
   }
 
+  .practice, .mailing {
+    ul {
+      @include padding(0 1em);
+    }
+  }
+
   .otherinformation {
+    @include span-columns(9 of 9);
+    @include clearfix;
+  }
+
+  .affiliated {
     @include span-columns(9 of 9);
     @include clearfix;
   }

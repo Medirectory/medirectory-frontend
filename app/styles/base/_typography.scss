@@ -38,8 +38,8 @@ $amplifier: 1.25;
 
 $context-font: (
   landing: 1,
-  main: 0.75,
-  context: 0.5
+  main: 0.8,
+  context: 0.6
 );
 
 @each $element, $value in $context-font {

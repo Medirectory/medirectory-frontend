@@ -1,7 +1,8 @@
 .home-link {
-  border-bottom: 3px solid $action-color;
-  color: $action-color;
-  h1 {
-    color: $action-color;
+  // border-bottom: 3px solid lighten($bluegreen, 10%);
+  // background-color: lighten($bluegreen, 30%);
+  color: $bluegreen;
+  a {
+    // color: $action-color;
   }
 }

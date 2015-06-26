@@ -1,4 +1,8 @@
 {{#if sideNav}}<label>Query</label>{{/if}}
 {{input value=query placeholder=placeholder insert-newline="querySubmitted"}}
 {{yield}}
-{{#unless sideNav}}<button {{action 'querySubmitted'}} class='search'>Search {{#if providerSearch}}People{{else}}Organizations{{/if}}</button>{{/unless}}
+{{#if sideNav}}
+<button  {{action 'querySubmitted'}} class='search'>Update Search</button>
+{{else}}
+<button {{action 'querySubmitted'}} class='search'>Search {{#if providerSearch}}People{{else}}Organizations{{/if}}</button>
+{{/if}}

@@ -5,16 +5,20 @@
     {{home-link}}
     <h1>Edit Search</h1>
     <span>{{model.meta.totalResults}} results</span>
-    {{#if controllers.index.basicSearch}}
-      {{basic-search submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
-    {{else}}
-      {{advanced-search submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true providerSearch=true}}
-    {{/if}}
+    <div class="tools">
+      {{#if controllers.index.basicSearch}}
+        {{basic-search submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
+      {{else}}
+        {{advanced-search submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true providerSearch=true}}
+      {{/if}}
+    </div>
 </div>
 
 <div class="main">
 
   {{outlet}}
+
+  {{#if model}}
   <table>
     <thead>
       <tr>
@@ -28,7 +32,7 @@
       {{#each model key="@index" as |provider|}}
         <tr>
           <td>{{#link-to 'providers/show' provider.id }}{{provider.id}}{{/link-to}}</td>
-          <td>{{provider.namePrefix}} {{provider.firstName}} {{provider.middleName}} {{provider.lastNameLegalName}} {{provider.nameSuffix}}</td>
+          <td><strong>{{#if provider.otherFullName}}{{provider.otherFullName}}{{else}}{{provider.fullName}}{{/if}}</strong></td>
           <td>{{provider.practiceLocationAddress.shortLocation}}</td>
           <td>
             {{#each provider.classificationSpecialties key="@index" as |classSpecialty|}}
@@ -49,7 +53,19 @@
     {{#if hasNext}}
       {{#link-to 'providers/index' (query-params offset=nextOffset)}} Next {{fa-icon 'angle-right' fixedWidth=True}} {{/link-to}}
     {{/if}}
+
+    {{#unless hasNext}}
+      {{#unless hasPrevious}}All results shown.{{/unless}}
+    {{/unless}}
   </div>
+
+  {{else}}
+    <div class="no-results">
+      <h1>Medirectory did not find any results {{fa-icon 'frown-o' fixedWidth=True}}</h1>
+      <h2>Try adjusting your search at left.</h2>
+    </div>
+
+  {{/if}}
 
 </div>
 </section

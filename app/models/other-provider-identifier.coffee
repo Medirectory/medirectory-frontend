@@ -16,7 +16,8 @@ OtherProviderIdentifier = DS.Model.extend
       '02': 'MEDICARE UPIN',
       '04': 'MEDICARE ID-TYPE UNSPECIFIED',
       '05': 'MEDICAID',
-      '06': 'MEDICARE OSCAR/CERTIFICATION 07, MEDICARE NSC',
+      '06': 'MEDICARE OSCAR/CERTIFICATION',
+      '07': 'MEDICARE NSC',
       '08': 'MEDICARE PIN'
     }
     return OtherProviderIdentifierTypeCodeTable[@get('identifierTypeCode')]

@@ -17,23 +17,29 @@
         {{#if model.otherFullName}}{{model.otherFullName}}{{else}}{{model.fullName}}{{/if}}
         <span class='npi'>{{model.id}}</span></h1>
 
-      {{#if model.otherFullName}}<h2>Full name: {{model.fullName}}</h2>{{/if}}
+      {{#if model.otherFullName}}<h2>{{model.fullName}}</h2>{{/if}}
     </div>
 
-    <div class="affiliations">
+    {{#if model.organizations}}
+    <div class="affiliated">
       <p class="label">Group Affiliations</p>
-      {{#each model.organizations key="@index" as |organization|}}
-        {{#link-to 'organizations/show' organization.id}}
-          {{organization.organizationNameLegalBusinessName}}
-          {{#if organization.otherOrganizationName}}
-            ({{organization.otherOrganizationName}})
-          {{/if}}
-        {{/link-to}}
-      {{/each}}
+      <table>
+        {{#each model.organizations key="@index" as |organization|}}
+          <tr>
+            <td>{{#link-to 'organizations/show' organization.id}}
+              {{organization.organizationNameLegalBusinessName}}
+              {{#if organization.otherOrganizationName}}
+                ({{organization.otherOrganizationName}})
+              {{/if}}
+            {{/link-to}}</td>
+          </tr>
+        {{/each}}
+      </table>
     </div>
-    
+    {{/if}}
+
     {{address-map class='practice' label='Practice Location Information' location=model.practiceLocationAddress}}
-    
+
     {{address-map class='mailing' label='Mailing Information' location=model.mailingAddress}}
 
     {{other-information class='otherinformation' taxonomyLicenses=model.taxonomyLicenses otherProviderIdentifiers=model.otherProviderIdentifiers }}

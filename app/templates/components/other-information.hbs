@@ -1,3 +1,4 @@
+{{#if taxonomyLicenses}}
 <p class="label">Licenses</p>
 <table>
   <thead>
@@ -17,7 +18,9 @@
     {{/each}}
   </tbody>
 </table>
+{{/if}}
 
+{{#if otherProviderIdentifiers}}
 <p class="label">Other Identfiers</p>
 <table>
   <thead>
@@ -39,4 +42,5 @@
     {{/each}}
   </tbody>
 </table>
+{{/if}}
 {{yield}}

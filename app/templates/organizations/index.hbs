@@ -3,18 +3,21 @@
 <section>
 <div class="context">
     {{home-link}}
-    <h1>Edit Search</h1>
-    <span>{{model.meta.totalResults}} results</span>
-    {{#if controllers.index.basicSearch}}
-      {{basic-search submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
-    {{else}}
-      {{advanced-search submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true providerSearch=false}}
-    {{/if}}
+    <span>{{format-number model.meta.totalResults}} results</span>
+    <div class="tools">
+      {{#if controllers.index.basicSearch}}
+        {{basic-search class='update-search' submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
+      {{else}}
+        {{advanced-search class='update-search' submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true providerSearch=false}}
+      {{/if}}
+    </div>
 </div>
 
 <div class="main">
 
   {{outlet}}
+
+  {{#if model}}
   <table>
     <thead>
       <tr>
@@ -29,9 +32,13 @@
         <tr>
           <td>{{#link-to 'organizations/show' organization.id }}{{organization.id}}{{/link-to}}</td>
           <td>
-            {{organization.organizationNameLegalBusinessName}}
+            <strong>{{#if organization.otherOrganizationName}}
+              {{organization.otherOrganizationName}}
+            {{else}}
+              {{organization.organizationNameLegalBusinessName}}
+            {{/if}}</strong>
             {{#if organization.fullAuthorizedName}}
-              <br/>{{organization.fullAuthorizedName}}
+              <em>{{organization.fullAuthorizedName}}</em>
             {{/if}}
           </td>
           <td>{{organization.practiceLocationAddress.shortLocation}}</td>
@@ -54,7 +61,19 @@
     {{#if hasNext}}
       {{#link-to 'organizations/index' (query-params offset=nextOffset)}} Next {{fa-icon 'angle-right' fixedWidth=True}} {{/link-to}}
     {{/if}}
+
+    {{#unless hasNext}}
+      {{#unless hasPrevious}}All results shown.{{/unless}}
+    {{/unless}}
   </div>
+
+  {{else}}
+    <div class="no-results">
+      <h1>Medirectory did not find any results {{fa-icon 'frown-o' fixedWidth=True}}</h1>
+      <h2>Try adjusting your search at left.</h2>
+    </div>
+
+  {{/if}}
 
 </div>
 </section
