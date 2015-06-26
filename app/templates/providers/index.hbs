@@ -17,6 +17,8 @@
 <div class="main">
 
   {{outlet}}
+
+  {{#if model}}
   <table>
     <thead>
       <tr>
@@ -51,7 +53,19 @@
     {{#if hasNext}}
       {{#link-to 'providers/index' (query-params offset=nextOffset)}} Next {{fa-icon 'angle-right' fixedWidth=True}} {{/link-to}}
     {{/if}}
+
+    {{#unless hasNext}}
+      {{#unless hasPrevious}}All results shown.{{/unless}}
+    {{/unless}}
   </div>
+
+  {{else}}
+    <div class="no-results">
+      <h1>Medirectory did not find any results {{fa-icon 'frown-o' fixedWidth=True}}</h1>
+      <h2>Try adjusting your search at left.</h2>
+    </div>
+
+  {{/if}}
 
 </div>
 </section
