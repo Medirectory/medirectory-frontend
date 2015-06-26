@@ -63,13 +63,15 @@ OrganizationsIndexController = Ember.Controller.extend
       newVal
   actions:
     submitUpdate: (params)->
-      @set('q', params.q) if params.q
-      @set('name', params.name) if params.name
-      @set('location', params.location) if params.location
-      @set('taxonomy', params.taxonomy) if params.taxonomy
-      @set('npi', params.npi) if params.npi
-      @set('provider', params.provider) if params.provider
-      @set('authorized_official', params.authorized_official) if params.authorized_official
+      if @get('controllers.index.basicSearch')
+        @set('q', params.q) 
+      else
+        @set('name', params.name)
+        @set('location', params.location)
+        @set('taxonomy', params.taxonomy)
+        @set('npi', params.npi)
+        @set('provider', params.provider)
+        @set('authorized_official', params.authorized_official)
       @set('offset', 0)
       false
 

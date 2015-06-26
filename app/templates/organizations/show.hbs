@@ -18,6 +18,12 @@
       {{else}}
         <h1>{{model.organizationNameLegalBusinessName}} <span class='npi'>{{model.id}}</span></h1>
       {{/if}}
+      {{#if model.fullAuthorizedName}}
+        {{model.fullAuthorizedName}}
+        {{#each model.authorizedOfficialProviders key="@index" as |official index|}}
+          {{#link-to 'providers/show' official.id}}[{{index}}]{{/link-to}}
+        {{/each}}
+      {{/if}}
     </div>
 
     {{address-map class='practice' label='Practice Location Information' location=model.practiceLocationAddress}}
