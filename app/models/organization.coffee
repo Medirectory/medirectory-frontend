@@ -25,5 +25,10 @@ Organization = NpiType.extend
     name if /\S/.test(name)
     ).property('authorizedOfficialNamePrefix', 'authorizedOfficialFirstName', 'authorizedOfficialMiddleName', 'authorizedOfficialLastName', 'authorizedOfficialNameSuffix')
 
+  authorizedOfficialProviders: (->
+    @get('providers').filter((provider)=>
+      provider.get('firstName') == @get('authorizedOfficialFirstName') && provider.get('lastNameLegalName') == @get('authorizedOfficialLastName')
+      )
+    ).property('providers.@each.firstName', 'authorizedOfficialFirstName', 'providers.@each.lastNameLegalName', 'authorizedOfficialLastName')
 
 `export default Organization`
