@@ -39,12 +39,11 @@ button {
   }
 
   &.secondary {
-    color: lighten($blue, 50%);
-    background-color: $blue;
+    background-color: rgba(255,255,255,0.3);
+    color: $blue;
+    box-shadow: none;
     &:hover,
     &:focus {
-      color: $blue;
-      background-color: rgba(255,255,255,0.3);
       box-shadow: 0px 2px 10px rgb(74, 100, 116);
     }
   }

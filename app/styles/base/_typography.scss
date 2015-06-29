@@ -29,7 +29,7 @@ h6 {
 
 // Scale the heading sizes
 $step-size: 0.25;
-$amplifier: 1.25;
+$amplifier: 1.05;
 @mixin heading-size($size) {
   font-size: $size * $step-size * $amplifier + em;
   line-height: ($size * $step-size) + em;
