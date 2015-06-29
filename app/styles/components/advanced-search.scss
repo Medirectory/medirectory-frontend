@@ -1,5 +1,5 @@
 .search-type {
-  @include margin(1em);
+  @include margin(1em 0);
   @include size(200px 100px);
   display: inline-block;
   background-repeat: no-repeat;

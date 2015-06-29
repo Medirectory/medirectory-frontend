@@ -2,8 +2,6 @@
   <header>
     <h1>Medirectory</h1>
     <h2>Find a healthcare provider.</h2>
-    {{#if basicSearch}}<p>Search by name, location, and/or type of medical practice.</p>
-    {{else}}<p>All fields are optional.</p>{{/if}}
     <button {{action 'setProviderSearch'}} class="search-type provider {{if providerSearch 'active' ''}}"><span>People</span></button>
     <button {{action 'setOrganizationSearch'}} class="search-type organization {{if providerSearch '' 'active'}}"><span>Organizations</span></button>
     <div class="search-bar">
