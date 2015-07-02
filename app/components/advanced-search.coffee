@@ -1,6 +1,13 @@
 `import Ember from 'ember'`
 
 AdvancedSearchComponent = Ember.Component.extend
+  setup: (->
+    Ember.$.getJSON('/api/v1/taxonomies.json').then (result)=>
+      taxonomies = for taxonomy, index in result.taxonomies
+        id: index
+        text: taxonomy
+      @set('taxonomies', taxonomies) 
+    ).on('init')
   actions:
     querySubmitted: ->
       @sendAction('submit', 
