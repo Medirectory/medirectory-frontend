@@ -3,7 +3,7 @@
 <section>
 <div class="context">
     {{home-link}}
-    <span>{{model.meta.totalResults}} results</span>
+    <span class="result-count">{{model.meta.totalResults}} results</span>
     <div class="tools">
       {{#if controllers.index.basicSearch}}
         {{basic-search class='update-search' submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
