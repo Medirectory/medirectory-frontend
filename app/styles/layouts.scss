@@ -76,7 +76,7 @@ section {
 
 .context {
   @include span-columns(3);
-  span {
+  .result-count {
     display: block;
     background-color: $bluegreen;
     color: $white;
