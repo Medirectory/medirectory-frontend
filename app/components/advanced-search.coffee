@@ -1,6 +1,25 @@
 `import Ember from 'ember'`
 
 AdvancedSearchComponent = Ember.Component.extend
+  didInsertElement: (->
+    # constructs the suggestion engine
+
+    Ember.$.getJSON('/api/v1/taxonomies.json').then (result)=>
+      taxonomies = new Bloodhound
+        datumTokenizer: Bloodhound.tokenizers.nonword
+        queryTokenizer: Bloodhound.tokenizers.nonword
+        # `states` is an array of state names defined in "The Basics"
+        local: result.taxonomies
+       
+      $('.typeahead').typeahead
+        hint: true
+        highlight: true
+        minLength: 1
+      ,
+        name: 'taxonomies'
+        source: taxonomies
+        limit: 8
+    )
   actions:
     querySubmitted: ->
       @sendAction('submit', 
