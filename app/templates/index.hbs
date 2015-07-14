@@ -2,8 +2,10 @@
   <header>
     <h1>Medirectory</h1>
     <h2>Find a healthcare provider.</h2>
-    <button {{action 'setProviderSearch'}} class="search-type provider {{if providerSearch 'active' ''}}"><span>People</span></button>
-    <button {{action 'setOrganizationSearch'}} class="search-type organization {{if providerSearch '' 'active'}}"><span>Organizations</span></button>
+    <div class="search-type">
+      <button {{action 'setProviderSearch'}} class="provider {{if providerSearch 'active' ''}}"><span>People</span></button>
+      <button {{action 'setOrganizationSearch'}} class="organization {{if providerSearch '' 'active'}}"><span>Organizations</span></button>
+    </div>
     <div class="search-bar">
       {{#if basicSearch}}
         {{#basic-search submit='submit' placeholder='Try "camille houston" or "williams portland"' providerSearch=providerSearch}}

@@ -47,7 +47,6 @@ body > .ember-view {
 }
 
 .search-bar {
-  @include outer-container;
   @include span-columns(7);
   @include shift(2.5);
   @include padding($small-spacing);
