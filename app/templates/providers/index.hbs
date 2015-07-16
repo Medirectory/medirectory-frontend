@@ -2,15 +2,15 @@
 
 <section>
 <div class="context">
-    {{home-link}}
-    <span class="result-count">{{model.meta.totalResults}} results</span>
-    <div class="tools">
-      {{#if controllers.index.basicSearch}}
-        {{basic-search class='update-search' submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
-      {{else}}
-        {{advanced-search class='update-search' submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true providerSearch=true}}
-      {{/if}}
-    </div>
+  <div class="result-count">{{format-number model.meta.totalResults}} results</div>
+  <div class="tools">
+    {{#if controllers.index.basicSearch}}
+      {{basic-search class='update-search' submit='submitUpdate' placeholder='Enter search here' query=query sideNav=true}}
+    {{else}}
+      {{advanced-search class='update-search' submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp sideNav=true providerSearch=true}}
+    {{/if}}
+  </div>
+  {{home-link}}
 </div>
 
 <div class="main">
@@ -53,9 +53,7 @@
       {{#link-to 'providers/index' (query-params offset=nextOffset)}} Next {{fa-icon 'angle-right' fixedWidth=True}} {{/link-to}}
     {{/if}}
 
-    {{#unless hasNext}}
-      {{#unless hasPrevious}}All results shown.{{/unless}}
-    {{/unless}}
+    {{#unless hasNext}}{{#unless hasPrevious}}All results shown.{{/unless}}{{/unless}}
   </div>
 
   {{else}}
@@ -67,4 +65,4 @@
   {{/if}}
 
 </div>
-</section
+</section>

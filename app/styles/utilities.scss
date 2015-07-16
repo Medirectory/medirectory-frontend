@@ -1,0 +1,31 @@
+// this file is for CSS needed to make plugins, addons, etc better
+
+//////////////////////////////////////////////////////
+// dropdowns using the Twitter library typeahead.js //
+//////////////////////////////////////////////////////
+
+.twitter-typeahead {
+  width: 100%;
+}
+.tt-menu {
+  background-color: $white;
+  border-radius: $base-border-radius;
+  font-family: $base-font-family;
+  font-weight: normal;
+  width: 100%;
+  text-align: left;
+  border: 2px solid $action-color;
+}
+.tt-cursor {
+  background-color: $action-color;
+  color: $white;
+}
+.tt-suggestion {
+  padding: $small-spacing;
+  border-bottom: 1px solid tint($action-color, 70%);
+  line-height: 1.3;
+  &:hover {
+    background-color: tint($action-color, 80%);
+    cursor: pointer;
+  }
+}

@@ -8,13 +8,13 @@ button {
   cursor: pointer;
   display: inline-block;
   font-family: $heading-font-family;
-  font-size: $base-font-size*0.75;
+  font-size: $base-font-size*0.8;
   font-weight: 600;
   line-height: 1;
   padding: 0.75em 1em;
   position: relative;
   text-decoration: none;
-  box-shadow: 0px 2px 10px rgb(74, 100, 116);
+  box-shadow: $button-box-shadow;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -24,13 +24,13 @@ button {
   &:hover,
   &:focus {
     color: $action-color;
-    background-color: rgba(255,255,255,0.3);
-    box-shadow: 0px 2px 10px rgb(74, 100, 116);
+    background-color: transparentize($white, 0.7);
+    box-shadow: $button-box-shadow;
   }
 
   &:active {
     border: none;
-    box-shadow: 0px 2px 10px white;
+    box-shadow: none;
   }
 
   &:disabled {
@@ -39,12 +39,12 @@ button {
   }
 
   &.secondary {
-    background-color: rgba(255,255,255,0.3);
+    background-color: transparentize($white, 0.7);
     color: $blue;
     box-shadow: none;
     &:hover,
     &:focus {
-      box-shadow: 0px 2px 10px rgb(74, 100, 116);
+      box-shadow: $button-box-shadow;
     }
   }
 }

@@ -9,41 +9,32 @@ body > .ember-view {
 
 .landing {
   min-height: 100%;
+  text-align: center;
+  background: $base-background-color;
+  width: 100%;
 
   header {
     @include background-image($gradient);
     @include row(table);
     @include reset-display;
     @include pad(1em 0 2em 0);
-    text-align: center;
     font-size: 1.2em;
 
     h1 {
       margin-bottom: 0;
     }
     h2 {
-      margin-top: 0;
-      margin-bottom: $small-spacing;
+      margin-top: $small-spacing/2;
       font-weight: normal;
-    }
-    p {
-      padding-top: $small-spacing;
-      line-height: 1;
     }
   }
 
   footer {
+    @include span-columns(8);
+    @include shift(2);
     height: 16em;
-    width: 100%;
     padding: 3em;
-    text-align: center;
-    background: $base-background-color;
-    div {
-      @include span-columns(8);
-      @include shift(2);
-    }
   }
-
 }
 
 .search-bar {
@@ -52,19 +43,20 @@ body > .ember-view {
   @include padding($small-spacing);
 
   label {
-    @include clearfix;
     line-height: 2.25em;
     text-align: left;
     float: left;
     width: 50%;
-    padding: 0 .85em;
+    padding: 0 0.85em;
     font-size: 0.75em;
   }
 
+  .search-fields {
+    @include clearfix;
+  }
+
   .search-buttons {
-    @include padding($small-spacing*2);
-    @include span-columns(12);
-    @include omega;
+    @include padding($base-spacing);
   }
 }
 
@@ -75,99 +67,93 @@ section {
 
 .context {
   @include span-columns(3);
-  .result-count {
-    display: block;
-    background-color: $bluegreen;
-    color: $white;
-    padding: $small-spacing;
-    font-weight: bold;
+  @include padding($small-spacing);
+}
+
+.result-count {
+  @include padding($base-spacing 0 0 0);
+  color: $action-color;
+  font-size: 1.2em;
+}
+.tools {
+  @include padding($base-spacing 0);
+  label {
+    color: $blue;
+    line-height: 2;
   }
-  .tools {
-    box-shadow: inset 0px 0px 10px lighten($bluegreen, 30%);
-    @include padding($small-spacing $small-spacing*2 $small-spacing*2 $small-spacing*2);
-    font-size: 0.9em;
-    label {
-      @include margin($small-spacing 0);
-    }
-    input {
-      box-shadow: none;
-    }
-    button {
-      width: 100%;
-      font-size: 1em;
-      margin-top: 1em;
-    }
+  input {
+    box-shadow: none;
+  }
+  button {
+    @include margin(1em 0);
+    width: 100%;
+    font-size: $base-font-size;
   }
 }
 
+
 .main {
   @include span-columns(9);
-  height: 100%;
-  overflow-y: scroll;
-  padding: 1em 2em;
+  @include padding(1em 2em);
   background-color: $white;
-  box-shadow: 0px 0px 26px -6px rgb(74, 100, 116);
-  .no-results {
-    margin: -1em -2em;
-    padding: 3em;
-    height: 100%;
-    background-color: lighten($bluegreen,45%);
-    color: $black;
-    h1, h2 {
-      font-family: $base-font-family;
-      color: darken($bluegreen,10%);
-    }
-  }
-  .name {
-    h1, h2 {
-      font-family: $base-font-family;
-    }
-    h2 {
-      margin-top: 0;
-      font-weight: normal;
-      font-style: italic;
-      margin-bottom: 1em;
-    }
-  }
+  box-shadow: 0px 0px 26px -6px shade($bluegreen, 50%);
+}
 
-  .npi {
-    float: right;
+.no-results {
+  @include padding(3em);
+  h1, h2 {
+    color: $bluegreen;
+  }
+}
+.name {
+  h1, h2 {
+    font-family: $base-font-family;
+  }
+  h2 {
+    margin-top: 0;
     font-weight: normal;
-    color: $action-color;
+    font-style: italic;
+    margin-bottom: 1em;
   }
+}
 
-  .label {
-    @include padding(0.5em 1em);
-    font-weight: bold;
-    background-color: lighten($blue, 65%);
-    color: $blue;
-    margin-top: $small-spacing*4;
-    font-size: 0.8em;
-    text-transform: uppercase;
-  }
+.npi {
+  float: right;
+  font-weight: normal;
+  color: $action-color;
+}
 
-  .practice {
-    @include span-columns(4.5 of 9);
-  }
+.label {
+  @include padding(0.5em 1em);
+  font-weight: bold;
+  background-color: lighten($blue, 65%);
+  color: $blue;
+  margin-top: $small-spacing*4;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
 
-  .mailing {
-    @include span-columns(4.5 of 9);
-    @include omega;
-  }
+.practice {
+  @include span-columns(4.5 of 9);
+}
 
-  .practice, .mailing {
-    ul {
-      @include padding(0 1em);
-    }
-  }
+.mailing {
+  @include span-columns(4.5 of 9);
+  @include omega;
+}
 
-  .otherinformation {
-    @include span-columns(9 of 9);
-    @include clearfix;
+.practice, .mailing {
+  ul {
+    @include padding(0 1em);
   }
+}
 
-  .affiliated {
-    @include span-columns(9 of 9);
-    @include clearfix;
-  }
+.otherinformation {
+  @include span-columns(9 of 9);
+  @include clearfix;
+}
+
+.affiliated {
+  @include span-columns(9 of 9);
+  @include clearfix;
 }

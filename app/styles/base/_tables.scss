@@ -5,18 +5,6 @@ table {
   margin: $small-spacing 0;
   table-layout: fixed;
   width: 100%;
-  .npi-col {
-    width: 15%;
-  }
-  .name-col {
-    width: 35%;
-  }
-  .location-col {
-    width: 25%;
-  }
-  .specialties-col {
-    width: 25%;
-  }
 }
 
 tr,
@@ -27,7 +15,7 @@ th {
 }
 
 th {
-  border-bottom: 1px solid darken($base-border-color, 15%);
+  border-bottom: 1px solid darken($base-border-color, 25%);
   font-weight: 600;
   text-align: left;
   text-transform: uppercase;
@@ -36,27 +24,8 @@ th {
 td {
   border-bottom: $base-border;
   line-height: 1.2;
-  em {
-    display: block;
-    font-size: 0.85em;
-  }
-}
-
-th:first {
-  min-width: 15%;
 }
 
 tr:hover {
-  background-color: lighten($base-border-color, 6%);
-}
-
-.taxonomy {
-  display: inline-block;
-  background-color: $base-border-color;
-  border-bottom: 1px solid darken($base-border-color, 15%);
-  font-size: 0.85em;
-  font-weight: bold;
-  padding: $small-spacing/2 $small-spacing;
-  margin: $small-spacing/4 auto;
-  border-radius: $base-border-radius;
+  background-color: lighten($base-border-color, 17%);
 }

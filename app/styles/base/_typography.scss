@@ -25,33 +25,28 @@ h6 {
   color: $base-header-color;
   font-weight: 700;
   line-height: 1;
+  margin: 1em 0em;
 }
 
-// Scale the heading sizes
-$step-size: 0.25;
-$amplifier: 1.05;
-@mixin heading-size($size) {
-  font-size: $size * $step-size * $amplifier + em;
-  line-height: ($size * $step-size) + em;
-  margin: 1em/($size * $step-size) 0 1em/$size 0;
+h1 {
+  font-size: modular-scale(6);
+}
+h2 {
+  font-size: modular-scale(5);
+}
+h3 {
+  font-size: modular-scale(4);
+}
+h4 {
+  font-size: modular-scale(3);
+}
+h5 {
+  font-size: modular-scale(2);
+}
+h6 {
+  font-size: modular-scale(1);
 }
 
-$context-font: (
-  landing: 1,
-  main: 0.8,
-  context: 0.6
-);
-
-@each $element, $value in $context-font {
-  .#{$element} {
-    h1 { @include heading-size(6 * $value); }
-    h2 { @include heading-size(5 * $value); }
-    h3 { @include heading-size(4 * $value); }
-    h4 { @include heading-size(3 * $value); }
-    h5 { @include heading-size(2 * $value); }
-    h6 { @include heading-size(1 * $value); }
-  }
-}
 
 p {
   margin: 0 0 $small-spacing;
@@ -59,8 +54,7 @@ p {
 
 a {
   color: $link-color;
-  font-weight: bold;
-  text-decoration: none;
+  line-height: 1;
   transition: color 0.1s linear;
 
   &:active,

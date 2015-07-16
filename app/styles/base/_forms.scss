@@ -5,6 +5,12 @@ fieldset {
   padding: $base-spacing;
 }
 
+input {
+  @include placeholder {
+    color: tint($bluegreen, 70%);
+  }
+}
+
 input,
 label,
 select {
@@ -15,7 +21,10 @@ select {
 
 label {
   font-weight: 600;
+  font-size: $base-font-size*0.8;
+  letter-spacing: 0.4px;
   margin-bottom: $small-spacing / 2;
+  text-transform: uppercase;
 
   &.required::after {
     content: "*";
@@ -29,13 +38,11 @@ label {
 #{$all-text-inputs},
 select[multiple=multiple],
 textarea {
-  @include box-sizing(border-box);
-  @include transition(border-color);
   background-color: $white;
-  border: 1px solid rgba($bluegreen, 0.2);
+  border: 1px solid transparentize($bluegreen, 0.7);
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
-  // box-sizing: border-box;
+  box-sizing: border-box;
   font-family: $base-font-family;
   font-size: $base-font-size;
   margin-bottom: $base-spacing / 2;
