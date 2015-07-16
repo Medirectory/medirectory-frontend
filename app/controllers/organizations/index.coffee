@@ -26,37 +26,37 @@ OrganizationsIndexController = Ember.Controller.extend
     parseInt(@get('offset')) + @get('content.meta').resultsPerPage
     ).property('offset', 'content.meta')
   # Eventually will want this to utilize one-way binding of componenets (when implemented)
-  nameTemp: Ember.computed 'name', 
+  nameTemp: Ember.computed 'name',
     get: ->
       @get('name')
     set: (key, newVal, oldVal)->
       newVal
-  locationTemp: Ember.computed 'location', 
+  locationTemp: Ember.computed 'location',
     get: ->
       @get('location')
     set: (key, newVal, oldVal)->
       newVal
-  taxonomyTemp: Ember.computed 'taxonomy', 
+  taxonomyTemp: Ember.computed 'taxonomy',
     get: ->
       @get('taxonomy')
     set: (key, newVal, oldVal)->
       newVal
-  npiTemp: Ember.computed 'npi', 
+  npiTemp: Ember.computed 'npi',
     get: ->
       @get('npi')
     set: (key, newVal, oldVal)->
       newVal
-  provTemp: Ember.computed 'provider', 
+  provTemp: Ember.computed 'provider',
     get: ->
       @get('provider')
     set: (key, newVal, oldVal)->
       newVal
-  authOffTemp: Ember.computed 'authorized_official', 
+  authOffTemp: Ember.computed 'authorized_official',
     get: ->
       @get('authorized_official')
     set: (key, newVal, oldVal)->
       newVal
-  query: Ember.computed 'q', 
+  query: Ember.computed 'q',
     get: ->
       @get('q')
     set: (key, newVal, oldVal)->
@@ -64,7 +64,7 @@ OrganizationsIndexController = Ember.Controller.extend
   actions:
     submitUpdate: (params)->
       if @get('controllers.index.basicSearch')
-        @set('q', params.q) 
+        @set('q', params.q)
       else
         @set('name', params.name)
         @set('location', params.location)
