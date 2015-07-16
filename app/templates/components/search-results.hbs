@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th class="npi-col">NPI</th>
+      <th class="name-col">Name</th>
+      <th class="location-col">Practice Location</th>
+      <th class="specialties-col">Specialties</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each entities key="@index" as |entity|}}
+      {{component type entity=entity tagName='tr'}}
+    {{/each}}
+  </tbody>
+</table>
+{{yield}}
