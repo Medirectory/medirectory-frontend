@@ -1,8 +1,8 @@
-// this file is for CSS needed to make plugins, addons, etc better
+/////////////////////////////////////////////////////////////////////
+// this file is for CSS needed to make plugins, addons, etc better //
+/////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////
-// dropdowns using the Twitter library typeahead.js //
-//////////////////////////////////////////////////////
+// dropdowns using the Twitter library typeahead.js
 
 .twitter-typeahead {
   width: 100%;
@@ -21,7 +21,7 @@
   color: $white;
 }
 .tt-suggestion {
-  padding: $small-spacing;
+  @include padding($small-spacing);
   border-bottom: 1px solid tint($action-color, 70%);
   line-height: 1.3;
   &:hover {

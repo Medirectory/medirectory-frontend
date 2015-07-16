@@ -1,50 +1,14 @@
 @import "bourbon"; // http://bourbon.io/docs/
-@import "base/base";
+
+@import "base/base"; // base styles used across Medirectory. edit me!
+
 @import "neat"; // http://thoughtbot.github.io/neat-docs/latest/
-@import "layouts";
-@import "search";
-@import "utilities";
 
-.correct {
-  @include margin($base-spacing 0);
-  display: block;
-  font-size: 1.2em;
-  font-weight: 700;
-}
+//////////////////////////////
+// Medirectory project SASS //
+//////////////////////////////
 
-.taxonomy {
-  display: inline-block;
-  background-color: tint($bluegreen, 70%);
-  border-bottom: 1px solid tint($bluegreen, 20%);
-  font-size: 0.85em;
-  font-weight: bold;
-  padding: $small-spacing/2 $small-spacing;
-  margin: $small-spacing/4 auto;
-  border-radius: $base-border-radius;
-}
-
-td em {
-  display: block;
-  font-size: 0.85em;
-}
-
-td a {
-  color: $action-color;
-}
-.npi-col {
-  width: 15%;
-}
-.name-col {
-  width: 35%;
-}
-.location-col {
-  width: 25%;
-}
-.specialties-col {
-  width: 25%;
-}
-
-.pagination {
-  margin: 2em 0;
-  text-align: right;
-}
+@import "structure"; // high-level layout and very basic style
+@import "landing"; // all styling for the landing page
+@import "pieces"; // all other styling that goes on random little bits of markup.
+@import "utilities"; // styles for 3rd party plugins

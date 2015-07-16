@@ -1,0 +1,125 @@
+///////////////////
+// Sidebar tools //
+///////////////////
+
+.back {
+  @include margin($base-spacing 0);
+  display: block;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.result-count {
+  @include padding($base-spacing 0 0 0);
+  color: $action-color;
+  font-size: 1.2em;
+}
+
+.tools {
+  @include padding($base-spacing 0);
+  label {
+    color: $blue;
+    line-height: 2;
+  }
+  input {
+    box-shadow: none;
+  }
+  button {
+    @include margin(1em 0);
+    width: 100%;
+    font-size: $base-font-size;
+  }
+}
+
+///////////////////////////
+// Results listings page //
+///////////////////////////
+
+.no-results {
+  @include padding(3em);
+  h1, h2 {
+    color: $bluegreen;
+  }
+}
+
+.search-results {
+  td span {
+    display: block;
+    font-size: 0.85em;
+  }
+
+  td a {
+    color: $action-color;
+  }
+}
+
+.npi-col { width: 15%; }
+.name-col { width: 35%; }
+.location-col { width: 25%; }
+.specialties-col { width: 25%; }
+
+.taxonomy {
+  @include margin($small-spacing/4 auto);
+  @include padding($small-spacing/2 $small-spacing);
+  display: inline-block;
+  background-color: tint($bluegreen, 70%);
+  border-bottom: 1px solid tint($bluegreen, 20%);
+  font-size: 0.85em;
+  font-weight: bold;
+  border-radius: $base-border-radius;
+}
+
+.pagination {
+  @include margin(2em 0);
+  text-align: right;
+}
+
+////////////////////////
+// Single result page //
+////////////////////////
+
+.name {
+  h1, h2 {
+    font-family: $base-font-family;
+  }
+  h2 {
+    @include margin(0 null 1em null);
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+.npi {
+  float: right;
+  font-weight: normal;
+  color: $action-color;
+}
+
+.label {
+  @include padding(0.5em 1em);
+  font-weight: bold;
+  background-color: lighten($blue, 65%);
+  color: $blue;
+  margin-top: $small-spacing*4;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.practice {
+  @include span-columns(4.5 of 9);
+}
+
+.mailing {
+  @include span-columns(4.5 of 9);
+  @include omega;
+}
+
+.otherinformation {
+  @include span-columns(9 of 9);
+  @include clearfix;
+}
+
+.affiliated {
+  @include span-columns(9 of 9);
+  @include clearfix;
+}

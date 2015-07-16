@@ -1,8 +1,8 @@
 table {
   @include font-feature-settings("kern", "liga", "tnum");
+  @include margin($small-spacing 0);
   border-collapse: collapse;
   font-size: 0.85em;
-  margin: $small-spacing 0;
   table-layout: fixed;
   width: 100%;
 }
@@ -10,12 +10,12 @@ table {
 tr,
 td,
 th {
-  padding: $small-spacing;
+  @include padding($small-spacing);
   vertical-align: middle;
 }
 
 th {
-  border-bottom: 1px solid darken($base-border-color, 25%);
+  border-bottom: 1px solid darken($base-border-color, 35%);
   font-weight: 600;
   text-align: left;
   text-transform: uppercase;
@@ -27,5 +27,5 @@ td {
 }
 
 tr:hover {
-  background-color: lighten($base-border-color, 17%);
+  background-color: lighten($bluegreen, 40%);
 }

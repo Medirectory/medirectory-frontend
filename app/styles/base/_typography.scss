@@ -21,11 +21,11 @@ h3,
 h4,
 h5,
 h6 {
+  @include margin(1em 0em);
   font-family: $heading-font-family;
   color: $base-header-color;
   font-weight: 700;
   line-height: 1;
-  margin: 1em 0em;
 }
 
 h1 {
@@ -49,32 +49,24 @@ h6 {
 
 
 p {
-  margin: 0 0 $small-spacing;
+  @include margin(0 0 $small-spacing);
 }
 
 a {
+  @include transition(color 0.1s $ease-out-quad);
   color: $link-color;
   line-height: 1;
-  transition: color 0.1s linear;
 
   &:active,
   &:focus,
   &:hover {
-    color: darken($action-color, 15%);
+    color: darken($action-color, 25%);
   }
 
   &:active,
   &:focus {
     outline: none;
   }
-}
-
-hr {
-  border-bottom: $base-border;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  margin: $base-spacing 0;
 }
 
 img,
