@@ -47,7 +47,6 @@ h6 {
   font-size: modular-scale(1);
 }
 
-
 p {
   @include margin(0 0 $small-spacing);
 }
@@ -55,12 +54,13 @@ p {
 a {
   @include transition(color 0.1s $ease-out-quad);
   color: $link-color;
+  font-weight: bolder;
   line-height: 1;
 
   &:active,
   &:focus,
   &:hover {
-    color: darken($action-color, 25%);
+    color: $action-color;
   }
 
   &:active,

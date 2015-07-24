@@ -37,7 +37,7 @@ $base-background-color: tint($bluegreen, 90%);
 $base-font-color: $dark-gray;
 $base-header-color: $black;
 $action-color: $purple;
-$link-color: $bluegreen;
+$link-color: darken($bluegreen, 15%);
 
 // Border
 $base-border-color: lighten($bluegreen, 35%);
