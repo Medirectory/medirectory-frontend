@@ -1,0 +1,11 @@
+<td>{{#link-to 'providers/show' entity.id }}{{entity.id}}{{/link-to}}</td>
+<td>{{entity.namePrefix}} {{entity.firstName}} {{entity.middleName}} {{entity.lastNameLegalName}} {{entity.nameSuffix}}</td>
+<td>{{entity.practiceLocationAddress.shortLocation}}</td>
+<td>
+  {{#each entity.classificationSpecialties key="@index" as |classSpecialty|}}
+    {{!-- Should figure out someway to assign the proper taxonomy definition (it is a good addition!) --}}
+    <span class="taxonomy">{{classSpecialty}} <span class="tooltip">{{classSpecialty.definition}}</span></span>
+  {{/each}}
+</td>
+
+{{yield}}

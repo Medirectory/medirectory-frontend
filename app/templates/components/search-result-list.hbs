@@ -1,0 +1,65 @@
+<div class="banner"></div>
+
+<section>
+<div class="context">
+  <div class="result-count">{{format-number model.meta.totalResults}} results</div>
+  <div class="tools">
+    {{#if controllers.index.basicSearch}}
+      {{basic-search class='update-search' submit='submitUpdate' query=query sideNav=true}}
+    {{else}}
+      {{advanced-search class='update-search' submit='submitUpdate' name=nameTemp location=locationTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp affiliated_provider=provTemp authorized_official=authOffTemp sideNav=true providerSearch=providerSearch}}
+    {{/if}}
+  </div>
+  {{home-link}}
+</div>
+
+<div class="main">
+
+  {{outlet}}
+  {{yield}}
+
+  {{#if model}}
+  <table class="search-results">
+    <thead>
+      <tr>
+        <th class="npi-col">NPI</th>
+        <th class="name-col">Name</th>
+        <th class="location-col">Practice Location</th>
+        <th class="specialties-col">Specialties</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model key="@index" as |entity|}}
+        {{#if providerSearch}}
+          {{provider-result entity=entity tagName='tr'}}
+        {{else}}
+          {{organization-result entity=entity tagName='tr'}}
+        {{/if}}
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    {{#if hasPrevious}}
+      {{#link-to paginationLink (query-params offset=previousOffset)}} {{fa-icon 'angle-left' fixedWidth=True}} Previous{{/link-to}}
+    {{/if}}
+
+    {{#if hasNext}}
+      {{#link-to paginationLink (query-params offset=nextOffset)}} Next {{fa-icon 'angle-right' fixedWidth=True}} {{/link-to}}
+    {{/if}}
+
+    {{#unless hasNext}}
+      {{#unless hasPrevious}}All results shown.{{/unless}}
+    {{/unless}}
+  </div>
+
+  {{else}}
+    <div class="no-results">
+      <h1>Medirectory did not find any results {{fa-icon 'frown-o' fixedWidth=True}}</h1>
+      <h2>Try adjusting your search at left.</h2>
+    </div>
+
+  {{/if}}
+
+</div>
+</section>

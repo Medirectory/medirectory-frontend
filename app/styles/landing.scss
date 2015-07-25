@@ -1,0 +1,98 @@
+//////////////////////////////////////////////
+// The initial landing page for Medirectory //
+//////////////////////////////////////////////
+
+// base structure and styling
+
+.landing {
+  @include fill-parent;
+  text-align: center;
+  background: $base-background-color;
+
+  header {
+    @include background-image($gradient);
+    @include row(table);
+    @include reset-display;
+    @include pad(1em 0 2em 0);
+    font-size: 1.2em;
+
+    h1 {
+      margin-bottom: 0;
+    }
+    h2 {
+      margin-top: $small-spacing/2;
+      font-weight: normal;
+    }
+  }
+
+  footer {
+    @include span-columns(8);
+    @include shift(2);
+    height: 16em;
+    padding: 3em;
+  }
+}
+
+// styling for selecting between organization and people search
+
+.search-type {
+  .provider, .organization {
+    @include margin(1em 0);
+    @include size(200px 100px);
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    &.active {
+      border: 3px solid $action-color;
+    }
+    &:not(&.active) {
+      box-shadow: none;
+    }
+  }
+  .provider {
+    @include background-image($transparent-gradient, url("/assets/images/doctor.jpg"));
+    &:hover, &.active {
+      @include background-image(url("/assets/images/doctor.jpg"));
+    }
+  }
+  .organization {
+    @include background-image($transparent-gradient, url("/assets/images/hospital.jpg"));
+    &:hover, &.active {
+      @include background-image(url("/assets/images/hospital.jpg"));
+    }
+  }
+  span {
+    @include pad($small-spacing/2);
+    @include position(absolute, 10px null null 10px);
+    display: inline-block;
+    vertical-align: bottom;
+    background: lighten($bluegreen, 30%);
+    color: $black;
+  }
+}
+
+// styling for search form
+
+.search-bar {
+  @include span-columns(7);
+  @include shift(2.5);
+  @include padding($small-spacing);
+
+  label {
+    line-height: 2.25em;
+    text-align: left;
+    float: left;
+    width: 50%;
+    padding: 0 0.85em;
+    font-size: 0.75em;
+  }
+
+  .search-fields {
+    @include clearfix;
+  }
+
+  .search-buttons {
+    @include padding($base-spacing);
+  }
+}

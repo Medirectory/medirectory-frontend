@@ -1,12 +1,14 @@
-@import "bourbon"; // 3rd party
+@import "bourbon"; // http://bourbon.io/docs/
 
-@import "base/base"; // defines basic styles. edit me!
+@import "base/base"; // base styles used across Medirectory. edit me!
 
-@import "neat"; // 3rd party
+@import "neat"; // http://thoughtbot.github.io/neat-docs/latest/
 
-@import "layouts";
-@import "pagination";
-@import "search";
-// @import "factoids";
-@import "components/home-link";
-@import "components/advanced-search";
+//////////////////////////////
+// Medirectory project SASS //
+//////////////////////////////
+
+@import "structure"; // high-level layout and very basic style
+@import "landing"; // all styling for the landing page
+@import "pieces"; // all other styling that goes on random little bits of markup.
+@import "utilities"; // styles for 3rd party plugins

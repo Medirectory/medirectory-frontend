@@ -2,8 +2,10 @@
   <header>
     <h1>Medirectory</h1>
     <h2>Find a healthcare provider.</h2>
-    <button {{action 'setProviderSearch'}} class="search-type provider {{if providerSearch 'active' ''}}"><span>People</span></button>
-    <button {{action 'setOrganizationSearch'}} class="search-type organization {{if providerSearch '' 'active'}}"><span>Organizations</span></button>
+    <div class="search-type">
+      <button {{action 'setProviderSearch'}} class="provider {{if providerSearch 'active' ''}}"><span>People</span></button>
+      <button {{action 'setOrganizationSearch'}} class="organization {{if providerSearch '' 'active'}}"><span>Organizations</span></button>
+    </div>
     <div class="search-bar">
       {{#if basicSearch}}
         {{#basic-search submit='submit' placeholder='Try "camille houston" or "williams portland"' providerSearch=providerSearch}}
@@ -17,16 +19,8 @@
     </div>
   </header>
 
-  {{!-- <div class="factoids">
-    {{#each fact in model}}
-    <aside><h1>{{fact.header}}</h1><p>{{fact.text}}</p></aside>
-    {{/each}}
-  </div> --}}
-
   <footer>
-    <div>
-      <h3>What is Medirectory?</h3>
-      <p>Medirectory is a pilot project by The MITRE Corporation. The project is open source and its code can be accessed at <a href="https://github.com/Medirectory" alt="Source code for Medirectory">https://github.com/Medirectory</a>.</p>
-    </div>
+    <h3>What is Medirectory?</h3>
+    <p>Medirectory is a pilot project by The MITRE Corporation. The project is open source and its code can be accessed at <a href="https://github.com/Medirectory" alt="Source code for Medirectory">https://github.com/Medirectory</a>.</p>
   </footer>
 </div>
