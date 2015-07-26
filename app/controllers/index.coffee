@@ -3,6 +3,8 @@
 IndexController = Ember.Controller.extend
   name: null
   location: null
+  geo_zip: null
+  radius: null
   taxonomy: null
   npi: null
   organization: null

@@ -10,6 +10,10 @@ OrganizationsIndexRoute = Ember.Route.extend
       refreshModel: true
     location: 
       refreshModel: true
+    geo_zip: 
+      refreshModel: true
+    radius: 
+      refreshModel: true
     taxonomy:
       refreshModel: true
     npi: 
@@ -25,6 +29,8 @@ OrganizationsIndexRoute = Ember.Route.extend
       controller.set('q', null)
       controller.set('name', null)
       controller.set('location', null)
+      controller.set('geo_zip', null)
+      controller.set('radius', null)
       controller.set('taxonomy', null)
       controller.set('npi', null)
       controller.set('provider', null)

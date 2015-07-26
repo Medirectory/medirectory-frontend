@@ -2,11 +2,13 @@
 
 OrganizationsIndexController = Ember.Controller.extend
   needs: "index"
-  queryParams: ['q', 'fuzzy_q', 'name', 'location', 'taxonomy', 'npi', 'provider', 'authorized_official', 'offset']
+  queryParams: ['q', 'fuzzy_q', 'name', 'location', 'geo_zip', 'radius', 'taxonomy', 'npi', 'provider', 'authorized_official', 'offset']
   q: null
   fuzzy_q: null
   name: null
   location: null
+  geo_zip: null
+  radius: null
   taxonomy: null
   npi: null
   provider: null
@@ -34,6 +36,16 @@ OrganizationsIndexController = Ember.Controller.extend
   locationTemp: Ember.computed 'location',
     get: ->
       @get('location')
+    set: (key, newVal, oldVal)->
+      newVal
+  geoZipTemp: Ember.computed 'geo_zip',
+    get: ->
+      @get('geo_zip')
+    set: (key, newVal, oldVal)->
+      newVal
+  radiusTemp: Ember.computed 'radius',
+    get: ->
+      @get('radius')
     set: (key, newVal, oldVal)->
       newVal
   taxonomyTemp: Ember.computed 'taxonomy',
@@ -68,6 +80,8 @@ OrganizationsIndexController = Ember.Controller.extend
       else
         @set('name', params.name)
         @set('location', params.location)
+        @set('geo_zip', params.geo_zip)
+        @set('radius', params.radius)
         @set('taxonomy', params.taxonomy)
         @set('npi', params.npi)
         @set('provider', params.provider)
