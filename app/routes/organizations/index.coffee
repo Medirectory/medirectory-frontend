@@ -41,9 +41,9 @@ OrganizationsIndexRoute = Ember.Route.extend
         delete params[key]
 
     if params
-      @store.find('organization', params)
+      @store.query('organization', params)
     else
-      @store.find('organization')
+      @store.query('organization')
 
 
 `export default OrganizationsIndexRoute`

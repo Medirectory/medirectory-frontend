@@ -38,8 +38,8 @@ ProvidersIndexRoute = Ember.Route.extend
         delete params[key]
 
     if params
-      @store.find('provider', params)
+      @store.query('provider', params)
     else
-      @store.find('provider')
+      @store.query('provider')
 
 `export default ProvidersIndexRoute`

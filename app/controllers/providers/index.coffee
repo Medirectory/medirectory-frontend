@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 ProvidersIndexController = Ember.Controller.extend
-  needs: "index"
+  index: Ember.inject.controller('index')
   queryParams: ['q', 'fuzzy_q', 'name', 'location', 'geo_zip', 'radius', 'taxonomy', 'npi', 'organization', 'offset']
   q: null
   fuzzy_q: null
