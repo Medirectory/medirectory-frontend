@@ -25,6 +25,8 @@ AdvancedSearchComponent = Ember.Component.extend
       @sendAction('submit', 
         name: if @get('name') isnt '' then @get('name') else null
         location: if @get('location') isnt '' then @get('location') else null
+        geo_zip: if @get('geo_zip') isnt '' then @get('geo_zip') else null
+        radius: if @get('radius') isnt '' then @get('radius') else null
         taxonomy: if @get('taxonomy') isnt '' then @get('taxonomy') else null
         npi: if @get('npi') isnt '' then @get('npi') else null
         organization: if @get('organization') isnt '' then @get('organization') else null

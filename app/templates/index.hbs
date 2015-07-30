@@ -12,7 +12,7 @@
         <button {{action 'advanced'}} class="secondary">Switch to Advanced Search </button>
         {{/basic-search}}
       {{else}}
-        {{#advanced-search submit='submit' name=name location=location taxonomy=taxonomy npi=npi organization=organization affiliated_provider=provider authorized_official=authorized_official providerSearch=providerSearch}}
+        {{#advanced-search submit='submit' name=name location=location geo_zip=geo_zip radius=radius taxonomy=taxonomy npi=npi organization=organization affiliated_provider=provider authorized_official=authorized_official providerSearch=providerSearch}}
           <button {{action 'basic'}} class="secondary">Switch to Basic Search </button>
         {{/advanced-search}}
       {{/if}}

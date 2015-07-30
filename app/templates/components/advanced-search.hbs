@@ -1,19 +1,20 @@
 <div class="search-fields">
   {{#if providerSearch}}
-    <label>Name {{input value=name placeholder='Tyler Pledger' insert-newline="querySubmitted"}}</label>
+    <label>Name {{input value=name placeholder='Provider Name' insert-newline="querySubmitted"}}</label>
   {{else}}
-    <label>Organization Name {{input value=name placeholder='Choices for Life' insert-newline="querySubmitted"}}</label>
+    <label>Organization Name {{input value=name placeholder='Organization Name' insert-newline="querySubmitted"}}</label>
   {{/if}}
 
-  <label>Location {{input value=location placeholder='Chicago' insert-newline="querySubmitted"}}</label>
-  <label>Specialties {{input class="typeahead" value=taxonomy placeholder='Pediatrics' insert-newline="querySubmitted"}}</label>
-  <label>NPI {{input value=npi placeholder='1386806149' insert-newline="querySubmitted"}}</label>
+  <label>City {{input value=location placeholder='City' insert-newline="querySubmitted"}}</label>
+  <label>Zipcode and Radius (miles)&nbsp;&nbsp;&nbsp; {{input class="half-width" value=geo_zip placeholder='Zip Code' insert-newline="querySubmitted"}} {{input class="half-width" value=radius placeholder='Radius in Miles' insert-newline="querySubmitted"}}</label>
+  <label>Specialties {{input class="typeahead" value=taxonomy placeholder='Provider Specialties' insert-newline="querySubmitted"}}</label>
+  <label>NPI {{input value=npi placeholder='National Provider Identifier' insert-newline="querySubmitted"}}</label>
 
   {{#if providerSearch}}
-    <label>Affiliated Organization {{input value=organization placeholder='Maimonides Medical Center' insert-newline="querySubmitted"}}</label>
+    <label>Affiliated Organization {{input value=organization placeholder='Provider Organization' insert-newline="querySubmitted"}}</label>
   {{else}}
-    <label>Affiliated Person {{input value=affiliated_provider placeholder='Nancy Barker' insert-newline="querySubmitted"}}</label>
-    <label>Authorized Official {{input value=authorized_official placeholder='Denise' insert-newline="querySubmitted"}}</label>
+    <label>Affiliated Provider {{input value=affiliated_provider placeholder='Organization Affiliated Provider' insert-newline="querySubmitted"}}</label>
+    <label>Authorized Official {{input value=authorized_official placeholder='Organization Authorized Official' insert-newline="querySubmitted"}}</label>
   {{/if}}
 </div>
 <div class="search-buttons">

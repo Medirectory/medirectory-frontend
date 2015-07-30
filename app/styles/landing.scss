@@ -74,6 +74,14 @@
 
 // styling for search form
 
+input.half-width {
+  width: 49%;
+  float: left;
+  &:first-child {
+    margin-right: 0.25em;
+  }
+}
+
 .search-bar {
   @include span-columns(7);
   @include shift(2.5);

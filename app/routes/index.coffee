@@ -6,6 +6,8 @@ IndexRoute = Ember.Route.extend
       controller.set('query', null)
       controller.set('name', null)
       controller.set('location', null)
+      controller.set('geo_zip', null)
+      controller.set('radius', null)
       controller.set('taxonomy', null)
       controller.set('npi', null)
       controller.set('organization', null)
