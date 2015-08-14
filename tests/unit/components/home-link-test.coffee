@@ -2,7 +2,14 @@
 
 moduleForComponent 'home-link', {
   # Specify the other units that are required for this test
-  # needs: ['component:foo', 'helper:bar']
+  # needs: ['helper:link-to']
+  unit: true
+  setup: ->
+    @registry.register 'service:-routing', Ember.Object.extend
+      availableRoutes: -> ['index']
+      hasRoute: (name) -> name == 'index'
+      isActiveForRoute: -> true
+      generateURL: -> "/"
 }
 
 test 'it renders', (assert) ->

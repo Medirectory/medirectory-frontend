@@ -2,7 +2,7 @@
 
 moduleForComponent 'search-result-list', {
   # Specify the other units that are required for this test
-  # needs: ['component:foo', 'helper:bar']
+  needs: ['helper:format-number','component:advanced-search']
 }
 
 test 'it renders', (assert) ->
@@ -13,5 +13,5 @@ test 'it renders', (assert) ->
   assert.equal component._state, 'preRender'
 
   # Renders the component to the page
-  @render()
+  @render() # this fails
   assert.equal component._state, 'inDOM'
