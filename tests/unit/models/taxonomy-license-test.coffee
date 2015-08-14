@@ -2,7 +2,7 @@
 
 moduleForModel 'taxonomy-license', {
   # Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:npi-type', 'model:taxonomy-code']
 }
 
 test 'it exists', (assert) ->

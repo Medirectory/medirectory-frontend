@@ -2,7 +2,7 @@
 
 moduleForComponent 'back-link', {
   # Specify the other units that are required for this test
-  # needs: ['component:foo', 'helper:bar']
+  needs: ['helper:fa-icon']
 }
 
 test 'it renders', (assert) ->

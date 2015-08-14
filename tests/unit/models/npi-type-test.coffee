@@ -2,7 +2,7 @@
 
 moduleForModel 'npi-type', {
   # Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:mailing-address', 'model:practice-location-address', 'model:other-provider-identifier', 'model:taxonomy-license', 'model:taxonomy-group']
 }
 
 test 'it exists', (assert) ->
