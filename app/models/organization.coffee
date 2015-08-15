@@ -17,7 +17,7 @@ Organization = NpiType.extend
   isOrganizationSubpart: DS.attr('string'),
   parentOrganizationLbn: DS.attr('string'),
   parentOrganizationTin: DS.attr('string'),
-  providers: DS.hasMany('provider')
+  providers: DS.hasMany('provider', { async: false })
 
   fullAuthorizedName: (->
     name = (@get('authorizedOfficialNamePrefix') || '') + ' ' + (@get('authorizedOfficialFirstName') || '') + ' ' + (@get('authorizedOfficialMiddleName') || '') + ' ' + (@get('authorizedOfficialLastName') || '') + ' ' + (@get('authorizedOfficialNameSuffix') || '')

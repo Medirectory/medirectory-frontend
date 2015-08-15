@@ -17,7 +17,7 @@ Provider = NpiType.extend
   otherLastNameTypeCode: DS.attr('number'),
   genderCode: DS.attr('string'),
   isSoleProprietor: DS.attr('string'),
-  organizations: DS.hasMany('organization'),
+  organizations: DS.hasMany('organization', { async: false }),
 
   male: (->
     return @get('genderCode') == 'M'

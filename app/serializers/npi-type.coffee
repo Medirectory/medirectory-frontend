@@ -2,8 +2,9 @@
 `import { ActiveModelSerializer } from 'active-model-adapter'`
 
 NpiTypeSerializer = ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
+  isNewSerializerAPI: true
   primaryKey: 'npi',
-  attrs: 
+  attrs:
     mailingAddress:
       embedded : 'always'
     practiceLocationAddress:

@@ -2,7 +2,8 @@
 `import { ActiveModelSerializer } from 'active-model-adapter'`
 
 TaxonomyLicenseSerializer = ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
-  attrs: 
+  isNewSerializerAPI: true
+  attrs:
     taxonomyCode:
       embedded : 'always'
 )

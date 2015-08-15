@@ -7,7 +7,7 @@ TaxonomyCode = DS.Model.extend
   specialization: DS.attr('string'),
   definition: DS.attr('string'),
   notes: DS.attr('string'),
-  taxonomyLicenses: DS.hasMany('taxonomy-license')
+  taxonomyLicenses: DS.hasMany('taxonomy-license', { async: false })
 
   classificationSpecialty: (->
     classification = @get('classification')

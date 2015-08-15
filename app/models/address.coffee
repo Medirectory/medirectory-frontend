@@ -9,7 +9,7 @@ Address = DS.Model.extend
   countryCode: DS.attr('string'),
   telephoneNumber: DS.attr('string'),
   faxNumber: DS.attr('string'),
-  entity: DS.belongsTo('npi-type', {polymorphic: true}),
+  entity: DS.belongsTo('npi-type', {polymorphic: true, async: true}),
 
   streetAddress: (->
     return (@get('firstLine') || '') + ' ' + (@get('secondLine') || '')
@@ -31,7 +31,7 @@ Address = DS.Model.extend
 
   mapLink: (->
     address = (@get('firstLine') || '') + ' ' + (@get('city') || '') + ' ' +  (@get('state') || '') + ' ' +  (@get('postalCode').substring(0,5) || '')
-    return 'http://maps.google.com/?q=' + address.trim()
+    return 'http://maps.google.com/?q=' + address.trim() + "&output=embed"
   ).property('firstLine', 'city', 'state', 'postalCode')
 
   formattedPostal: (->
