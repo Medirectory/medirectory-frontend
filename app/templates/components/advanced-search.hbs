@@ -1,20 +1,20 @@
 <div class="search-fields">
   {{#if providerSearch}}
-    <label>Name {{input value=name placeholder='Provider Name' insert-newline="querySubmitted"}}</label>
+    <label>Name {{input value=nameTemp placeholder='Provider Name' insert-newline="querySubmitted"}}</label>
   {{else}}
-    <label>Organization Name {{input value=name placeholder='Organization Name' insert-newline="querySubmitted"}}</label>
+    <label>Organization Name {{input value=nameTemp placeholder='Organization Name' insert-newline="querySubmitted"}}</label>
   {{/if}}
 
-  <label>City {{input value=location placeholder='City' insert-newline="querySubmitted"}}</label>
-  <label>Zipcode and Radius (miles)&nbsp;&nbsp;&nbsp; {{input class="half-width" value=geo_zip placeholder='Zip Code' insert-newline="querySubmitted"}} {{input class="half-width" value=radius placeholder='Radius in Miles' insert-newline="querySubmitted"}}</label>
-  <label>Specialties {{input class="typeahead" value=taxonomy placeholder='Provider Specialties' insert-newline="querySubmitted"}}</label>
-  <label>NPI {{input value=npi placeholder='National Provider Identifier' insert-newline="querySubmitted"}}</label>
+  <label>City {{input value=locationTemp placeholder='City' insert-newline="querySubmitted"}}</label>
+  <label>Zipcode and Radius (miles)&nbsp;&nbsp;&nbsp; {{input class="half-width" value=geoZipTemp placeholder='Zip Code' insert-newline="querySubmitted"}} {{input class="half-width" value=radiusTemp placeholder='Radius in Miles' insert-newline="querySubmitted"}}</label>
+  <label>Specialties {{input class="typeahead" value=taxonomyTemp placeholder='Provider Specialties' insert-newline="querySubmitted"}}</label>
+  <label>NPI {{input value=npiTemp placeholder='National Provider Identifier' insert-newline="querySubmitted"}}</label>
 
   {{#if providerSearch}}
-    <label>Affiliated Organization {{input value=organization placeholder='Provider Organization' insert-newline="querySubmitted"}}</label>
+    <label>Affiliated Organization {{input value=organizationTemp placeholder='Provider Organization' insert-newline="querySubmitted"}}</label>
   {{else}}
-    <label>Affiliated Provider {{input value=affiliated_provider placeholder='Organization Affiliated Provider' insert-newline="querySubmitted"}}</label>
-    <label>Authorized Official {{input value=authorized_official placeholder='Organization Authorized Official' insert-newline="querySubmitted"}}</label>
+    <label>Affiliated Provider {{input value=affiliatedProviderTemp placeholder='Organization Affiliated Provider' insert-newline="querySubmitted"}}</label>
+    <label>Authorized Official {{input value=authorizedOfficialTemp placeholder='Organization Authorized Official' insert-newline="querySubmitted"}}</label>
   {{/if}}
 </div>
 <div class="search-buttons">
