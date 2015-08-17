@@ -1,7 +1,9 @@
 `import DS from 'ember-data'`
+`import { ActiveModelSerializer } from 'active-model-adapter'`
 
-TaxonomyLicenseSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
-  attrs: 
+TaxonomyLicenseSerializer = ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
+  isNewSerializerAPI: true
+  attrs:
     taxonomyCode:
       embedded : 'always'
 )

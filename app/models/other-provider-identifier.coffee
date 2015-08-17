@@ -8,7 +8,7 @@ OtherProviderIdentifier = DS.Model.extend
   identifierTypeCode: DS.attr('string'),
   identifierState: DS.attr('string'),
   identifierIssuer: DS.attr('string'),
-  entity: DS.hasMany('npi-type', {polymorphic: true}),
+  entity: DS.hasMany('npi-type', {polymorphic: true, async:true}),
 
   identifierType: (->
     OtherProviderIdentifierTypeCodeTable = {

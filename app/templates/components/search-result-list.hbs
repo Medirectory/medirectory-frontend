@@ -4,10 +4,10 @@
 <div class="context">
   <div class="result-count">{{format-number model.meta.totalResults}} results</div>
   <div class="tools">
-    {{#if controllers.index.basicSearch}}
-      {{basic-search class='update-search' submit='submitUpdate' query=query sideNav=true}}
+    {{#if index.basicSearch}}
+      {{basic-search class='update-search' submit='submitUpdate' q=q sideNav=true}}
     {{else}}
-      {{advanced-search class='update-search' submit='submitUpdate' name=nameTemp location=locationTemp geo_zip=geoZipTemp radius=radiusTemp taxonomy=taxonomyTemp npi=npiTemp organization=orgTemp affiliated_provider=provTemp authorized_official=authOffTemp sideNav=true providerSearch=providerSearch}}
+      {{advanced-search class='update-search' submit='submitUpdate' name=name location=location geo_zip=geo_zip radius=radius taxonomy=taxonomy npi=npi organization=organization affiliated_provider=authorized_provider authorized_official=authorized_official sideNav=true providerSearch=providerSearch}}
     {{/if}}
   </div>
   {{home-link}}

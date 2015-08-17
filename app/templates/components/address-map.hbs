@@ -1,5 +1,5 @@
 <p class="label">{{label}}</p>
 <p>{{#if location.formattedPhone}}<a href="tel:{{location.telephoneNumber}}"> {{fa-icon 'phone' fixedWidth=true}} {{location.formattedPhone}}</a>{{/if}}<br/>{{#if location.formattedFax}}{{fa-icon 'fax' fixedWidth=true}} {{location.formattedFax}}{{/if}}</p>
 <p>{{location.streetAddress}}<br/>{{location.shortLocation2}}</p>
-<iframe width="100%" height="250" frameborder="0" style="border:0" src="{{unbound location.mapLink}}&output=embed"></iframe>
+<iframe width="100%" height="250" frameborder="0" style="border:0" src={{location.mapLink}}></iframe>
 {{yield}}

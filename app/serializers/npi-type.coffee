@@ -1,8 +1,10 @@
 `import DS from 'ember-data'`
+`import { ActiveModelSerializer } from 'active-model-adapter'`
 
-NpiTypeSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
+NpiTypeSerializer = ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
+  isNewSerializerAPI: true
   primaryKey: 'npi',
-  attrs: 
+  attrs:
     mailingAddress:
       embedded : 'always'
     practiceLocationAddress:

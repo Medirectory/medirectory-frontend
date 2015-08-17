@@ -1,6 +1,17 @@
 `import Ember from 'ember'`
 
 AdvancedSearchComponent = Ember.Component.extend
+  nameTemp: Ember.computed.oneWay 'name'
+  locationTemp: Ember.computed.oneWay 'location'
+  geoZipTemp: Ember.computed.oneWay 'geo_zip'
+  radiusTemp: Ember.computed.oneWay 'radius'
+  taxonomyTemp: Ember.computed.oneWay 'taxonomy'
+  npiTemp: Ember.computed.oneWay 'npi'
+  organizationTemp: Ember.computed.oneWay 'organization'
+  providerTemp: Ember.computed.oneWay 'provider'
+  affiliatedProviderTemp: Ember.computed.oneWay 'affiliated_provider'
+  authorizedOfficialTemp: Ember.computed.oneWay 'authorized_official'
+  query: Ember.computed.oneWay 'q'
   didInsertElement: (->
     # constructs the suggestion engine
 
@@ -10,7 +21,7 @@ AdvancedSearchComponent = Ember.Component.extend
         queryTokenizer: Bloodhound.tokenizers.nonword
         # `states` is an array of state names defined in "The Basics"
         local: result.taxonomies
-       
+
       $('.typeahead').typeahead
         hint: true
         highlight: true
@@ -20,18 +31,21 @@ AdvancedSearchComponent = Ember.Component.extend
         source: taxonomies
         limit: 8
     )
+  getRealValue: ((property) ->
+    if @get(property) and @get(property) isnt '' then @get(property) else null
+    )
   actions:
     querySubmitted: ->
-      @sendAction('submit', 
-        name: if @get('name') isnt '' then @get('name') else null
-        location: if @get('location') isnt '' then @get('location') else null
-        geo_zip: if @get('geo_zip') isnt '' then @get('geo_zip') else null
-        radius: if @get('radius') isnt '' then @get('radius') else null
-        taxonomy: if @get('taxonomy') isnt '' then @get('taxonomy') else null
-        npi: if @get('npi') isnt '' then @get('npi') else null
-        organization: if @get('organization') isnt '' then @get('organization') else null
-        provider: if @get('affiliated_provider') isnt '' then @get('affiliated_provider') else null
-        authorized_official: if @get('authorized_official') isnt '' then @get('authorized_official') else null
+      @sendAction('submit',
+        name: @getRealValue('nameTemp')
+        location: @getRealValue('locationTemp')
+        geo_zip:  @getRealValue('geoZipTemp')
+        radius: @getRealValue('radiusTemp')
+        taxonomy: @getRealValue('taxonomyTemp')
+        npi: @getRealValue('npiTemp')
+        organization: @getRealValue('organizationTemp')
+        provider: @getRealValue('affiliatedProviderTemp')
+        authorized_official: @getRealValue('authorizedOfficialTemp')
         )
 
 `export default AdvancedSearchComponent`
