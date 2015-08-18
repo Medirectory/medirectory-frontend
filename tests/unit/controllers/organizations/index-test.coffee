@@ -5,7 +5,7 @@ moduleFor 'controller:organizations/index', {
   needs: ['controller:index']
 }
 
-# Replace this with your real tests.
+
 test 'it exists', (assert) ->
   controller = @subject()
   assert.ok controller

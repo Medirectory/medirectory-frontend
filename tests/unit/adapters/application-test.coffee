@@ -5,7 +5,7 @@ moduleFor 'adapter:application', 'ApplicationAdapter', {
   # needs: ['serializer:foo']
 }
 
-# Replace this with your real tests.
+
 test 'it exists', (assert) ->
   adapter = @subject()
   assert.ok adapter

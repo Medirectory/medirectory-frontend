@@ -1,9 +1,4 @@
-`import { test, moduleForComponent } from 'ember-qunit'`
-
-moduleForComponent 'search-result-list', {
-  # Specify the other units that are required for this test
-  needs: ['helper:format-number','component:advanced-search']
-}
+`import { test } from 'ember-qunit'`
 
 test 'it renders', (assert) ->
   assert.expect 2

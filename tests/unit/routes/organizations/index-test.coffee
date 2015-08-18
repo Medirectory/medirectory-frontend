@@ -1,9 +1,4 @@
-`import { test, moduleFor } from 'ember-qunit'`
-
-moduleFor 'route:organizations/index', {
-  # Specify the other units that are required for this test.
-  # needs: ['controller:foo']
-}
+`import { test } from 'ember-qunit'`
 
 test 'it exists', (assert) ->
   route = @subject()
