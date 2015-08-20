@@ -2,6 +2,7 @@
 
 ProvidersIndexController = Ember.Controller.extend
   index: Ember.inject.controller('index')
+  needs: ['index']
   queryParams: ['q', 'fuzzy_q', 'name', 'location', 'geo_zip', 'radius', 'taxonomy', 'npi', 'organization', 'offset']
   q: null
   fuzzy_q: null
