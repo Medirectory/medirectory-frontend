@@ -5,7 +5,69 @@ moduleFor 'controller:organizations/index', {
   needs: ['controller:index']
 }
 
-
 test 'it exists', (assert) ->
   controller = @subject()
   assert.ok controller
+
+test 'calling the action submitUpdate does a basic search', (assert) ->
+  assert.expect(2)
+  controller = @subject()
+  indexController = controller.get 'controllers.index'
+
+  Ember.run ->
+    indexController.set 'basicSearch', true
+
+    # check the properties
+    assert.equal controller.get('q'), null
+
+    # trigger the action and send the params
+    params =
+      q: 'Eastman Los Angeles Surgery'
+
+    controller.send 'submitUpdate', params
+
+    # check that the parameters have been updated
+    assert.equal controller.get('q'), params['q']
+
+test 'calling the action submitUpdate does an advanced search', (assert) ->
+  assert.expect(18)
+  controller = @subject()
+  indexController = controller.get 'controllers.index'
+
+  Ember.run ->
+    indexController.set 'basicSearch', false
+
+    # check the properties
+    assert.equal controller.get('q'), null
+    assert.equal controller.get('name'), null
+    assert.equal controller.get('location'), null
+    assert.equal controller.get('geo_zip'), null
+    assert.equal controller.get('radius'), null
+    assert.equal controller.get('taxonomy'), null
+    assert.equal controller.get('npi'), null
+    assert.equal controller.get('provider'), null
+    assert.equal controller.get('authorized_official'), null
+
+    # trigger the action and send the params
+    params =
+      name: 'Eastman'
+      location: 'Los Angeles'
+      geo_zip: 91043
+      radius: 200
+      taxonomy: 'Surgery'
+      npi: 123456789
+      provider: 'Doogie Howser'
+      authorized_official: 'Canfield'
+
+    controller.send 'submitUpdate', params
+
+    # check that the parameters have been updated
+    assert.equal controller.get('q'), null
+    assert.equal controller.get('name'), params['name']
+    assert.equal controller.get('location'), params['location']
+    assert.equal controller.get('geo_zip'), params['geo_zip']
+    assert.equal controller.get('radius'), params['radius']
+    assert.equal controller.get('taxonomy'), params['taxonomy']
+    assert.equal controller.get('npi'), params['npi']
+    assert.equal controller.get('provider'), params['provider']
+    assert.equal controller.get('authorized_official'), params['authorized_official']
