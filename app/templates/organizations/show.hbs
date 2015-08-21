@@ -37,7 +37,10 @@
       <table>
         {{#each model.providers key="@index" as |provider|}}
           <tr>
-            <td>{{#link-to 'providers/show' provider.id}}{{provider.fullName}}{{/link-to}}</td>
+            <td>
+              {{#link-to 'providers/show' provider.id}}{{provider.fullName}}{{/link-to}}
+              {{matching-esi entity=provider services=model.electronicServices}}
+            </td>
             <td><span class="taxonomy">{{provider.classificationSummary}}</span></td>
           </tr>
         {{/each}}

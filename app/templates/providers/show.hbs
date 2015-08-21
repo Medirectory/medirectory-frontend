@@ -21,12 +21,15 @@
       <table>
         {{#each model.organizations key="@index" as |organization|}}
           <tr>
-            <td>{{#link-to 'organizations/show' organization.id}}
-              {{organization.organizationNameLegalBusinessName}}
-              {{#if organization.otherOrganizationName}}
-                ({{organization.otherOrganizationName}})
-              {{/if}}
-            {{/link-to}}</td>
+            <td>
+              {{#link-to 'organizations/show' organization.id}}
+                {{organization.organizationNameLegalBusinessName}}
+                {{#if organization.otherOrganizationName}}
+                  ({{organization.otherOrganizationName}})
+                {{/if}}
+              {{/link-to}}
+              {{matching-esi entity=organization services=model.electronicServices}}
+            </td>
           </tr>
         {{/each}}
       </table>

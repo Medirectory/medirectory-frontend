@@ -15,6 +15,8 @@ NpiTypeSerializer = ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
       embedded : 'always'
     taxonomyGroups:
       embedded : 'always'
+    electronicServices:
+      embedded : 'always'
 )
 
 `export default NpiTypeSerializer`
