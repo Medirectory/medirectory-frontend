@@ -12,7 +12,8 @@ NpiType = DS.Model.extend
   practiceLocationAddress: DS.belongsTo('practice-location-address', { async: false }),
   otherProviderIdentifiers: DS.hasMany('other-provider-identifier', { async: false }),
   taxonomyLicenses: DS.hasMany('taxonomy-license', { async: false }),
-  taxonomyGroups: DS.hasMany('taxonomy-group', { async: false })
+  taxonomyGroups: DS.hasMany('taxonomy-group', { async: false }),
+  electronicServices: DS.hasMany('electronic-service', { async: false })
 
   classificationSpecialties: ( ->
     @get('taxonomyLicenses').map((license)->
