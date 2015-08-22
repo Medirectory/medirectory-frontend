@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 MatchingEsiComponent = Ember.Component.extend
-  matches: Ember.computed 'entity', 'services', ->
+  matches: Ember.computed 'entity', 'services.@each', ->
     entity = @get('entity')
     services = @get('services')
     switch entity.constructor.modelName
