@@ -95,21 +95,49 @@
   color: $action-color;
 }
 
+.esi {
+  font-size: 0.9em;
+  color: $medium-gray;
+  .esi-profile {
+    @include margin(0 1em null null);
+  }
+  .esi-email {
+    font-weight: normal;
+    text-decoration: none;
+    color: $medium-gray;
+  }
+}
+
+.affiliations {
+  .providername {
+    width: 75%;
+  }
+  .taxonomyname {
+    width: 25%;
+  }
+}
+
+.affiliation {
+  @include margin(0 null 0.5em null);
+  display: block;
+}
+
 .label {
   @include padding(0.5em 1em);
-  font-weight: bold;
+  font-weight: 900;
   background-color: lighten($blue, 65%);
   color: $blue;
   margin-top: $small-spacing*4;
-  font-size: 0.8em;
   text-transform: uppercase;
 }
 
 .practice {
+  font-size: 0.85em;
   @include span-columns(4.5 of 9);
 }
 
 .mailing {
+  font-size: 0.85em;
   @include span-columns(4.5 of 9);
   @include omega;
 }
