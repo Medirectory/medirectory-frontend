@@ -1,3 +1,6 @@
 {{#each matches as |match|}}
-  <p>{{match.integrationProfile}}: {{match.address}}</p>
+  <div class="esi">
+    <span class="esi-profile">{{fa-icon 'key' fixedWidth=true}} {{format-integration-profile match.integrationProfile}}</span> 
+    <a href="mailto:{{match.address}}" class="esi-email">{{match.address}}</a>
+  </div>
 {{/each}}

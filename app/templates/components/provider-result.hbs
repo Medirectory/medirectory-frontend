@@ -1,5 +1,5 @@
 <td>{{#link-to 'providers/show' entity.id }}{{entity.id}}{{/link-to}}</td>
-<td>{{entity.namePrefix}} {{entity.firstName}} {{entity.middleName}} {{entity.lastNameLegalName}} {{entity.nameSuffix}}</td>
+<td>{{title-case entity.namePrefix}} {{title-case entity.firstName}} {{title-case entity.middleName}} {{title-case entity.lastNameLegalName}} {{entity.nameSuffix}}</td>
 <td>{{entity.practiceLocationAddress.shortLocation}}</td>
 <td>
   {{#each entity.classificationSpecialties key="@index" as |classSpecialty|}}

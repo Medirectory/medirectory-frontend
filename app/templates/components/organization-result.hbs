@@ -1,8 +1,8 @@
 <td>{{#link-to 'organizations/show' entity.id }}{{entity.id}}{{/link-to}}</td>
 <td>
-  {{entity.organizationNameLegalBusinessName}}
+  {{title-case entity.organizationNameLegalBusinessName}}
   {{#if fullAuthorizedName}}
-    <span>{{fullAuthorizedName}}</span>
+    <span>{{title-case fullAuthorizedName}}</span>
   {{/if}}
 </td>
 <td>{{entity.practiceLocationAddress.shortLocation}}</td>
