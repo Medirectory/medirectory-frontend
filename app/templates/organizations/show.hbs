@@ -12,16 +12,10 @@
 
     <div class="name">
       {{#if model.otherOrganizationName}}
-        <h1>{{model.otherOrganizationName}} <span class='npi'>{{model.id}}</span></h1>
-        <h2>{{model.organizationNameLegalBusinessName}}</h2>
+        <h1>{{title-case model.otherOrganizationName}} <span class='npi'>{{model.id}}</span></h1>
+        <h2>{{title-case model.organizationNameLegalBusinessName}}</h2>
       {{else}}
-        <h1>{{model.organizationNameLegalBusinessName}} <span class='npi'>{{model.id}}</span></h1>
-      {{/if}}
-      {{#if model.fullAuthorizedName}}
-        {{model.fullAuthorizedName}}
-        {{#each model.authorizedOfficialProviders key="@index" as |official index|}}
-          {{#link-to 'providers/show' official.id}}[{{index}}]{{/link-to}}
-        {{/each}}
+        <h1>{{title-case model.organizationNameLegalBusinessName}} <span class='npi'>{{model.id}}</span></h1>
       {{/if}}
     </div>
 
@@ -34,14 +28,14 @@
     {{#if model.providers}}
     <div class="affiliated">
       <p class="label">Affiliated Providers</p>
-      <table>
+      <table class="affiliations">
         {{#each model.providers key="@index" as |provider|}}
           <tr>
-            <td>
-              {{#link-to 'providers/show' provider.id}}{{provider.fullName}}{{/link-to}}
+            <td class="providername">
+              {{#link-to 'providers/show' provider.id class="affiliation"}}{{title-case provider.fullName}}{{/link-to}}
               {{matching-esi entity=provider services=model.electronicServices}}
             </td>
-            <td><span class="taxonomy">{{provider.classificationSummary}}</span></td>
+            <td class="taxonomyname"><span class="taxonomy">{{provider.classificationSummary}}</span></td>
           </tr>
         {{/each}}
       </table>

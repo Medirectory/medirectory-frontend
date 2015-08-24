@@ -9,10 +9,10 @@
   <div class="main">
     <div class="name">
       <h1>{{#if model.female}}{{fa-icon 'venus' fixedWidth=true}}{{/if}}{{#if model.male}}{{fa-icon 'mars' fixedWidth=true}}{{/if}}
-        {{#if model.otherFullName}}{{model.otherFullName}}{{else}}{{model.fullName}}{{/if}}
+        {{#if model.otherFullName}}{{title-case model.otherFullName}}{{else}}{{title-case model.fullName}}{{/if}}
         <span class='npi'>{{model.id}}</span></h1>
 
-      {{#if model.otherFullName}}<h2>{{model.fullName}}</h2>{{/if}}
+      {{#if model.otherFullName}}<h2>{{title-case model.fullName}}</h2>{{/if}}
     </div>
 
     {{#if model.organizations}}
@@ -22,10 +22,10 @@
         {{#each model.organizations key="@index" as |organization|}}
           <tr>
             <td>
-              {{#link-to 'organizations/show' organization.id}}
-                {{organization.organizationNameLegalBusinessName}}
+              {{#link-to 'organizations/show' organization.id class="affiliation"}}
+                {{title-case organization.organizationNameLegalBusinessName}}
                 {{#if organization.otherOrganizationName}}
-                  ({{organization.otherOrganizationName}})
+                  ({{title-case organization.otherOrganizationName}})
                 {{/if}}
               {{/link-to}}
               {{matching-esi entity=organization services=model.electronicServices}}
