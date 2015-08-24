@@ -9,10 +9,8 @@
   <div class="main">
     <div class="name">
       <h1>{{#if model.female}}{{fa-icon 'venus' fixedWidth=true}}{{/if}}{{#if model.male}}{{fa-icon 'mars' fixedWidth=true}}{{/if}}
-        {{#if model.otherFullName}}{{title-case model.otherFullName}}{{else}}{{title-case model.fullName}}{{/if}}
+        {{title-case model.fullName}}
         <span class='npi'>{{model.id}}</span></h1>
-
-      {{#if model.otherFullName}}<h2>{{title-case model.fullName}}</h2>{{/if}}
     </div>
 
     {{#if model.organizations}}
